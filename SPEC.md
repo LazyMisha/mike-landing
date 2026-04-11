@@ -2,11 +2,9 @@
 
 ## 1. Overview
 
-**Project:** Personal portfolio landing page for Mike Trunov (Front-end Engineer)
+**Project:** Personal portfolio for Mykhailo Trunov (Senior Front-end Engineer)
 
-**Goal:** Minimalist, single-page CV site to share with recruiters, HRs, and engineers. Clean, professional, developer-focused design.
-
-**Target Users:** Recruiters, HR professionals, fellow engineers
+**Goal:** Portfolio site to share with recruiters, HRs, and engineers. Clean, professional, developer-focused design.
 
 ---
 
@@ -20,14 +18,13 @@
   - Dark: `#0a0a0a` (deep black)
 
 ### Typography
-- **Font Stack:** System monospace
+- **Font Stack:** System fonts
   ```
   ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace
   ```
-- No external font dependencies (Google Fonts forbidden)
 
 ### Layout
-- Single-page, mobile-first
+- Mobile-first
 - Generous whitespace / negative space
 - Asymmetrical composition
 
@@ -42,11 +39,11 @@
 | Right | Theme toggle (dark/light) |
 
 ### Hero
-| Element | Content |
-|---------|---------|
-| Main Text | "Hey, I am Mykhailo" (large, bold) |
-| Photo | Polaroid-style tilted frame with photo |
-| Tagline | "Creative software engineer passionate about functional design." |
+| Element | Content | Layout |
+|---------|---------|--------|
+| Main Text | "Hey, I am Mykhailo" (large, bold) | Vertical text on left side |
+| Photo | Polaroid-style tilted frame (angled ~15°) | Photo on right side |
+| Tagline | "Creative software engineer passionate about functional design." | Below photo |
 
 ### Contact
 | Element | Content |
@@ -60,10 +57,8 @@
 
 | Link | URL |
 |------|-----|
-| GitHub | `https://github.com/LazyMisha` |
 | LinkedIn | `https://linkedin.com/in/mikhailo-trunov` |
-| Portfolio | `/projects` (future page) |
-| Download CV | `/cv.pdf` (future) |
+| Download CV | `/cv.pdf` (placeholder, file to be added later) |
 
 ---
 
@@ -73,14 +68,10 @@
 |------------|---------|
 | Next.js 16 | Framework |
 | Tailwind CSS 4 | Styling |
+| shadcn/ui | UI components |
 | next-themes | Dark/light theme |
 | TypeScript | Type safety |
 | Vercel | Deployment |
-
-### What We DON'T Use
-- ❌ Google Fonts (forbidden)
-- ❌ External icon libraries (use inline SVG or Lucide)
-- ❌ CSS-in-JS (use Tailwind only)
 
 ---
 
@@ -92,7 +83,7 @@
 | `ThemeToggle` | `components/ThemeToggle.tsx` | Sun/Moon toggle button |
 | `Header` | `components/Header.tsx` | Top bar with datetime + theme |
 | `Hero` | `components/Hero.tsx` | Main section with photo + text |
-| `PolaroidFrame` | `components/PolaroidFrame.tsx` | Styled photo frame |
+| `PolaroidFrame` | `components/PolaroidFrame.tsx` | Styled photo frame (tilted) |
 | `Contact` | `components/Contact.tsx` | Email section |
 
 ---
@@ -103,16 +94,14 @@
 // src/lib/data.ts
 interface PersonalInfo {
   name: string;           // "Mykhailo"
-  tagline: string;         // "Creative software engineer passionate about functional design."
-  location: string;       // "Poland"
+  tagline: string;       // "Creative software engineer passionate about functional design."
+  location: string;      // "Poland"
   email: string;          // "your@email.com"
 }
 
 interface SocialLinks {
-  github: string;
   linkedin: string;
-  portfolio?: string;
-  cv?: string;
+  cv: string;             // Path to CV file, e.g. "/cv.pdf"
 }
 
 interface LandingPageData {
@@ -142,10 +131,12 @@ mike-landing/
 │   │   └── ThemeProvider.tsx
 │   └── lib/
 │       └── data.ts
-├── next.config.ts
-├── tailwind.config.ts
+├── public/
+│   └── cv.pdf            # To be added later
 ├── SPEC.md
 ├── README.md
+├── next.config.ts
+├── tailwind.config.ts
 └── package.json
 ```
 
@@ -161,34 +152,12 @@ mike-landing/
 
 ---
 
-## 10. Deployment
-
-- **GitHub:** `LazyMisha/mike-landing`
-- **Vercel:** Auto-deploy on push to `main`
-- **URL:** `mike-landing.vercel.app`
-
----
-
-## 11. Build Order
-
-1. ✅ Initialize project
-2. **SPEC.md** ← YOU ARE HERE
-3. **README.md** ← NEXT
-4. Setup theme (next-themes)
-5. Build Header
-6. Build Hero + PolaroidFrame
-7. Build Contact
-8. Responsive test
-9. Deploy to Vercel
-
----
-
-## 12. Testing Checklist
+## 10. Testing Checklist
 
 - [ ] Light mode renders correctly
 - [ ] Dark mode renders correctly
 - [ ] Theme toggle works
-- [ ] Photo displays in polaroid frame
+- [ ] Photo displays in polaroid frame (tilted)
 - [ ] Email link is clickable
 - [ ] Mobile layout (320px+)
 - [ ] Desktop layout (1024px+)
