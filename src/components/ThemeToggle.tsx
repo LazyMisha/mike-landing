@@ -8,7 +8,11 @@ export function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    // Delay mounting to avoid hydration mismatch
+    // Use requestAnimationFrame to ensure this runs after paint
+    requestAnimationFrame(() => {
+      setMounted(true);
+    });
   }, []);
 
   if (!mounted) {
