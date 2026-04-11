@@ -4,9 +4,16 @@ import { personalInfo } from "@/lib/data";
 export function Hero() {
   return (
     <section className="flex flex-col md:flex-row items-center justify-center min-h-[70vh] gap-8 px-4">
-      {/* Left side - Vertical text */}
-      <div className="md:w-1/2">
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
+      {/* Left side - Vertical text (reading bottom to top) */}
+      <div className="hidden md:flex md:w-1/2 items-center justify-center">
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tight whitespace-nowrap" style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}>
+          Hey, I am {personalInfo.name}
+        </h1>
+      </div>
+
+      {/* Mobile view - horizontal */}
+      <div className="md:hidden">
+        <h1 className="text-5xl font-bold tracking-tight">
           Hey, I am {personalInfo.name}
         </h1>
       </div>
@@ -26,11 +33,7 @@ export function Hero() {
             </div>
           )}
         </PolaroidFrame>
-      </div>
-
-      {/* Tagline below */}
-      <div className="absolute bottom-8 left-4 right-4 md:left-8">
-        <p className="text-muted-foreground text-sm">
+        <p className="mt-4 text-muted-foreground text-sm">
           {personalInfo.tagline}
         </p>
       </div>
