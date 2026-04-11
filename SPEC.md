@@ -18,7 +18,10 @@
   - Dark: `#0a0a0a` (deep black)
 
 ### Typography
-- **Font Stack:** System fonts (no external dependencies)
+- **Font Stack:** System fonts
+  ```
+  ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace
+  ```
 
 ### Layout
 - Mobile-first
