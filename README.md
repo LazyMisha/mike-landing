@@ -1,17 +1,18 @@
 # Mike's Landing Page
 
-Minimalist personal portfolio for Mike Trunov — front-end engineer.
+Minimalist personal portfolio for Mykhailo Trunov — Senior Front-end Engineer.
 
 ## Overview
 
-Single-page CV landing with dark/light theme support. Designed to be shared with recruiters, HRs, and engineers.
+CV landing page with portfolio section. Designed to be shared with recruiters, HRs, and engineers.
 
 ## Tech
 
 - **Framework:** Next.js 16
 - **Styling:** Tailwind CSS 4
+- **Components:** shadcn/ui
 - **Theme:** next-themes (dark/light)
-- **Fonts:** System monospace (no external dependencies)
+- **Fonts:** System fonts (no external dependencies)
 
 ## Structure
 
@@ -54,8 +55,3 @@ npm run build
 ## Deploy
 
 Deployed to Vercel — auto-deploys on push to `main`.
-
-## Links
-
-- GitHub: https://github.com/LazyMisha
-- LinkedIn: https://linkedin.com/in/mikhailo-trunov
