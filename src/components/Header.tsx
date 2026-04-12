@@ -24,7 +24,7 @@ export function Header() {
   }, []);
 
   return (
-    <header className="flex justify-between items-center p-4">
+    <header className="flex justify-between items-center p-4 max-w-[75ch] mx-auto">
       <div className="text-sm text-muted-foreground">{dateTime}</div>
       <ThemeToggle />
     </header>
