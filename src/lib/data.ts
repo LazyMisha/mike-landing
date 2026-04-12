@@ -5,3 +5,9 @@ export const personalInfo = {
   email: "",
   photo: "", // TODO: Add photo URL
 };
+
+export const heroInfo = {
+  pronunciationLine1: "My name is pronounced as /mykhæɪlɒ/",
+  pronunciationLine2: "Or simply Mike",
+  photoMeta: "30 Apr 2021 · 13:33 · Odesa, UA",
+};
