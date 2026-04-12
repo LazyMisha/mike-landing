@@ -4,7 +4,7 @@ export function Contact() {
   return (
     <div>
       <p className="text-2xl leading-tight sm:text-3xl md:text-2xl lg:text-3xl font-bold">
-        Contacts
+        Contacts:
       </p>
       <div className="mt-2 flex flex-col gap-1">
         {personalInfo.email && (
