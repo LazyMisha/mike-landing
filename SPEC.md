@@ -41,9 +41,10 @@
 ### Hero
 | Element | Content | Layout |
 |---------|---------|--------|
-| Main Text | "Hey, I am Mykhailo" (large, bold) | Vertical text on left side |
-| Photo | Polaroid-style tilted frame (angled ~15°) | Photo on right side |
-| Tagline | "Creative software engineer passionate about functional design." | Below photo |
+| Main Text | "Hey, I am Mykhailo" (large, bold) | Mobile: top | Desktop: left side |
+| Pronunciation | "My name is pronounced as /mykhæɪlɒ/" + "Or simply Mike" | Below main text |
+| Photo | Polaroid-style frame with caption (date, location) | Mobile: below text | Desktop: right side |
+| Tagline | Not in hero anymore | — |
 
 ### Contact
 | Element | Content |
@@ -82,8 +83,8 @@
 | `ThemeProvider` | `components/ThemeProvider.tsx` | Theme context wrapper |
 | `ThemeToggle` | `components/ThemeToggle.tsx` | Sun/Moon toggle button |
 | `Header` | `components/Header.tsx` | Top bar with datetime + theme |
-| `Hero` | `components/Hero.tsx` | Main section with photo + text |
-| `PolaroidFrame` | `components/PolaroidFrame.tsx` | Styled photo frame (tilted) |
+| `Hero` | `components/Hero.tsx` | Main section with photo + text (responsive) |
+| `PolaroidFrame` | `components/PolaroidFrame.tsx` | Styled photo frame with optional caption |
 | `Contact` | `components/Contact.tsx` | Email section |
 
 ---
@@ -94,9 +95,15 @@
 // src/lib/data.ts
 interface PersonalInfo {
   name: string;           // "Mykhailo"
-  tagline: string;       // "Creative software engineer passionate about functional design."
-  location: string;      // "Poland"
+  tagline: string;         // "Creative software engineer passionate about functional design."
+  location: string;       // "Poland"
   email: string;          // "your@email.com"
+}
+
+interface HeroInfo {
+  pronunciationLine1: string;  // "My name is pronounced as /mykhæɪlɒ/"
+  pronunciationLine2: string;  // "Or simply Mike"
+  photoMeta: string;           // "30 Apr 2021 · 13:33 · Odesa, UA"
 }
 
 interface SocialLinks {
@@ -106,8 +113,8 @@ interface SocialLinks {
 
 interface LandingPageData {
   personal: PersonalInfo;
+  hero: HeroInfo;
   socials: SocialLinks;
-  photo: string;          // URL to photo
 }
 ```
 
