@@ -1,4 +1,5 @@
 import { PolaroidFrame } from "./PolaroidFrame";
+import { Contact } from "./Contact";
 import { heroInfo, personalInfo } from "@/lib/data";
 import Image from "next/image";
 
@@ -18,18 +19,22 @@ export function Hero() {
           {pronunciationLine2}
         </p>
       </div>
-      <div className="mt-3 flex min-h-0 flex-1 flex-row items-stretch justify-between md:mt-0 md:gap-5">
+      <div className="mt-3 flex min-h-0 flex-1 flex-col items-stretch justify-between md:flex-row md:mt-0 md:gap-5">
         <div className="hidden h-full shrink-0 flex-col items-start justify-start md:flex">
           <h1 className="hidden text-left text-3xl leading-tight md:block lg:text-4xl">
             Hey,
             <br />
             I am {name}
           </h1>
-          <p className="hidden pt-2 text-left text-s leading-tight md:block">
+          <p className="hidden mt-3 text-left text-s leading-tight md:block">
             {pronunciationLine1}
             <br />
             {pronunciationLine2}
           </p>
+          {/* Desktop: Contact under pronunciation */}
+          <div className="hidden md:block mt-3">
+            <Contact />
+          </div>
         </div>
         <div className="flex h-full w-full items-center justify-center md:w-auto md:justify-start">
           <PolaroidFrame caption={photoMeta}>
@@ -41,6 +46,10 @@ export function Hero() {
               className="h-full w-auto object-cover"
             />
           </PolaroidFrame>
+        </div>
+        {/* Mobile: Contact under photo */}
+        <div className="md:hidden mt-3">
+          <Contact />
         </div>
       </div>
     </section>
