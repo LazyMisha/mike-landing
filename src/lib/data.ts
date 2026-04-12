@@ -2,8 +2,8 @@ export const personalInfo = {
   name: "Mykhailo",
   tagline: "Creative software engineer passionate about functional design.",
   location: "Poland",
-  email: "",
-  linkedin: "https://linkedin.com/in/mikhailo-trunov",
+  email: "misha_trunov@hotmail.com",
+  linkedin: "https://www.linkedin.com/in/misha-trunov/",
 };
 
 export const heroInfo = {
