@@ -3,7 +3,7 @@ export const personalInfo = {
   tagline: "Creative software engineer passionate about functional design.",
   location: "Poland",
   email: "",
-  photo: "", // TODO: Add photo URL
+  linkedin: "https://linkedin.com/in/mikhailo-trunov",
 };
 
 export const heroInfo = {
