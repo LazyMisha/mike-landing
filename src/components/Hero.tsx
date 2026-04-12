@@ -1,4 +1,5 @@
 import { PolaroidFrame } from "./PolaroidFrame";
+import { Contact } from "./Contact";
 import { heroInfo, personalInfo } from "@/lib/data";
 import Image from "next/image";
 
@@ -30,8 +31,12 @@ export function Hero() {
             <br />
             {pronunciationLine2}
           </p>
+          {/* Desktop: Contact under pronunciation */}
+          <div className="hidden md:block mt-4">
+            <Contact />
+          </div>
         </div>
-        <div className="flex h-full w-full items-center justify-center md:w-auto md:justify-start">
+        <div className="flex h-full w-full flex-col items-center justify-center md:w-auto md:justify-start">
           <PolaroidFrame caption={photoMeta}>
             <Image
               src="/images/image.webp"
@@ -41,6 +46,10 @@ export function Hero() {
               className="h-full w-auto object-cover"
             />
           </PolaroidFrame>
+          {/* Mobile: Contact under photo */}
+          <div className="md:hidden mt-4">
+            <Contact />
+          </div>
         </div>
       </div>
     </section>
