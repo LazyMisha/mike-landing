@@ -1,11 +1,14 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
+import { InfoSection } from "@/components/InfoSection";
+import { PageWrapper } from "@/components/PageWrapper";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <PageWrapper as="main">
       <Header />
       <Hero />
-    </div>
+      <InfoSection />
+    </PageWrapper>
   );
 }

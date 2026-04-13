@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
-import { personalInfo } from "@/lib/data";
+import { landingData } from "@/lib/data";
 
 export function Header() {
   const [dateTime, setDateTime] = useState("");
@@ -14,7 +14,7 @@ export function Header() {
       const day = days[now.getDay()];
       const hours = now.getHours().toString().padStart(2, "0");
       const minutes = now.getMinutes().toString().padStart(2, "0");
-      setDateTime(`${day} ${hours}:${minutes}, ${personalInfo.location}`);
+      setDateTime(`${day} ${hours}:${minutes}, ${landingData.personal.location}`);
     };
 
     updateDateTime();
@@ -24,7 +24,7 @@ export function Header() {
   }, []);
 
   return (
-    <header className="flex justify-between items-center p-4 max-w-[75ch] mx-auto">
+    <header className="flex justify-between items-center p-4">
       <div className="text-sm text-muted-foreground">{dateTime}</div>
       <ThemeToggle />
     </header>
