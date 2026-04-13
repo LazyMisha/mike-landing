@@ -1,6 +1,6 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { Contact } from "@/components/Contact";
+import { InfoSection } from "@/components/InfoSection";
 import { PageWrapper } from "@/components/PageWrapper";
 
 export default function Home() {
@@ -8,7 +8,7 @@ export default function Home() {
     <PageWrapper as="main">
       <Header />
       <Hero />
-      <Contact />
+      <InfoSection />
     </PageWrapper>
   );
 }
