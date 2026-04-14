@@ -5,11 +5,11 @@ type PolaroidFrameProps = {
 
 export function PolaroidFrame({ children, caption }: PolaroidFrameProps) {
   return (
-    <div className="h-full">
+    <div className="h-full md:w-full">
       {/* White frame like polaroid */}
       <div className="relative h-full bg-[#f7f1e2] p-3 pb-12 shadow-[0_12px_24px_rgba(37,27,16,0.35)]">
         {/* Photo area */}
-        <div className="h-full overflow-hidden bg-muted">
+        <div className="h-full flex justify-center overflow-hidden bg-muted">
           {children}
         </div>
         {caption ? (
