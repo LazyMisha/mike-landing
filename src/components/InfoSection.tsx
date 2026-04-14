@@ -4,9 +4,9 @@ export function InfoSection() {
   return (
     <section className="flex flex-col gap-3 px-5 pb-10">
       <Body className="max-w-[75ch]">
-        Here I write about my experience, projects, and lessons learned while
-        building scalable and high-performance web applications with JavaScript,
-        TypeScript, and React.
+        I&apos;m a fan of frontend challenges - the more complex, the better.
+        I turn complex problems into clean, scalable solutions that work in the real world.
+        I value clear communication, teamwork, and never stop learning.
       </Body>
     </section>
   );
