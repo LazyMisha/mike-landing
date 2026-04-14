@@ -2,6 +2,7 @@ import Image from "next/image";
 import { PolaroidFrame } from "./PolaroidFrame";
 import { Heading } from "./Heading";
 import { Small } from "./Small";
+import { Body } from "./Body";
 import { LinksSection } from './LinksSection';
 import { landingData } from "@/lib/data";
 
@@ -27,6 +28,7 @@ export function Hero() {
           <br />
           {pronunciationLine2}
         </Small>
+        <Body>I'm a Senior Frontend Engineer based in Poland.</Body>
         <LinksSection />
       </div>
       <div className="h-[42vh] flex md:flex-1 items-start justify-center md:h-full md:mt-0 md:justify-start">
