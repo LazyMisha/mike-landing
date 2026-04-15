@@ -16,7 +16,7 @@ export function Hero() {
   const { name } = landingData.personal;
 
   return (
-    <section className="flex flex-col items-stretch px-5 pt-4 pb-4 md:flex-row md:items-start md:gap-5 md:h-[40vh] md:pt-10 md:pb-10">
+    <section className="flex flex-col items-stretch px-5 pt-4 pb-4 md:flex-row md:items-start md:gap-5 md:min-h-[40vh] md:pt-10 md:pb-10">
       <div className="flex flex-col pb-4 gap-4 md:gap-4 md:shrink-0 md:w-[50%]">
         <Heading>
           Hey,
