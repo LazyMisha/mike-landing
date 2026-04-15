@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Body } from './Body';
 
 export default function CliNavigation() {
   const links = [
@@ -11,7 +10,7 @@ export default function CliNavigation() {
 
   return (
     <section className="py-16 px-5">
-      <Body className="max-w-[75ch] font-mono">
+      <div className="max-w-[75ch] mx-auto font-mono">
         <div className="flex flex-col gap-y-2">
           {/* Prompt Line */}
           <div className="text-zinc-500 dark:text-zinc-600 text-sm sm:text-base">
@@ -31,7 +30,7 @@ export default function CliNavigation() {
             ))}
           </nav>
         </div>
-      </Body>
+      </div>
     </section>
   );
 }
