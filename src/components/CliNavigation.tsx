@@ -9,7 +9,7 @@ export default function CliNavigation() {
   ];
 
   return (
-    <section className="py-16 px-5">
+    <section className="px-5 pb-20">
       <div className="max-w-[75ch] mx-auto font-mono">
         <div className="flex flex-col gap-y-2">
           {/* Prompt Line */}

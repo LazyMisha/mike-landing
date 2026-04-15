@@ -16,7 +16,7 @@ export function Hero() {
   const { name } = landingData.personal;
 
   return (
-    <section className="flex flex-col items-stretch px-5 pt-4 pb-4 md:flex-row md:items-start md:gap-5 md:min-h-[40vh] md:pt-10 md:pb-10">
+    <section className="flex flex-col items-stretch px-5 pt-4 pb-4 md:flex-row md:items-start md:gap-5 md:pt-10 md:pb-10">
       <div className="flex flex-col pb-4 gap-4 md:gap-4 md:shrink-0 md:w-[50%]">
         <Heading>
           Hey,
@@ -31,7 +31,7 @@ export function Hero() {
         <Body>I&apos;m a Senior Frontend Engineer</Body>
         <LinksSection />
       </div>
-      <div className="h-[42vh] flex md:flex-1 items-start justify-center md:h-full md:mt-0">
+      <div className="h-[40vh] flex md:flex-1 items-start justify-center md:h-full md:mt-0">
         <PolaroidFrame caption={photoMeta}>
           <Image
             src={photo.src}
