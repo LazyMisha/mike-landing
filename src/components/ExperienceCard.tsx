@@ -30,8 +30,8 @@ export default function ExperienceCard({
         <span>{readTime}</span>
       </div>
 
-      {/* Description */}
-      <p className="text-base mb-3 leading-relaxed">{description}</p>
+      {/* Description - truncated to max 3 lines */}
+      <p className="text-base mb-3 leading-relaxed line-clamp-3">{description}</p>
 
       {/* Read more link */}
       <Link
