@@ -10,8 +10,8 @@ export default function ExperiencePage() {
           user@lazydev:~$ cat experience
         </h1>
 
-        {/* Experience list in preview mode (first 3 entries) */}
-        <ExperienceList experiences={experiences} preview={true} />
+        {/* Experience list - show all entries */}
+        <ExperienceList experiences={experiences} />
       </div>
     </main>
   );
