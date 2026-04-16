@@ -10,7 +10,7 @@ export default function ExperiencePage() {
           user@lazydev:~$ cat experience
         </h1>
 
-        {/* Experience list */}
+        {/* Experience list - show all entries */}
         <ExperienceList experiences={experiences} />
       </div>
     </main>
