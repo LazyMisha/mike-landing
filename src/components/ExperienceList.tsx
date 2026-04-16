@@ -10,7 +10,7 @@ interface Experience {
 }
 
 interface ExperienceListProps {
-  experiences: Experience[];
+  experiences: readonly Experience[];
 }
 
 export default function ExperienceList({ experiences }: ExperienceListProps) {
