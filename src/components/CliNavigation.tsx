@@ -2,10 +2,10 @@ import Link from 'next/link';
 
 export default function CliNavigation() {
   const links = [
-    { label: 'experience', href: '#' },
-    { label: 'projects', href: '#' },
-    { label: 'case-studies', href: '#' },
-    { label: 'notes', href: '#' },
+    { label: 'experience', href: '/experience' },
+    { label: 'projects', href: '/projects' },
+    { label: 'case-studies', href: '/case-studies' },
+    { label: 'notes', href: '/notes' },
   ];
 
   return (
