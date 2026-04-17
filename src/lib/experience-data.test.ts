@@ -10,8 +10,8 @@ describe('Experience Data', () => {
     experiences.forEach((exp) => {
       expect(exp.id).toBeDefined();
       expect(exp.title).toBeDefined();
+      expect(exp.company).toBeDefined();
       expect(exp.dateRange).toBeDefined();
-      expect(exp.readTime).toBeDefined();
       expect(exp.description).toBeDefined();
       expect(exp.linkHref).toBeDefined();
     });
@@ -29,27 +29,20 @@ describe('Experience Data', () => {
     });
   });
 
-  it('should have read time in correct format (X min read)', () => {
-    const readTimeRegex = /^\d+ min read$/;
-    experiences.forEach(exp => {
-      expect(readTimeRegex.test(exp.readTime)).toBe(true);
-    });
-  });
-
   it('should include real company names (not placeholders)', () => {
-    const titles = experiences.map(exp => exp.title);
-    const hasRealCompanies = titles.some(title => 
-      title.includes('Avid') || title.includes('GlobalLogic') || title.includes('AB Soft')
+    const companies = experiences.map(exp => exp.company);
+    const hasRealCompanies = companies.some(company => 
+      company.includes('Avid') || company.includes('GlobalLogic') || company.includes('AB Soft')
     );
     expect(hasRealCompanies).toBe(true);
   });
 
   it('should NOT contain placeholder company names', () => {
-    const titles = experiences.map(exp => exp.title);
-    const hasPlaceholders = titles.some(title => 
-      title.includes('Monolith Corp') || 
-      title.includes('NeuralNexus') || 
-      title.includes('CyberDyne')
+    const companies = experiences.map(exp => exp.company);
+    const hasPlaceholders = companies.some(company => 
+      company.includes('Monolith Corp') || 
+      company.includes('NeuralNexus') || 
+      company.includes('CyberDyne')
     );
     expect(hasPlaceholders).toBe(false);
   });

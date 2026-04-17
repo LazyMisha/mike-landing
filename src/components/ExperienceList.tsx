@@ -5,7 +5,6 @@ interface Experience {
   title: string;
   company: string;
   dateRange: string;
-  readTime: string;
   description: string;
   linkHref: string;
 }
