@@ -3,6 +3,7 @@ import ExperienceCard from './ExperienceCard';
 interface Experience {
   id: string;
   title: string;
+  company: string;
   dateRange: string;
   readTime: string;
   description: string;
@@ -23,8 +24,8 @@ export default function ExperienceList({ experiences, preview = false }: Experie
         <ExperienceCard
           key={experience.id}
           title={experience.title}
+          company={experience.company}
           dateRange={experience.dateRange}
-          readTime={experience.readTime}
           description={experience.description}
           linkHref={experience.linkHref}
         />

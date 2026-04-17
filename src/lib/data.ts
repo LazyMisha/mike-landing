@@ -18,7 +18,6 @@ export const landingData = {
   },
   socials: {
     linkedin: "https://www.linkedin.com/in/misha-trunov/",
-    cv: "/cv.pdf",
   },
 } as const;
 
