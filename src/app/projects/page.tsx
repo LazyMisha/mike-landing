@@ -1,10 +1,12 @@
 import { PageWrapper } from '@/components/PageWrapper';
 import TerminalPrompt from '@/components/TerminalPrompt';
-import { terminalCommands, cliLabels } from '@/lib/constants';
+import BackLink from '@/components/BackLink';
+import { terminalCommands, cliLabels, navigationLabels } from '@/lib/constants';
 
 export default function ProjectsPage() {
   return (
     <PageWrapper>
+      <BackLink href="/" label={navigationLabels.backToHome} />
       <TerminalPrompt
         command={terminalCommands.view}
         argument={cliLabels.projects}
