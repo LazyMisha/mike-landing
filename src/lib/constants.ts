@@ -20,3 +20,15 @@ export const terminalCommands = {
   list: 'ls',
   view: 'cat',
 };
+
+export const navigationLabels = {
+  backToExperienceList: '[ back to experience list ]',
+  backToProjects: '[ back to projects ]',
+  backToHome: '[ back to home ]',
+};
+
+export const errorMessages = {
+  experienceNotFound: 'Error: Experience not found',
+  projectNotFound: 'Error: Project not found',
+  pageNotFound: 'Error: Page not found',
+};
