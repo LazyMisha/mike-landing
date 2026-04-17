@@ -1,18 +1,19 @@
-import ExperienceList from '../../components/ExperienceList';
-import { experiences } from '../../lib/experience-data';
+import { PageWrapper } from '@/components/PageWrapper';
+import ExperienceList from '@/components/ExperienceList';
+import TerminalPrompt from '@/components/TerminalPrompt';
+import { experiences } from '@/lib/experience-data';
+import { terminalCommands, cliLabels } from '@/lib/constants';
 
 export default function ExperiencePage() {
   return (
-    <main className="min-h-screen bg-transparent">
-      <div className="max-w-[75ch] mx-auto px-4 py-8 md:py-12">
-        {/* Terminal prompt */}
-        <h1 className="text-lg md:text-xl font-mono mb-8 text-orange-400 dark:text-orange-500">
-          user@lazydev:~$ cat experience
-        </h1>
-
-        {/* Experience list */}
-        <ExperienceList experiences={experiences} />
-      </div>
-    </main>
+    <PageWrapper>
+      <TerminalPrompt
+        command={terminalCommands.view}
+        argument={cliLabels.experience}
+      />
+      <ExperienceList
+        experiences={experiences}
+      />
+    </PageWrapper>
   );
 }

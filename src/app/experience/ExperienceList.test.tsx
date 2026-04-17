@@ -6,17 +6,17 @@ describe('ExperienceList', () => {
   const mockExperiences = [
     {
       id: '1',
-      title: 'Senior Kernel Architect @ Monolith Corp',
+      title: 'Senior Kernel Architect',
+      company: 'Monolith Corp',
       dateRange: '2022 - Present',
-      readTime: '3 min read',
       description: 'Leading the core systems team.',
       linkHref: '#',
     },
     {
       id: '2',
-      title: 'Systems Engineer @ NeuralNexus',
+      title: 'Systems Engineer',
+      company: 'NeuralNexus',
       dateRange: '2019 - 2022',
-      readTime: '4 min read',
       description: 'Developed scalable distributed backend systems.',
       linkHref: '#',
     },
@@ -34,8 +34,6 @@ describe('ExperienceList', () => {
     
     expect(screen.getByText('2022 - Present')).toBeInTheDocument();
     expect(screen.getByText('2019 - 2022')).toBeInTheDocument();
-    expect(screen.getByText('3 min read')).toBeInTheDocument();
-    expect(screen.getByText('4 min read')).toBeInTheDocument();
   });
 
   it('renders read more links for all entries', () => {

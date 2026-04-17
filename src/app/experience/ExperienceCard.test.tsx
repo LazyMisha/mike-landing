@@ -4,23 +4,22 @@ import ExperienceCard from '../../components/ExperienceCard';
 
 describe('ExperienceCard', () => {
   const mockProps = {
-    title: 'Senior Kernel Architect @ Monolith Corp',
+    title: 'Senior Kernel Architect',
+    company: 'Monolith Corp',
     dateRange: '2022 - Present',
-    readTime: '3 min read',
     description: 'Leading the core systems team in developing low-latency high-frequency trading infrastructure.',
     linkHref: '#',
   };
 
   it('renders title correctly with underline styling', () => {
     render(<ExperienceCard {...mockProps} />);
-    const title = screen.getByText('Senior Kernel Architect @ Monolith Corp');
+    const title = screen.getByText('Senior Kernel Architect');
     expect(title).toBeInTheDocument();
   });
 
-  it('renders metadata line with date range and read time', () => {
+  it('renders metadata line with date range', () => {
     render(<ExperienceCard {...mockProps} />);
     expect(screen.getByText('2022 - Present')).toBeInTheDocument();
-    expect(screen.getByText('3 min read')).toBeInTheDocument();
   });
 
   it('renders description text', () => {
