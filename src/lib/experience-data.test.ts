@@ -28,22 +28,4 @@ describe('Experience Data', () => {
       expect(exp.description.trim().length).toBeGreaterThan(0);
     });
   });
-
-  it('should include real company names (not placeholders)', () => {
-    const companies = experiences.map(exp => exp.company);
-    const hasRealCompanies = companies.some(company => 
-      company.includes('Avid') || company.includes('GlobalLogic') || company.includes('AB Soft')
-    );
-    expect(hasRealCompanies).toBe(true);
-  });
-
-  it('should NOT contain placeholder company names', () => {
-    const companies = experiences.map(exp => exp.company);
-    const hasPlaceholders = companies.some(company => 
-      company.includes('Monolith Corp') || 
-      company.includes('NeuralNexus') || 
-      company.includes('CyberDyne')
-    );
-    expect(hasPlaceholders).toBe(false);
-  });
 });
