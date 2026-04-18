@@ -1,10 +1,17 @@
 # Specification
 
-## Overview
+## Purpose
 
-**Purpose:** Professional portfolio for Mykhailo Trunov (Senior Front-end Engineer)  
-**Audience:** Recruiters, HRs, engineering teams  
-**Design:** Minimalist, editorial, developer-focused
+This repository is a professional portfolio for Mykhailo Trunov, aimed at recruiters, hiring managers, and engineering teams.
+AI-generated changes should support that purpose and keep the site concise, credible, and editorial rather than marketing-heavy.
+
+## Product Principles
+
+- Minimalist, developer-focused, and content-first
+- Monospace visual language with restrained use of accent color
+- Terminal motifs support navigation and tone, but should not turn the site into a novelty terminal clone
+- Copy should stay direct, professional, and easy to scan
+- Accessibility and performance are baseline requirements, not optional enhancements
 
 ---
 
@@ -12,227 +19,110 @@
 
 ### Colors
 
+Use the CSS variables in `src/app/globals.css` as the source of truth.
+
 **Light:**
-- Background: `#F5F5FF`
-- Text: `#0a0a0a`
-- Accent: `#84cc16` (lime-600)
+- Background: `#f5f5ff`
+- Text: `#1a1a1a`
 
 **Dark:**
 - Background: `#0a0a0a`
-- Text: `#f5f5ff`
-- Accent: `#a3e635` (lime-400)
+- Text: `#f0f0f0`
+
+**Accent usage:**
+- Interactive terminal-style links use lime accents
+- Accent color should stay focused on links, labels, and highlights rather than large decorative fills
 
 ### Typography
 
-**Font:** System monospace (no external dependencies)
+**Font stack:** system monospace
 
+```text
+ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace
 ```
-ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace
-```
+
+**Shared primitives:**
+- `Heading`
+- `Body`
+- `Small`
 
 ### Layout
 
-- Max width: `max-w-[75ch]`
-- Mobile: Single column
-- Desktop: Two columns (breakpoint: 768px)
-- Spacing: Tailwind default (4px base)
+- Default content width: `max-w-[75ch]`
+- Default horizontal padding: `px-4`
+- The home page shifts from stacked to two-column at `md`
+- Pages should feel airy and text-led, not dense or dashboard-like
+
+### Responsive Behavior
+
+- Mobile-first Tailwind classes only
+- The hero stacks vertically on small screens
+- The polaroid caption always shows the full metadata string and changes text size by breakpoint instead of hiding segments
+- Placeholder pages remain simple and readable on all screen sizes
 
 ---
 
-## Pages
+## Current Pages
 
-### `/` (Home)
+### `/`
 
-**Components:** Header, Hero, Footer
+**Purpose:** landing page and primary introduction
 
-**Features:**
-- Live datetime (updates every second)
-- Theme toggle
-- Polaroid photo with responsive caption
-- Pronunciation guide
+**Required behavior:**
+- Show live datetime and location in the global header
+- Show theme toggle in the global header
+- Show hero photo and metadata caption
+- Show social contact links
+- Keep the visual tone sparse and editorial
 
-### `/experience` (Experience List)
+### `/experience`
 
-**Components:** Header, ExperienceList, TerminalPrompt, Footer
+**Purpose:** primary content listing
 
-**Features:**
-- Terminal-style navigation
-- Lists all experiences
-- Links to `/experience/[id]`
+**Required behavior:**
+- Render every item from the experience content source
+- Link each item to `/experience/[id]`
+- Keep terminal-style navigation visible
 
-### `/experience/[id]` (Experience Detail)
+### `/experience/[id]`
 
-**Components:** Header, ExperienceDetail, TerminalPrompt, BackLink, Footer
+**Purpose:** detailed view for one experience entry
 
-**Features:**
-- Full description
-- Technologies
-- Key achievements
-- Timeline with milestones
-- 404 page for invalid IDs
-- Loading state
-
-**Responsive Caption:**
-- Mobile (< 640px): Date only ("30 Apr 2021")
-- Desktop (≥ 640px): Full ("30 Apr 2021 · 13:33 · Odesa, UA")
+**Required behavior:**
+- Resolve content for the selected entry
+- Fail safely for invalid ids
+- Render overview, technologies, key achievements, and timeline
+- Preserve loading and not-found behavior for the route
 
 ### `/projects`, `/case-studies`, `/notes`
 
-**Status:** Placeholders ("coming soon")
+**Purpose:** placeholder sections ready for future expansion
+
+**Current behavior:**
+- Use the shared page shell
+- Show terminal prompt and back link
+- Show brief placeholder copy only
 
 ---
 
-## Components
+## Non-Negotiable Behavior
 
-### Layout
-
-**Header:**
-- Sticky positioning
-- Glassmorphism effect
-- Live datetime
-- Theme toggle
-
-**Footer:**
-- "Built with OpenClaw" branding
-- OpenClaw logo (SVG)
-- Link to https://openclaw.ai
-
-**PageWrapper:**
-- Max-width constraint (75ch)
-- Centered layout
-
-### Content
-
-**Hero:**
-- Introduction text
-- Pronunciation guide
-- PolaroidFrame component
-- Responsive layout
-
-**PolaroidFrame:**
-- White frame with shadow
-- Responsive caption (mobile: date only)
-
-**Heading/Body/Small:**
-- Typography components
-- Configurable levels
-
-### Navigation
-
-**BackLink:**
-- Reusable back button
-- Customizable label
-- Hover effects
-
-**TerminalPrompt:**
-- Shows command (cat, ls)
-- Shows argument ([experience])
-
-**CliNavigation:**
-- Terminal-style navigation
-- Keyboard accessible
-
-### Experience
-
-**ExperienceList:**
-- Maps through experiences
-- Renders ExperienceCard components
-
-**ExperienceCard:**
-- Title, company, date
-- Description (truncated)
-- "Read more" link
-- Cursor pointer
-
-**ExperienceDetail:**
-- Overview section
-- Technologies section
-- Key achievements
-- Timeline with milestones
-- Memoized for performance
-- Accessibility features
-
-### Utilities
-
-**ThemeProvider:**
-- next-themes integration
-- System preference detection
-
-**ThemeToggle:**
-- Sun/Moon icons
-- Toggle dark/light
-
-**ScrollToTop:**
-- Auto-scroll on route change
-- Uses usePathname hook
+- The global layout includes theme handling, scroll reset, header, and footer.
+- The header shows live day/time plus the current location.
+- Theme switching respects system preference.
+- Navigation changes scroll back to the top.
+- Terminal-style navigation labels stay consistent across the app.
+- The experience detail route must fail safely on unknown ids.
+- The polaroid caption remains in the frame footer overlay.
 
 ---
 
-## Features
+## Acceptance Criteria For AI Changes
 
-### Theme
-
-- Dark/light mode toggle
-- System preference detection
-- Smooth transitions
-- Stored in localStorage
-
-### Navigation
-
-- Terminal-style prompts
-- Back links on all pages
-- Auto-scroll to top on navigation
-- Keyboard accessible
-
-### Responsive
-
-- Mobile-first design
-- Breakpoint: 768px (md)
-- Caption hides on mobile
-- Layout stacks on mobile
-
-### Accessibility
-
-- Semantic HTML
-- ARIA labels
-- Keyboard navigation
-- WCAG AA contrast
-- Screen reader support
-
----
-
-## Tech Stack
-
-- **Framework:** Next.js 16.2.3 (App Router)
-- **Language:** TypeScript 5
-- **Styling:** Tailwind CSS 4
-- **Theme:** next-themes 0.4.6
-- **UI:** shadcn/ui
-- **Testing:** Vitest 4.1.4
-- **Deployment:** Vercel
-
----
-
-## Quality Gate
-
-```bash
-npm run lint        # 0 errors
-npm run test        # all passing
-npm run typecheck   # 0 errors
-npm run build       # success
-```
-
-**Current:** 41 tests passing
-
----
-
-## Deployment
-
-**Platform:** Vercel  
-**Trigger:** Push to main  
-**URL:** https://mike-landing-swart.vercel.app
-
-**Branch Protection:**
-- Only main triggers production
-- PRs required
-- Quality gate must pass
+- The site still reads as a professional portfolio, not a generic template.
+- The mono/editorial visual language remains intact.
+- User-facing behavior remains coherent across breakpoints.
+- Server and client boundaries remain justified.
+- Relevant tests are added or updated when behavior changes.
+- Verification is run for the affected area.
+- OpenClaw docs are updated when product behavior changes.

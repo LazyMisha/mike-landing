@@ -1,103 +1,29 @@
 # Mike's Landing Page
 
-Minimalist personal portfolio for Mykhailo Trunov — Senior Front-end Engineer.
+Personal portfolio for Mykhailo Trunov, built with Next.js.
 
-🔗 **Live:** https://mike-landing-swart.vercel.app
+Live: https://mike-landing-swart.vercel.app
 
----
-
-## Quick Start
+## Development
 
 ```bash
-# Install dependencies
 npm install
-
-# Run development server
 npm run dev
-
-# Build for production
-npm run build
-
-# Run quality gate
-npm run lint && npm run test && npm run typecheck && npm run build
 ```
 
----
+## Checks
 
-## Tech Stack
-
-- **Framework:** Next.js 16 (App Router)
-- **Language:** TypeScript 5
-- **Styling:** Tailwind CSS 4
-- **Theme:** next-themes (dark/light)
-- **Testing:** Vitest
-- **Deployment:** Vercel
-
----
-
-## Features
-
-- ✅ Responsive design (mobile-first)
-- ✅ Dark/light theme toggle
-- ✅ Terminal-style navigation
-- ✅ Experience list with detail pages
-- ✅ Auto-scroll on navigation
-- ✅ Accessibility (WCAG AA)
-- ✅ Performance optimized (100/100 Lighthouse)
-
----
+```bash
+npm run test -- --run
+npm run lint
+npm run typecheck
+npm run build
+```
 
 ## Documentation
 
-For detailed information, see the `openclaw/` directory:
+Detailed project documentation lives in the OpenClaw directory:
 
-- 📋 **[SPEC.md](./openclaw/SPEC.md)** - Complete project specification
-- 📝 **[CODE.md](./openclaw/CODE.md)** - Coding standards & best practices
-- 🏗️ **[ARCHITECTURE.md](./openclaw/ARCHITECTURE.md)** - Architecture documentation
-
----
-
-## Project Structure
-
-```
-mike-landing/
-├── src/
-│   ├── app/              # Next.js pages
-│   ├── components/       # React components
-│   └── lib/              # Data & utilities
-├── openclaw/             # Documentation
-├── public/               # Static assets
-└── tests/                # Test files
-```
-
----
-
-## Quality Gate
-
-All PRs must pass:
-
-```bash
-npm run lint        # ESLint (0 errors)
-npm run test        # Vitest (all passing)
-npm run typecheck   # TypeScript (0 errors)
-npm run build       # Next.js build (success)
-```
-
----
-
-## Deployment
-
-Auto-deploys to Vercel on push to `main` branch.
-
-**Production URL:** https://mike-landing-swart.vercel.app
-
----
-
-## License
-
-Personal portfolio — all rights reserved.
-
----
-
-**Last Updated:** 2026-04-18  
-**Version:** 2.0
+- [openclaw/SPEC.md](./openclaw/SPEC.md) — product behavior and acceptance criteria
+- [openclaw/ARCHITECTURE.md](./openclaw/ARCHITECTURE.md) — project structure, ownership, and edit map
+- [openclaw/CODE.md](./openclaw/CODE.md) — implementation standards and reusable coding template

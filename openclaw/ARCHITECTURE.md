@@ -1,175 +1,188 @@
 # Architecture
 
+## Purpose
+
+This document answers: where does this change live?
+Use it for system structure, file ownership, component boundaries, and change impact.
+
 ## System Overview
 
-**Type:** Next.js 16 Static Site  
-**Deployment:** Vercel (auto-deploy on main)  
-**Production:** https://mike-landing-swart.vercel.app
+- **Type:** Next.js 16 App Router portfolio site
+- **Deployment:** Vercel
+- **Production:** https://mike-landing-swart.vercel.app
+- **Rendering model:**
+  - Static: `/`, `/experience`, `/projects`, `/case-studies`, `/notes`
+  - Dynamic on demand: `/experience/[id]`
 
 ---
 
-## Routing
+## Runtime Shell
 
-- `/` - Home (Hero section)
-- `/experience` - Experience list
-- `/experience/[id]` - Experience detail (dynamic, SSR)
-- `/projects` - Placeholder
-- `/case-studies` - Placeholder
-- `/notes` - Placeholder
+- `src/app/layout.tsx` owns the global shell:
+  - `ThemeProvider`
+  - `ScrollToTop`
+  - `Header`
+  - app-level `<main>`
+  - `Footer`
+- Do not duplicate header, footer, theme setup, or scroll behavior inside route pages.
+- Most route pages are Server Components.
+- Current Client Components:
+  - `ThemeProvider`
+  - `Header`
+  - `ThemeToggle`
+  - `ScrollToTop`
 
 ---
 
-## Component Architecture
+## Route Map
 
-### Layout
-- `Header` - Sticky, live datetime, theme toggle
-- `Footer` - OpenClaw branding
-- `PageWrapper` - Max-width constraint (75ch)
-
-### Pages
-- `Hero` - Introduction, polaroid photo
-- `ExperienceList` - Maps experiences to cards
-- `ExperienceCard` - Single experience preview
-- `ExperienceDetail` - Full experience (Overview, Technologies, Achievements, Timeline)
-- `BackLink` - Reusable back navigation
-- `TerminalPrompt` - Terminal-style command display
-- `CliNavigation` - Terminal-style nav
-
-### Utilities
-- `ThemeProvider` - next-themes wrapper
-- `ThemeToggle` - Dark/light toggle
-- `ScrollToTop` - Auto-scroll on route change
-- `PolaroidFrame` - Photo frame with responsive caption
+- `/`
+  - `PageWrapper`
+  - `Hero`
+  - `InfoSection`
+  - `CliNavigation`
+- `/experience`
+  - `PageWrapper`
+  - `TerminalPrompt`
+  - `BackLink`
+  - `ExperienceList`
+- `/experience/[id]`
+  - async page with `params: Promise<{ id: string }>`
+  - local data lookup in `experiences`
+  - `notFound()` for invalid ids
+  - `loading.tsx` and `not-found.tsx` exist in the route folder
+  - renders `TerminalPrompt`, a back link, and `ExperienceDetail`
+- `/projects`, `/case-studies`, `/notes`
+  - placeholder pages using:
+    - `PageWrapper`
+    - `TerminalPrompt`
+    - `BackLink`
+    - short placeholder copy
 
 ---
 
 ## Data Flow
 
-### Static Data
-```
-src/lib/data.ts → Hero component → SSG
-src/lib/experience-data.ts → Experience pages → SSG/SSR
+### Content Sources
+
+- `src/lib/data.ts`
+  - landing/profile content
+  - hero copy
+  - hero photo metadata
+  - social links
+- `src/lib/experience-data.ts`
+  - experience list and detail content
+- `src/lib/constants.ts`
+  - terminal prompt text
+  - CLI labels and links
+  - navigation labels
+  - shared error messages
+- `public/images/`
+  - local hero image assets
+
+### Route Changes
+
+```text
+Link click -> Next.js router -> pathname change -> ScrollToTop -> window.scrollTo(0, 0)
 ```
 
 ### State
-- **Server (default):** All content pages
-- **Client (opt-in):** Header (datetime), ThemeToggle, ScrollToTop
 
-### Route Changes
-```
-Link click → Next.js router → ScrollToTop (usePathname) → window.scrollTo(0, 0)
-```
+- **Server by default:** pages, content components, experience rendering
+- **Client only where needed:** theme management, live datetime, scroll restoration
+
+---
+
+## Component Boundaries
+
+### Layout And Typography
+
+- `PageWrapper` controls content width and padding.
+- `Heading`, `Body`, and `Small` are the shared text primitives.
+- `PageWrapper` can change its semantic tag via `as`; use that deliberately because the root layout already provides the app-level `<main>`.
+
+### Home Composition
+
+- `Hero` composes the intro, pronunciation copy, role line, social links, and photo.
+- `InfoSection` contains the short professional summary.
+- `LinksSection` renders contact links from central data.
+- `PolaroidFrame` renders the framed image and footer caption overlay.
+
+### Navigation
+
+- `CliNavigation` reads top-level links from `cliLinks`.
+- `TerminalPrompt` reads the shared shell prompt from `terminalPrompt`.
+- `BackLink` renders the shared arrow + label pattern.
+
+### Experience Domain
+
+- `ExperienceList` maps data to `ExperienceCard`.
+- `ExperienceDetail` renders Overview, Technologies, Key Achievements, and Timeline.
+- The experience route family is the primary structured content system in the app today.
+
+---
+
+## Editing Map For AI
+
+- Change home copy, location, email, or social links:
+  - `src/lib/data.ts`
+  - `src/components/Hero.tsx`
+  - `src/components/InfoSection.tsx`
+  - `src/components/LinksSection.tsx`
+- Change the hero photo or caption behavior:
+  - `public/images/`
+  - `src/lib/data.ts`
+  - `src/components/Hero.tsx`
+  - `src/components/PolaroidFrame.tsx`
+- Change terminal labels or top-level navigation:
+  - `src/lib/constants.ts`
+  - `src/components/CliNavigation.tsx`
+  - relevant route page under `src/app`
+- Change experience content:
+  - `src/lib/experience-data.ts`
+- Change theme tokens or the global visual system:
+  - `src/app/globals.css`
+  - `src/components/Header.tsx`
+  - `src/components/ThemeToggle.tsx`
+- Change shared layout behavior:
+  - `src/app/layout.tsx`
+  - `src/components/PageWrapper.tsx`
+  - `src/components/Header.tsx`
+  - `src/components/Footer.tsx`
 
 ---
 
 ## Project Structure
 
-```
+```text
 mike-landing/
 ├── src/
-│   ├── app/
-│   │   ├── case-studies/
-│   │   ├── experience/
-│   │   │   └── [id]/
-│   │   ├── notes/
-│   │   ├── projects/
-│   │   └── test/
-│   ├── components/
-│   │   ├── content/
-│   │   ├── experience/
-│   │   ├── layout/
-│   │   ├── navigation/
-│   │   ├── theme/
-│   │   ├── ui/
-│   │   └── utilities/
-│   ├── lib/
-│   └── test/
-├── openclaw/
+│   ├── app/                  # App Router routes and route-local files
+│   │   ├── case-studies/     # Placeholder route
+│   │   ├── experience/       # Experience list route and tests
+│   │   │   └── [id]/         # Dynamic experience detail route
+│   │   ├── notes/            # Placeholder route
+│   │   └── projects/         # Placeholder route
+│   ├── components/           # Shared React components
+│   │   └── ui/               # shadcn/ui primitives
+│   ├── lib/                  # Content data, constants, and utilities
+│   ├── test/                 # Global test setup
+│   └── types/                # Type declarations
+├── openclaw/                 # AI-facing project documentation
 ├── public/
-│   └── images/
-├── .github/
-│   └── workflows/
-├── .next/
-├── .vercel/
-└── node_modules/
+│   └── images/               # Static image assets
+├── .next/                    # Generated build output; do not edit
+├── .vscode/                  # Workspace editor settings
+└── node_modules/             # Installed dependencies; do not edit
 ```
 
 ---
 
-## Performance
+## Architecture Invariants
 
-**Strategy:**
-- System fonts (no network)
-- Static generation (default)
-- Minimal client components
-- Tailwind CSS purging
-
-**Targets:**
-- LCP < 2.5s
-- CLS < 0.1
-- 100/100 Lighthouse
-
----
-
-## Accessibility
-
-**Implementation:**
-- Semantic HTML (`<header>`, `<main>`, `<footer>`)
-- ARIA labels on sections
-- Keyboard navigation
-- WCAG AA contrast
-
----
-
-## Testing
-
-**Framework:** Vitest  
-**Coverage:** All components  
-**Location:** `*.test.tsx` alongside components
-
----
-
-## Data Models
-
-```typescript
-// src/lib/data.ts
-interface PersonalInfo {
-  name: string;
-  tagline: string;
-  location: string;
-  email: string;
-}
-
-interface HeroInfo {
-  pronunciationLine1: string;
-  pronunciationLine2: string;
-  photoMeta: string;
-  photo: {
-    src: string;
-    alt: string;
-    width: number;
-    height: number;
-  };
-}
-
-// src/lib/experience-data.ts
-interface Experience {
-  id: string;
-  title: string;
-  company: string;
-  dateRange: string;
-  description: string;
-  fullDescription: string;
-  technologies: string[];
-  achievements: string[];
-  timeline: {
-    start: string;
-    end: string;
-    milestones: Array<{
-      date: string;
-      event: string;
-    }>;
-  };
-  linkHref: string;
-}
-```
+- Keep the global shell in `src/app/layout.tsx`.
+- Keep shared copy and data centralized in `src/lib` before duplicating it in components.
+- Preserve the narrow editorial layout and monospace typography.
+- Keep terminal-style navigation driven by constants instead of hardcoded route labels.
+- Keep the polaroid caption in the frame footer overlay so caption text does not change the image layout.
+- Prefer changing data files first when a request is primarily content-driven.
