@@ -4,35 +4,29 @@
 
 - follow standard React/Next.js/TypeScript best practices unless overridden below
 
+## Decision Rules
+
+- if change affects content: edit `src/lib/data.ts`, `src/lib/experience-data.ts`, `src/lib/constants.ts` first
+- if UI is reused: place it in `src/components`
+- if logic is route-specific: keep it in the route folder under `src/app`
+- if route-specific loading or fallback is needed: keep `loading.tsx` and `not-found.tsx` beside the route
+- if unsure: modify an existing file before creating a new one
+
 ## Workflow
 
-- content-driven request
-  - edit `src/lib/data.ts`, `src/lib/experience-data.ts`, `src/lib/constants.ts` before components
-- behavior change
-  - update existing tests or add new tests
-- finish
-  - run `npm run test -- --run`
-  - run `npm run typecheck`
-  - run `npm run build`
-- lint baseline
-  - `npm run lint` fails in `git-cleanup.js`
-  - do not claim a lint-clean result unless that file is fixed
-- docs upkeep
-  - update `openclaw/ARCHITECTURE.md` for structure, ownership, routing, data flow
-  - update `openclaw/SPEC.md` for product behavior, design rules, acceptance criteria
-  - update this file for implementation rules only
+- content changes: update `src/lib/*` first; update components only if structure changes
+- behavior changes: update existing tests or add tests in the same area
+- finalization: run `npm run test -- --run`, `npm run typecheck`, `npm run build`
+- lint baseline: `npm run lint` fails in `git-cleanup.js`; do not claim a lint-clean result unless fixed
+- when behavior or structure changes: update `ARCHITECTURE.md` (structure, ownership), `SPEC.md` (behavior), `CODE.md` (rules)
 
 ## Project Rules
 
 - keep route files thin
 - keep shared UI in `src/components`
 - keep `src/components` flat except `src/components/ui`
-- keep route-local `loading.tsx` and `not-found.tsx` beside the route
 - use `@/` for cross-folder imports
 - preserve surrounding export style
-- preserve server-first boundaries
-- add `"use client"` only when required
-- do not duplicate `Header`, `Footer`, `ThemeProvider`, `ScrollToTop` in route pages
 - centralize reusable copy in `src/lib/data.ts`, `src/lib/experience-data.ts`, `src/lib/constants.ts`
 - keep route tests in route folders
 - keep component tests next to components
@@ -47,5 +41,4 @@
 - new dependencies for solved problems
 - memoization without a clear need
 - server-to-client conversion without a real requirement
-- duplicating layout shell logic in pages
 - visual redesign unless requested

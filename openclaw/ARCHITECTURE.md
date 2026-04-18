@@ -5,16 +5,13 @@
 - framework: Next.js 16 App Router
 - rendering: static `/`, `/experience`, `/projects`, `/case-studies`, `/notes`; dynamic `/experience/[id]`
 - `src/app/layout.tsx`: `ThemeProvider`, `ScrollToTop`, `Header`, app `<main>`, `Footer`
-- client components: `ThemeProvider`, `Header`, `ThemeToggle`, `ScrollToTop`
 
 ## Route Map
 
 - `/`: `PageWrapper`, `Hero`, `InfoSection`, `CliNavigation`
 - `/experience`: `PageWrapper`, `TerminalPrompt`, `BackLink`, `ExperienceList`
 - `/experience/[id]`: async `params`; source `experiences`; invalid id -> `notFound()`; uses `loading.tsx`, `not-found.tsx`, `ExperienceDetail`
-- `/projects`: placeholder; `PageWrapper`, `TerminalPrompt`, `BackLink`
-- `/case-studies`: placeholder; same shell as `/projects`
-- `/notes`: placeholder; same shell as `/projects`
+- `/projects`, `/case-studies`, `/notes`: placeholder; shared prompt/back shell
 
 ## Data Flow
 
@@ -26,17 +23,11 @@
 
 ## Component Boundaries
 
-- `PageWrapper`: page width, page padding, semantic tag override
-- `Heading`, `Body`, `Small`: typography primitives
-- `Hero`: intro, pronunciation, role line, social links, photo
-- `InfoSection`: summary copy
-- `LinksSection`: contact links from `landingData`
-- `PolaroidFrame`: frame + caption overlay
-- `CliNavigation`: top-level nav from `cliLinks`
-- `TerminalPrompt`: prompt from `terminalPrompt`
-- `BackLink`: shared back pattern
-- `ExperienceList`: maps `Experience[]` to cards
-- `ExperienceDetail`: overview, technologies, achievements, timeline
+- layout primitive: `PageWrapper`
+- typography primitives: `Heading`, `Body`, `Small`
+- home components: `Hero`, `InfoSection`, `LinksSection`, `PolaroidFrame`
+- navigation components: `CliNavigation`, `TerminalPrompt`, `BackLink`
+- experience components: `ExperienceList`, `ExperienceCard`, `ExperienceDetail`
 
 ## Editing Map
 
@@ -51,24 +42,17 @@
 
 - `src/app`: routes
 - `src/components`: shared components
-- `src/components/ui`: shadcn/ui primitives
 - `src/lib`: data, constants, utilities
-- `src/test`: shared test setup
-- `src/types`: type declarations
-- `public/images`: static image assets
-- `openclaw`: AI docs
 
 ## Invariants
 
 - do not duplicate shell logic outside `src/app/layout.tsx`
-- keep shared copy in `src/lib` before duplicating it in components
 - keep terminal labels in `src/lib/constants.ts`
-- keep polaroid caption in the frame footer overlay
+- keep caption implementation in `src/components/PolaroidFrame.tsx`
 
 ## Data Models
 
 - `LandingData.personal`: `name`, `tagline`, `location`, `email`
 - `LandingData.hero`: `pronunciationLine1`, `pronunciationLine2`, `photoMeta`, `photo`
 - `LandingData.socials`: `linkedin`
-- `Experience`: `id`, `title`, `company`, `dateRange`, `description`, `fullDescription`, `technologies[]`, `achievements[]`, `timeline`, `linkHref`
-- `Experience.timeline`: `start`, `end`, `milestones[]`
+- `Experience`: `id`, `title`, `company`, `dateRange`, `description`, `fullDescription`, `technologies[]`, `achievements[]`, `timeline{start,end,milestones[]}`, `linkHref`
