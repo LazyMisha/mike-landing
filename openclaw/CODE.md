@@ -6,10 +6,10 @@
 
 ## Decision Priority
 
-- `1.` content -> `src/lib/data.ts`, `src/lib/experience-data.ts`, `src/lib/constants.ts`
-- `2.` reuse -> `src/components`
-- `3.` route logic -> route folder under `src/app`
-- `4.` fallback -> modify existing files before creating new ones
+- 1. content -> `src/lib/data.ts`, `src/lib/experience-data.ts`, `src/lib/constants.ts`
+- 2. reuse -> `src/components`
+- 3. route logic -> route folder under `src/app`
+- 4. fallback -> modify existing files before creating new ones
 
 ## Workflow
 

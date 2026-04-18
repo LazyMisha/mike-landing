@@ -1,6 +1,6 @@
 # Mike's Landing Page
 
-- personal portfolio for Mykhailo Trunov
+- personal portfolio (Next.js, AI-optimized documentation system)
 - live: https://mike-landing-swart.vercel.app
 
 ## Development
