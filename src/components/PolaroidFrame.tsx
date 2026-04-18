@@ -13,8 +13,10 @@ export function PolaroidFrame({ children, caption }: PolaroidFrameProps) {
           {children}
         </div>
         {caption ? (
-          <p className="absolute inset-x-3 bottom-0 flex h-12 items-center justify-center whitespace-nowrap text-center text-[10px] tracking-[0.12em] text-[#4a4135] sm:text-xs sm:tracking-[0.18em]">
-            {caption}
+          <p className="absolute inset-x-3 bottom-0 flex h-12 items-center justify-center whitespace-nowrap text-center tracking-[0.12em] text-[#4a4135] text-[7px] sm:text-[9px] md:text-xs">
+            <span>{caption.split(' · ')[0]}</span>
+            <span>{' · '}{caption.split(' · ')[1]}</span>
+            <span>{' · '}{caption.split(' · ')[2]}</span>
           </p>
         ) : null}
       </div>
