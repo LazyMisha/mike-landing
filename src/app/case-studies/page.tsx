@@ -1,6 +1,7 @@
 import { PageWrapper } from '@/components/PageWrapper';
 import TerminalPrompt from '@/components/TerminalPrompt';
-import { terminalCommands, cliLabels } from '@/lib/constants';
+import BackLink from '@/components/BackLink';
+import { terminalCommands, cliLabels, navigationLabels } from '@/lib/constants';
 
 export default function CaseStudiesPage() {
   return (
@@ -9,6 +10,7 @@ export default function CaseStudiesPage() {
         command={terminalCommands.view}
         argument={cliLabels.caseStudies}
       />
+      <BackLink href="/" label={navigationLabels.backToHome} />
       <p className="text-base mb-4">
         [ Case studies coming soon... ]
       </p>

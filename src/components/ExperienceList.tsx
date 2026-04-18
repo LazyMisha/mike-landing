@@ -1,13 +1,5 @@
 import ExperienceCard from './ExperienceCard';
-
-interface Experience {
-  id: string;
-  title: string;
-  company: string;
-  dateRange: string;
-  description: string;
-  linkHref: string;
-}
+import type { Experience } from '@/lib/experience-data';
 
 interface ExperienceListProps {
   experiences: readonly Experience[];

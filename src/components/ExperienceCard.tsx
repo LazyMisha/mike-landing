@@ -33,7 +33,8 @@ export default function ExperienceCard({
       </Body>
       <Link
         href={linkHref}
-        className="text-lime-700 dark:text-lime-500 hover:text-lime-500 dark:hover:text-lime-300 transition-colors duration-200"
+        className="text-lime-700 dark:text-lime-500 hover:text-lime-500 dark:hover:text-lime-300 transition-colors duration-200 inline-block mt-1 cursor-pointer focus:underline focus:outline-none"
+        aria-label={`Read more about ${title} at ${company}`}
       >
         [ read more ]
       </Link>
