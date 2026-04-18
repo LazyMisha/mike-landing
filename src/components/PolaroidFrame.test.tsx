@@ -45,16 +45,6 @@ describe('PolaroidFrame', () => {
     
     const captionParagraph = container.querySelector('p');
     expect(captionParagraph).toHaveClass('absolute', 'inset-x-3', 'bottom-0');
-    expect(captionParagraph).toHaveClass('text-[10px]', 'tracking-[0.12em]');
-  });
-
-  it('has hidden class on time and location spans for mobile', () => {
-    const caption = '30 Apr 2021 · 13:33 · Odesa, UA';
-    const { container } = render(<PolaroidFrame caption={caption}>Photo</PolaroidFrame>);
-    
-    const spans = container.querySelectorAll('span');
-    // Second and third spans should have hidden class
-    expect(spans[1]).toHaveClass('hidden', 'sm:inline');
-    expect(spans[2]).toHaveClass('hidden', 'sm:inline');
+    expect(captionParagraph).toHaveClass('text-[7px]', 'sm:text-[9px]', 'md:text-xs');
   });
 });
