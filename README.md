@@ -1,57 +1,22 @@
 # Mike's Landing Page
 
-Minimalist personal portfolio for Mykhailo Trunov — Senior Front-end Engineer.
-
-## Overview
-
-CV landing page with portfolio section. Designed to be shared with recruiters, HRs, and engineers.
-
-## Tech
-
-- **Framework:** Next.js 16
-- **Styling:** Tailwind CSS 4
-- **Components:** shadcn/ui
-- **Theme:** next-themes (dark/light)
-- **Fonts:** System fonts (no external dependencies)
-
-## Structure
-
-```
-mike-landing/
-├── src/
-│   ├── app/                # Next.js app router
-│   │   ├── layout.tsx     # Root layout
-│   │   ├── page.tsx       # Landing page
-│   │   └── globals.css    # Global styles
-│   ├── components/        # UI components
-│   │   ├── Header.tsx
-│   │   ├── Hero.tsx
-│   │   ├── Contact.tsx
-│   │   ├── PolaroidFrame.tsx
-│   │   ├── ThemeToggle.tsx
-│   │   └── ThemeProvider.tsx
-│   └── lib/
-│       └── data.ts        # Personal info
-├── SPEC.md                # Full specification
-├── README.md
-├── next.config.ts
-├── tailwind.config.ts
-└── package.json
-```
+- personal portfolio (Next.js, AI-optimized documentation system)
+- live: https://mike-landing-swart.vercel.app
 
 ## Development
 
-```bash
-npm install
-npm run dev
-```
+- `npm install`
+- `npm run dev`
 
-## Build
+## Checks
 
-```bash
-npm run build
-```
+- `npm run test -- --run`
+- `npm run lint`
+- `npm run typecheck`
+- `npm run build`
 
-## Deploy
+## Documentation
 
-Deployed to Vercel — auto-deploys on push to `main`.
+- [openclaw/SPEC.md](./openclaw/SPEC.md) — product behavior and acceptance criteria
+- [openclaw/ARCHITECTURE.md](./openclaw/ARCHITECTURE.md) — structure, ownership, and edit map
+- [openclaw/CODE.md](./openclaw/CODE.md) — implementation rules and constraints
