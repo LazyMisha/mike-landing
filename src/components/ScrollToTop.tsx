@@ -7,14 +7,10 @@ export function ScrollToTop() {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Scroll to top on every route change
-    // Use requestAnimationFrame for better timing on mobile
-    requestAnimationFrame(() => {
-      // Scroll both window and documentElement to cover all browsers
-      window.scrollTo(0, 0);
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-    });
+    setTimeout(() => {
+      document.documentElement.scrollTo(0, 0);
+      document.body.scrollTo(0, 0);
+    }, 0);
   }, [pathname]);
 
   return null;
