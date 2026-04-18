@@ -5,7 +5,7 @@ export const cliLabels = {
   projects: '[projects]',
   caseStudies: '[case-studies]',
   notes: '[notes]',
-  downloadCv: '[download-cv]',
+  cvPreview: '[cv-preview]',
 };
 
 export const cliLinks = [
@@ -13,7 +13,7 @@ export const cliLinks = [
   { label: cliLabels.projects, href: '/projects' },
   { label: cliLabels.caseStudies, href: '/case-studies' },
   { label: cliLabels.notes, href: '/notes' },
-  { label: cliLabels.downloadCv, href: '/#' },
+  { label: cliLabels.cvPreview, href: '/#' },
 ];
 
 export const terminalCommands = {

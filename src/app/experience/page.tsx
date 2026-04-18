@@ -8,11 +8,11 @@ import { terminalCommands, cliLabels, navigationLabels } from '@/lib/constants';
 export default function ExperiencePage() {
   return (
     <PageWrapper>
-      <BackLink href="/" label={navigationLabels.backToHome} />
       <TerminalPrompt
         command={terminalCommands.view}
         argument={cliLabels.experience}
       />
+      <BackLink href="/" label={navigationLabels.backToHome} />
       <ExperienceList
         experiences={experiences}
       />

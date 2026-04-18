@@ -8,7 +8,7 @@ export default function CliNavigation() {
       <TerminalPrompt
         command={terminalCommands.list}
       />
-      <nav className="flex flex-col sm:flex-row flex-wrap gap-y-2 sm:gap-y-0 sm:gap-x-8 text-sm sm:text-base">
+      <nav className="flex flex-col sm:flex-row flex-wrap gap-y-4 sm:gap-y-0 sm:gap-x-8 text-sm sm:text-base">
         {cliLinks.map((link) => (
           <Link 
             key={link.label} 

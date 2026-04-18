@@ -6,11 +6,11 @@ import { terminalCommands, cliLabels, navigationLabels } from '@/lib/constants';
 export default function NotesPage() {
   return (
     <PageWrapper>
-      <BackLink href="/" label={navigationLabels.backToHome} />
       <TerminalPrompt
         command={terminalCommands.view}
         argument={cliLabels.notes}
       />
+      <BackLink href="/" label={navigationLabels.backToHome} />
       <p className="text-base mb-4">
         [ Notes coming soon... ]
       </p>
