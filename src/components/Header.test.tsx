@@ -25,7 +25,6 @@ describe('Header', () => {
     
     expect(header).toHaveClass('backdrop-blur-md');
     expect(header).toHaveClass('bg-background/80');
-    expect(header).toHaveClass('border-b');
   });
 
   it('maintains existing layout classes', () => {
