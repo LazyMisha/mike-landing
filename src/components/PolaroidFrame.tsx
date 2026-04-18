@@ -14,7 +14,16 @@ export function PolaroidFrame({ children, caption }: PolaroidFrameProps) {
         </div>
         {caption ? (
           <p className="absolute inset-x-3 bottom-0 flex h-12 items-center justify-center whitespace-nowrap text-center text-[10px] tracking-[0.12em] text-[#4a4135] sm:text-xs sm:tracking-[0.18em]">
-            {caption}
+            {/* Date - always visible */}
+            <span>{caption.split(' · ')[0]}</span>
+            {/* Time - hidden on small screens */}
+            <span className="hidden sm:inline">
+              {' · '}{caption.split(' · ')[1]}
+            </span>
+            {/* Location - hidden on small and medium screens */}
+            <span className="hidden sm:inline">
+              {' · '}{caption.split(' · ')[2]}
+            </span>
           </p>
         ) : null}
       </div>
