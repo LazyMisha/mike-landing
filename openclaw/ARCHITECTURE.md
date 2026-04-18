@@ -65,37 +65,26 @@ Link click → Next.js router → ScrollToTop (usePathname) → window.scrollTo(
 ## File Structure
 
 ```
-src/
-├── app/                    # Next.js App Router
-│   ├── layout.tsx          # Root layout
-│   ├── page.tsx            # Home
-│   └── experience/
-│       ├── page.tsx        # List
-│       └── [id]/
-│           ├── page.tsx    # Detail
-│           ├── loading.tsx
-│           └── not-found.tsx
-├── components/             # React components
-└── lib/                    # Data & utilities
-    ├── data.ts
-    ├── experience-data.ts
-    └── constants.ts
+mike-landing/
+├── src/
+│   ├── app/
+│   │   └── experience/
+│   │       └── [id]/
+│   ├── components/
+│   │   ├── experience/
+│   │   ├── layout/
+│   │   ├── navigation/
+│   │   ├── content/
+│   │   ├── theme/
+│   │   └── utilities/
+│   ├── lib/
+│   └── test/
+├── openclaw/
+├── public/
+│   └── images/
+└── .github/
+    └── workflows/
 ```
-
----
-
-## Build & Deploy
-
-```
-push to main → Vercel webhook → npm build → deploy to CDN
-```
-
-**Quality Gate:**
-```bash
-npm run lint && npm run test && npm run typecheck && npm run build
-```
-
-**Requirements:** 0 errors, all tests pass
 
 ---
 
@@ -175,34 +164,4 @@ interface Experience {
   };
   linkHref: string;
 }
-```
-
----
-
-## Constants
-
-```typescript
-// src/lib/constants.ts
-export const navigationLabels = {
-  backToHome: '[ back to home ]',
-  backToExperienceList: '[ back to experience list ]',
-};
-
-export const cliLabels = {
-  experience: '[experience]',
-  projects: '[projects]',
-  caseStudies: '[case-studies]',
-  notes: '[notes]',
-};
-
-export const terminalCommands = {
-  list: 'ls',
-  view: 'cat',
-};
-
-export const errorMessages = {
-  experienceNotFound: 'Error: Experience not found',
-  projectNotFound: 'Error: Project not found',
-  pageNotFound: 'Error: Page not found',
-};
 ```

@@ -22,7 +22,6 @@
 ### Props
 
 ```typescript
-// ✅ Good
 interface ComponentProps {
   title: string;
   onClick: () => void;
@@ -45,8 +44,9 @@ const value = useMemo(() => compute(data), [data]);
 
 ### Constants
 
+All hardcoded values in `src/lib/constants.ts`:
+
 ```typescript
-// ✅ Good - src/lib/constants.ts
 export const navigationLabels = {
   backToHome: '[ back to home ]',
 };
@@ -54,12 +54,6 @@ export const navigationLabels = {
 // Use in components
 <Link>← {navigationLabels.backToHome}</Link>
 ```
-
-### File Naming
-
-- Components: `PascalCase.tsx`
-- Utilities: `camelCase.ts`
-- Tests: `*.test.tsx`
 
 ### Imports
 
@@ -138,27 +132,3 @@ const HeavyComponent = dynamic(() => import('./Heavy'), {
 - No hardcoded secrets
 - Use `process.env.NEXT_PUBLIC_*`
 - React escapes by default (avoid `dangerouslySetInnerHTML`)
-
-## Git
-
-**Commits:**
-```
-feat: add feature
-fix: fix bug
-docs: update docs
-test: add tests
-refactor: refactor code
-chore: update deps
-```
-
-**Branches:**
-```
-feature/description
-fix/description
-docs/description
-```
-
-**PRs:**
-- One feature per PR
-- Single commit
-- Clear description
