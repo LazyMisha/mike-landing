@@ -2,32 +2,32 @@
 
 ## Runtime
 
-- framework: Next.js 16 App Router
-- rendering: static `/`, `/experience`, `/projects`, `/case-studies`, `/notes`; dynamic `/experience/[id]`
-- `src/app/layout.tsx`: `ThemeProvider`, `ScrollToTop`, `Header`, app `<main>`, `Footer`
+- framework: Next.js App Router
+- root layout: `src/app/layout.tsx`; global providers; header; footer; main shell
 
 ## Route Map
 
-- `/`: `PageWrapper`, `Hero`, `InfoSection`, `CliNavigation`
-- `/experience`: `PageWrapper`, `TerminalPrompt`, `BackLink`, `ExperienceList`
-- `/experience/[id]`: async `params`; source `experiences`; invalid id -> `notFound()`; uses `loading.tsx`, `not-found.tsx`, `ExperienceDetail`
-- `/projects`, `/case-studies`, `/notes`: placeholder; shared prompt/back shell
+- `/`: landing route; `PageWrapper`, `Hero`, `InfoSection`, `CliNavigation`
+- `/experience`: list route; `PageWrapper`, `TerminalPrompt`, `BackLink`, `ExperienceList`
+- `/experience/[id]`: detail route; async `params`; source `experiences`; invalid id -> `notFound()`; route-local `loading.tsx`, `not-found.tsx`; `ExperienceDetail`
+- `/projects`, `/case-studies`, `/notes`: placeholder routes; shared prompt/back shell
 
 ## Data Flow
 
-- `src/lib/data.ts`: `landingData.personal`, `landingData.hero`, `landingData.socials`
-- `src/lib/experience-data.ts`: `experiences`
-- `src/lib/constants.ts`: terminal prompt, CLI labels, CLI links, navigation labels, shared errors
+- `src/lib/data.ts`: landing/profile content
+- `src/lib/experience-data.ts`: experience content
+- `src/lib/constants.ts`: terminal and navigation constants
 - `public/images/`: hero image asset
-- route change: link -> pathname change -> `ScrollToTop` -> `window.scrollTo(0, 0)`
+- route change: scroll reset handled by `ScrollToTop`
 
 ## Component Boundaries
 
-- layout primitive: `PageWrapper`
+- root shell: `ThemeProvider`, `Header`, `Footer`, `ScrollToTop`
+- layout constraints: `PageWrapper`
 - typography primitives: `Heading`, `Body`, `Small`
-- home components: `Hero`, `InfoSection`, `LinksSection`, `PolaroidFrame`
-- navigation components: `CliNavigation`, `TerminalPrompt`, `BackLink`
-- experience components: `ExperienceList`, `ExperienceCard`, `ExperienceDetail`
+- landing composition: `Hero`, `InfoSection`, `LinksSection`, `PolaroidFrame`
+- navigation system: `CliNavigation`, `TerminalPrompt`, `BackLink`
+- experience system: `ExperienceList`, `ExperienceCard`, `ExperienceDetail`
 
 ## Editing Map
 

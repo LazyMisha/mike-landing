@@ -11,8 +11,8 @@
 
 - palette: light off-white, dark near-black, lime accents
 - typography: system monospace
-- layout: narrow editorial layout; stacked on mobile; split hero from `md`
-- caption: full metadata at all breakpoints; text size scales by breakpoint
+- layout: narrow editorial layout; responsive
+- caption: full metadata; responsive behavior
 
 ## Pages
 
