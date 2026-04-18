@@ -11,6 +11,11 @@ describe('ScrollToTop', () => {
   beforeEach(() => {
     vi.clearAllMocks();
     window.scrollTo = vi.fn();
+    // Mock requestAnimationFrame to execute immediately in tests
+    vi.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => {
+      cb(0);
+      return 0;
+    });
   });
 
   it('renders without errors', () => {
