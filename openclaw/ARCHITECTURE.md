@@ -62,28 +62,36 @@ Link click → Next.js router → ScrollToTop (usePathname) → window.scrollTo(
 
 ---
 
-## File Structure
+## Project Structure
 
 ```
 mike-landing/
 ├── src/
 │   ├── app/
-│   │   └── experience/
-│   │       └── [id]/
+│   │   ├── case-studies/
+│   │   ├── experience/
+│   │   │   └── [id]/
+│   │   ├── notes/
+│   │   ├── projects/
+│   │   └── test/
 │   ├── components/
+│   │   ├── content/
 │   │   ├── experience/
 │   │   ├── layout/
 │   │   ├── navigation/
-│   │   ├── content/
 │   │   ├── theme/
+│   │   ├── ui/
 │   │   └── utilities/
 │   ├── lib/
 │   └── test/
 ├── openclaw/
 ├── public/
 │   └── images/
-└── .github/
-    └── workflows/
+├── .github/
+│   └── workflows/
+├── .next/
+├── .vercel/
+└── node_modules/
 ```
 
 ---
