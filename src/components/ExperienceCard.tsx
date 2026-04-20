@@ -28,15 +28,15 @@ export default function ExperienceCard({
       <div className="text-sm text-gray-500 dark:text-gray-400 flex items-center gap-2">
         <span>{dateRange}</span>
       </div>
-      <Body className='my-1'>
+      <Body className='line-clamp-3'>
         {description}
       </Body>
       <Link
         href={linkHref}
-        className="text-lime-700 dark:text-lime-500 hover:text-lime-500 dark:hover:text-lime-300 transition-colors duration-200 inline-block mt-1 cursor-pointer focus:underline focus:outline-none"
+        className="text-(--accent-green) hover:text-(--accent-green-hover) transition-colors duration-200 inline-block cursor-pointer focus:underline focus:outline-none"
         aria-label={`Read more about ${title} at ${company}`}
       >
-        [ read more ]
+        [ read more ] →
       </Link>
     </article>
   );

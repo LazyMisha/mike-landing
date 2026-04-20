@@ -90,6 +90,8 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --accent-green: #0EA5A4;
+  --accent-green-hover: #0F766E;
 }
 
 .dark {
@@ -129,6 +131,8 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --accent-green: #4ADE80;
+  --accent-green-hover: #86EFAC;
 }
 
 @layer base {
@@ -141,5 +145,26 @@
   }
   html {
     @apply font-mono;
+  }
+}
+
+/* for small screens */
+@media (max-width: 767px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+ /* for medium screens */
+@media (min-width: 768px) {
+  html {
+    font-size: 17px;
+  }
+}
+
+/* for larger screens */
+@media (min-width: 1200px) {
+  html {
+    font-size: 18px;
   }
 }
