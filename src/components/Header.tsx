@@ -24,7 +24,7 @@ export function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 flex justify-between items-center px-4 py-2 max-w-[75ch] mx-auto w-full backdrop-blur-md bg-background/60 dark:bg-background/60">
+    <header className="sticky top-0 z-50 flex justify-between items-center px-4 py-2 max-w-[75ch] mx-auto w-full backdrop-blur-md">
       <div className="text-sm text-muted-foreground">{dateTime}</div>
       <ThemeToggle />
     </header>
