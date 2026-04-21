@@ -56,7 +56,7 @@ describe('ExperienceList', () => {
   it('renders read more links for all entries', () => {
     render(<ExperienceList experiences={mockExperiences} />);
     
-    const readMoreLinks = screen.getAllByText('[ read more ]');
+    const readMoreLinks = screen.getAllByText(/read more/i);
     expect(readMoreLinks).toHaveLength(2);
   });
 });

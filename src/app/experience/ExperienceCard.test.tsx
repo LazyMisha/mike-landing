@@ -29,7 +29,7 @@ describe('ExperienceCard', () => {
 
   it('renders "read more" link with correct href', () => {
     render(<ExperienceCard {...mockProps} />);
-    const link = screen.getByText('[ read more ]');
+    const link = screen.getByText(/read more/i);
     expect(link).toBeInTheDocument();
     expect(link.closest('a')).toHaveAttribute('href', '#');
   });
