@@ -62,8 +62,9 @@ describe('Experience Data', () => {
 
   it('should have timeline milestones with date and event', () => {
     experiences.forEach(exp => {
-      if (exp.timeline && exp.timeline.milestones) {
-        exp.timeline.milestones.forEach(milestone => {
+      const timeline = (exp as any).timeline;
+      if (timeline && timeline.milestones) {
+        timeline.milestones.forEach((milestone: any) => {
           // expect(milestone.date).toBeDefined();
           // expect(milestone.event).toBeDefined();
         });
