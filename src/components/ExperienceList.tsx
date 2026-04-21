@@ -17,6 +17,7 @@ export default function ExperienceList({ experiences, preview = false }: Experie
           title={experience.title}
           company={experience.company}
           dateRange={experience.dateRange}
+          location={experience.location}
           description={experience.description}
           linkHref={experience.linkHref}
         />

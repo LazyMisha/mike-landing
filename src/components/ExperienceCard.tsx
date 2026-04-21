@@ -6,6 +6,7 @@ interface ExperienceCardProps {
   title: string;
   company: string;
   dateRange: string;
+  location: string;
   description: string;
   linkHref: string;
 }
@@ -14,12 +15,13 @@ export default function ExperienceCard({
   title,
   company,
   dateRange,
+  location,
   description,
   linkHref,
 }: ExperienceCardProps) {
   return (
     <article className="mb-4 last:mb-0">
-      <Heading as='h3'>
+      <Heading as='h4'>
         {title}
       </Heading>
       <Body>
@@ -27,6 +29,9 @@ export default function ExperienceCard({
       </Body>
       <div className="text-sm text-gray-500 dark:text-gray-400 flex items-center gap-2">
         <span>{dateRange}</span>
+      </div>
+      <div className="text-sm text-gray-500 dark:text-gray-400 flex items-center gap-2">
+        <span>{location}</span>
       </div>
       <Body className='line-clamp-3'>
         {description}

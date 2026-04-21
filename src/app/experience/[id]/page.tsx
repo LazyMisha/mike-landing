@@ -1,10 +1,9 @@
 import { PageWrapper } from '@/components/PageWrapper';
 import TerminalPrompt from '@/components/TerminalPrompt';
-import ExperienceDetail from '@/components/ExperienceDetail';
-import { experiences } from '@/lib/experience-data';
-import { terminalCommands, cliLabels, navigationLabels } from '@/lib/constants';
-import Link from 'next/link';
+import BackLink from '@/components/BackLink';
 import { notFound } from 'next/navigation';
+import { terminalCommands, cliLabels, navigationLabels } from '@/lib/constants';
+import { experiences } from '@/lib/experience-data';
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -24,15 +23,17 @@ export default async function ExperienceDetailPage({ params }: PageProps) {
         command={terminalCommands.view}
         argument={`${cliLabels.experience}/${id}`}
       />
-      <div className="mb-4">
-        <Link
-          href="/experience"
-          className="text-lime-700 dark:text-lime-500 hover:text-lime-500 dark:hover:text-lime-300 transition-colors duration-200 inline-flex items-center gap-2"
-        >
-          ← {navigationLabels.backToExperienceList}
-        </Link>
-      </div>
-      <ExperienceDetail experience={experience} />
+      <BackLink
+        href="/experience"
+        label={navigationLabels.backToExperienceList}
+      />
+      Role: {experience.title}<br/><br/>
+      Company: {experience.company}<br/><br/>
+      Date: {experience.dateRange}<br /><br />
+      Location: {experience.location}<br /><br />
+      Description: {experience.description}<br /><br/>
+      Technologies: {experience.technologies.join(', ')}<br /><br/>
+      Achievements: <ul>{experience.achievements.map((ach, idx) => <li key={idx}>{ach}</li>)}</ul><br/>
     </PageWrapper>
   );
 }
