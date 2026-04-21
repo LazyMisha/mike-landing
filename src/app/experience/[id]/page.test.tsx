@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, cleanup } from '@testing-library/react';
 import ExperienceDetailPage from './page';
 import { experiences } from '@/lib/experience-data';
+import { cliLabels } from '@/lib/constants';
 
 // Mock next/navigation
 vi.mock('next/navigation', () => ({
@@ -56,7 +57,7 @@ describe('ExperienceDetailPage', () => {
     render(Page);
 
     // Check that the terminal prompt shows the experience id
-    expect(screen.getByText(validExperience.title)).toBeInTheDocument();
+    expect(screen.getByText(`${cliLabels.experience}/${validExperience.id}`)).toBeInTheDocument();
   });
 
   it('should call notFound for invalid id', async () => {
