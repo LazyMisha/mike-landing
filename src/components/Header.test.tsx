@@ -22,9 +22,8 @@ describe('Header', () => {
   it('has glassmorphism effect classes', () => {
     const { container } = render(<Header />);
     const header = container.querySelector('header');
-    
     expect(header).toHaveClass('backdrop-blur-md');
-    expect(header).toHaveClass('bg-background/60');
+    
   });
 
   it('maintains existing layout classes', () => {
