@@ -11,9 +11,14 @@ describe('ExperienceList', () => {
       company: 'Monolith Corp',
       dateRange: '2022 - Present',
       description: 'Leading the core systems team.',
-      location: 'New York, NY',
+      fullDescription: 'Leading the core systems team in developing low-latency infrastructure.',
       technologies: ['Rust', 'C++'],
       achievements: ['Reduced latency by 40%'],
+      timeline: {
+        start: '2022-01',
+        end: 'Present',
+        milestones: [{ date: '2022-03', event: 'Joined as architect' }],
+      },
       linkHref: '/experience/1',
     },
     {
@@ -22,9 +27,14 @@ describe('ExperienceList', () => {
       company: 'NeuralNexus',
       dateRange: '2019 - 2022',
       description: 'Developed scalable distributed backend systems.',
-      location: 'San Francisco, CA',
+      fullDescription: 'Developed scalable distributed backend systems for ML training.',
       technologies: ['Python', 'Kubernetes'],
       achievements: ['Scaled to 1000+ GPUs'],
+      timeline: {
+        start: '2019-06',
+        end: '2022-01',
+        milestones: [{ date: '2019-06', event: 'Started as engineer' }],
+      },
       linkHref: '/experience/2',
     },
   ];

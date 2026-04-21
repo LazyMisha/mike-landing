@@ -8,7 +8,6 @@ describe('ExperienceCard', () => {
     company: 'Monolith Corp',
     dateRange: '2022 - Present',
     description: 'Leading the core systems team in developing low-latency high-frequency trading infrastructure.',
-    location: 'New York, NY',
     linkHref: '#',
   };
 
