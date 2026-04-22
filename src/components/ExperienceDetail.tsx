@@ -7,7 +7,7 @@ interface ExperienceDetailProps {
 
 function TimelineSection({ children }: { children: React.ReactNode; isLast?: boolean }) {
   return (
-    <div className="relative mb-6">
+    <div className="relative mb-4 md:mb-6">
       {/* Green dot marker */}
       <span
         className="absolute left-0 top-1.5 w-2 h-2 bg-(--accent-green) rounded-full"
@@ -55,7 +55,7 @@ export default function ExperienceDetail({ experience }: ExperienceDetailProps) 
       {/* Description Section */}
       <TimelineSection>
         <div className="font-mono text-sm">
-          <p className="font-semibold mb-6">{experienceLabels.description}</p>
+          <p className="font-semibold mb-4 md:mb-6">{experienceLabels.description}</p>
           <div className="font-mono text-sm leading-relaxed">
             {experience.description.split('\n\n').map((para, i) => (
               <p key={i} className="mb-4 last:mb-0">
@@ -69,7 +69,7 @@ export default function ExperienceDetail({ experience }: ExperienceDetailProps) 
       {/* Technologies Section */}
       <TimelineSection>
         <div className="font-mono text-sm">
-          <p className="font-semibold mb-6">{experienceLabels.technologies}</p>
+          <p className="font-semibold mb-4 md:mb-6">{experienceLabels.technologies}</p>
           <p className="text-gray-400">{experience.technologies.join(', ')}</p>
         </div>
       </TimelineSection>
@@ -77,7 +77,7 @@ export default function ExperienceDetail({ experience }: ExperienceDetailProps) 
       {/* Achievements Section */}
       <TimelineSection>
         <div className="font-mono text-sm">
-          <p className="font-semibold mb-6">{experienceLabels.achievements}</p>
+          <p className="font-semibold mb-4 md:mb-6">{experienceLabels.achievements}</p>
           <ul className="list-disc list-inside space-y-1">
             {experience.achievements.map((ach, idx) => (
               <li key={idx}>{ach}</li>
