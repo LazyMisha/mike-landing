@@ -9,7 +9,7 @@
 
 - `/`: landing route; `PageWrapper`, `Hero`, `InfoSection`, `CliNavigation`
 - `/experience`: list route; `PageWrapper`, `TerminalPrompt`, `BackLink`, `ExperienceList`
-- `/experience/[id]`: detail route; async `params`; source `experiences`; invalid id -> `notFound()`; route-local `loading.tsx`, `not-found.tsx`; `ExperienceDetail`
+- `/experience/[id]`: detail route; async `params`; source `experiences`; invalid id -> `notFound()`; route-local `loading.tsx`, `not-found.tsx`; raw content (Role, Company, Date, Location, Description, Technologies, Achievements)
 - `/projects`, `/case-studies`, `/notes`: placeholder routes; shared prompt/back shell
 
 ## Data Flow
@@ -27,7 +27,7 @@
 - typography primitives: `Heading`, `Body`, `Small`
 - landing composition: `Hero`, `InfoSection`, `LinksSection`, `PolaroidFrame`
 - navigation system: `CliNavigation`, `TerminalPrompt`, `BackLink`
-- experience system: `ExperienceList`, `ExperienceCard`, `ExperienceDetail`
+- experience system: `ExperienceList`, `ExperienceCard`
 
 ## Editing Map
 
@@ -55,4 +55,4 @@
 - `LandingData.personal`: `name`, `tagline`, `location`, `email`
 - `LandingData.hero`: `pronunciationLine1`, `pronunciationLine2`, `photoMeta`, `photo`
 - `LandingData.socials`: `linkedin`
-- `Experience`: `id`, `title`, `company`, `dateRange`, `description`, `fullDescription`, `technologies[]`, `achievements[]`, `timeline{start,end,milestones[]}`, `linkHref`
+- `Experience`: `id`, `title`, `company`, `dateRange`, `location`, `description`, `technologies[]`, `achievements[]`, `linkHref`
