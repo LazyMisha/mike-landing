@@ -2,7 +2,7 @@ import { PageWrapper } from '@/components/PageWrapper';
 import TerminalPrompt from '@/components/TerminalPrompt';
 import BackLink from '@/components/BackLink';
 import { notFound } from 'next/navigation';
-import { terminalCommands, cliLabels, navigationLabels } from '@/lib/constants';
+import { terminalCommands, cliLabels, navigationLabels, experienceLabels } from '@/lib/constants';
 import { experiences } from '@/lib/experience-data';
 
 interface PageProps {
@@ -27,13 +27,13 @@ export default async function ExperienceDetailPage({ params }: PageProps) {
         href="/experience"
         label={navigationLabels.backToExperienceList}
       />
-      Role: {experience.title}<br/><br/>
-      Company: {experience.company}<br/><br/>
-      Date: {experience.dateRange}<br /><br />
-      Location: {experience.location}<br /><br />
-      Description: {experience.description}<br /><br/>
-      Technologies: {experience.technologies.join(', ')}<br /><br/>
-      Achievements: <ul>{experience.achievements.map((ach, idx) => <li key={idx}>{ach}</li>)}</ul><br/>
+      {experienceLabels.role} {experience.title}<br/><br/>
+      {experienceLabels.company} {experience.company}<br/><br/>
+      {experienceLabels.date} {experience.dateRange}<br /><br />
+      {experienceLabels.location} {experience.location}<br /><br />
+      {experienceLabels.description} {experience.description}<br /><br/>
+      {experienceLabels.technologies} {experience.technologies.join(', ')}<br /><br/>
+      {experienceLabels.achievements} <ul>{experience.achievements.map((ach, idx) => <li key={idx}>{ach}</li>)}</ul><br/>
     </PageWrapper>
   );
 }

@@ -1,5 +1,19 @@
 export const terminalPrompt = 'user@lazydev:~ $';
 
+export const experienceLabels = {
+  role: 'Role:',
+  company: 'Company:',
+  date: 'Date:',
+  location: 'Location:',
+  description: 'Description:',
+  technologies: 'Technologies:',
+  achievements: 'Achievements:',
+};
+
+export const ariaLabels = {
+  readMoreAbout: (title: string, company: string) => `Read more about ${title} at ${company}`,
+};
+
 export const cliLabels = {
   experience: '[experience]',
   projects: '[projects]',

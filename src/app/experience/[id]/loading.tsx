@@ -1,10 +1,11 @@
 import { PageWrapper } from '@/components/PageWrapper';
 import TerminalPrompt from '@/components/TerminalPrompt';
+import { terminalCommands, cliLabels } from '@/lib/constants';
 
 export default function ExperienceDetailLoading() {
   return (
     <PageWrapper>
-      <TerminalPrompt command="cat" argument="[experience]/loading..." />
+      <TerminalPrompt command={terminalCommands.view} argument={`${cliLabels.experience}/loading...`} />
       <div className="animate-pulse space-y-4">
         <div className="h-8 bg-gray-200 dark:bg-gray-800 rounded w-3/4"></div>
         <div className="h-4 bg-gray-200 dark:bg-gray-800 rounded w-1/2"></div>

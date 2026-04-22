@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Heading } from './Heading';
 import { Body } from './Body';
+import { ariaLabels } from '@/lib/constants';
 
 interface ExperienceCardProps {
   title: string;
@@ -39,7 +40,7 @@ export default function ExperienceCard({
       <Link
         href={linkHref}
         className="text-(--accent-green) hover:text-(--accent-green-hover) transition-colors duration-200 inline-block cursor-pointer focus:underline focus:outline-none"
-        aria-label={`Read more about ${title} at ${company}`}
+        aria-label={ariaLabels.readMoreAbout(title, company)}
       >
         [ read more ] →
       </Link>
