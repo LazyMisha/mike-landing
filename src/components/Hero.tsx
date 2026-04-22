@@ -18,9 +18,8 @@ export function Hero() {
   return (
     <section className="flex flex-col items-stretch pb-4 md:flex-row md:items-start md:gap-5 md:pb-6">
       <div className="flex flex-col pb-4 gap-4 md:gap-4 md:shrink-0 md:w-[50%]">
-        <Heading>
+        <Heading as="h3">
           Hey,
-          <br className="hidden md:block" />
           {" "}I&apos;m {name}
         </Heading>
         <Small>

@@ -11,7 +11,7 @@ export function PageWrapper({
 }: PageWrapperProps) {
   return (
     <Tag
-      className={`h-full text-foreground max-w-[75ch] mx-auto px-4 md:py-4 ${className}`}
+      className={`h-full text-foreground max-w-[75ch] mx-auto px-4 md:py-2 ${className}`}
     >
       {children}
     </Tag>
