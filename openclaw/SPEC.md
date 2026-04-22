@@ -18,7 +18,7 @@
 
 - `/`: landing page; live datetime + location; theme toggle; hero photo + metadata caption; social links
 - `/experience`: all experience entries; links to `/experience/[id]`; terminal-style navigation
-- `/experience/[id]`: overview, technologies, achievements, timeline; invalid id -> not found; loading state
+- `/experience/[id]`: role, company, date, location, description, technologies, achievements; invalid id -> not found; loading state
 - `/projects`: placeholder; terminal prompt + back link + short placeholder copy
 - `/case-studies`: placeholder; terminal prompt + back link + short placeholder copy
 - `/notes`: placeholder; terminal prompt + back link + short placeholder copy
