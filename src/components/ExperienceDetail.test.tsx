@@ -39,12 +39,12 @@ describe('ExperienceDetail', () => {
   it('renders timeline structure with green dots', () => {
     const { container } = render(<ExperienceDetail experience={mockExperience} />);
 
-    // Check for green dot markers
-    const dots = container.querySelectorAll('.bg-green-500.rounded-full');
+    // Check for green dot markers (using inline style or data attribute instead of class)
+    const dots = container.querySelectorAll('[class*="accent-green"]');
     expect(dots.length).toBe(4); // Metadata, Description, Technologies, Achievements
 
     // Check for vertical line segments
-    const lines = container.querySelectorAll('.w-px.bg-gray-600');
+    const lines = container.querySelectorAll('.w-px.bg-chart-3');
     expect(lines.length).toBe(4); // One for each section
   });
 });
