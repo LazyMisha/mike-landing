@@ -1,22 +1,33 @@
 import { PageWrapper } from '@/components/PageWrapper';
+import TimelineList from '@/components/TimelineList';
 import TerminalPrompt from '@/components/TerminalPrompt';
 import BackLink from '@/components/BackLink';
+import { Body } from '@/components/Body';
+import { caseStudies } from '@/lib/case-study-data';
 import { terminalCommands, cliLabels, navigationLabels } from '@/lib/constants';
 
 export default function CaseStudiesPage() {
   return (
     <PageWrapper>
       <TerminalPrompt
-        command={terminalCommands.view}
+        command={terminalCommands.list}
         argument={cliLabels.caseStudies}
       />
       <BackLink href="/" label={navigationLabels.backToHome} />
-      <p className="text-base mb-4">
-        [ Case studies coming soon... ]
-      </p>
-      <p className="text-sm text-gray-500 dark:text-gray-400">
-        In-depth analysis of technical challenges and solutions.
-      </p>
+      <Body className='mb-4 md:mb-6'>
+        total: {caseStudies.length}
+      </Body>
+      <TimelineList
+        items={caseStudies.map((study) => ({
+          id: study.id,
+          title: study.title,
+          company: '',
+          dateRange: '',
+          location: '',
+          description: study.problem,
+          linkHref: study.linkHref,
+        }))}
+      />
     </PageWrapper>
   );
 }

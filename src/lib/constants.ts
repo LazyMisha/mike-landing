@@ -19,6 +19,13 @@ export const projectLabels = {
   achievements: 'Achievements:',
 };
 
+export const caseStudyLabels = {
+  problem: 'problem:',
+  solution: 'solution:',
+  result: 'result:',
+  technologies: 'technologies:',
+};
+
 export const ariaLabels = {
   readMoreAbout: (title: string, company: string) => `Read more about ${title} at ${company}`,
 };
