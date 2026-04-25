@@ -1,6 +1,9 @@
 import { PageWrapper } from '@/components/PageWrapper';
+import TimelineList from '@/components/TimelineList';
 import TerminalPrompt from '@/components/TerminalPrompt';
 import BackLink from '@/components/BackLink';
+import { Body } from '@/components/Body';
+import { projects } from '@/lib/project-data';
 import { terminalCommands, cliLabels, navigationLabels } from '@/lib/constants';
 
 export default function ProjectsPage() {
@@ -11,12 +14,20 @@ export default function ProjectsPage() {
         argument={cliLabels.projects}
       />
       <BackLink href="/" label={navigationLabels.backToHome} />
-      <p className="text-base mb-4">
-        [ Project entries coming soon... ]
-      </p>
-      <p className="text-sm text-gray-500 dark:text-gray-400">
-        This section will showcase personal and professional projects.
-      </p>
+      <Body className='mb-4 md:mb-6'>
+        total: {projects.length}
+      </Body>
+      <TimelineList
+        items={projects.map((project) => ({
+          id: project.id,
+          title: project.name,
+          company: project.company,
+          dateRange: project.type === 'personal' ? 'pet' : 'work',
+          location: '',
+          description: project.description,
+          linkHref: project.linkHref,
+        }))}
+      />
     </PageWrapper>
   );
 }

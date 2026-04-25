@@ -1,5 +1,5 @@
 import { PageWrapper } from '@/components/PageWrapper';
-import ExperienceList from '@/components/ExperienceList';
+import TimelineList from '@/components/TimelineList';
 import TerminalPrompt from '@/components/TerminalPrompt';
 import BackLink from '@/components/BackLink';
 import { Body } from '@/components/Body';
@@ -17,8 +17,8 @@ export default function ExperiencePage() {
       <Body className='mb-4 md:mb-6'>
         total: {experiences.length}
       </Body>
-      <ExperienceList
-        experiences={experiences}
+      <TimelineList
+        items={experiences}
       />
     </PageWrapper>
   );

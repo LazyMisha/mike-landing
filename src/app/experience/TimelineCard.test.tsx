@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import ExperienceCard from '../../components/ExperienceCard';
+import TimelineCard from '../../components/TimelineCard';
 
-describe('ExperienceCard', () => {
+describe('TimelineCard', () => {
   const mockProps = {
     title: 'Senior Kernel Architect',
     company: 'Monolith Corp',
@@ -13,23 +13,23 @@ describe('ExperienceCard', () => {
   };
 
   it('renders title correctly with underline styling', () => {
-    render(<ExperienceCard {...mockProps} />);
+    render(<TimelineCard {...mockProps} />);
     const title = screen.getByText('Senior Kernel Architect');
     expect(title).toBeInTheDocument();
   });
 
   it('renders metadata line with date range', () => {
-    render(<ExperienceCard {...mockProps} />);
+    render(<TimelineCard {...mockProps} />);
     expect(screen.getByText('2022 - Present')).toBeInTheDocument();
   });
 
   it('renders description text', () => {
-    render(<ExperienceCard {...mockProps} />);
+    render(<TimelineCard {...mockProps} />);
     expect(screen.getByText(/Leading the core systems team/i)).toBeInTheDocument();
   });
 
   it('renders "read more" link with correct href', () => {
-    render(<ExperienceCard {...mockProps} />);
+    render(<TimelineCard {...mockProps} />);
     const link = screen.getByText(/read more/i);
     expect(link).toBeInTheDocument();
     expect(link.closest('a')).toHaveAttribute('href', '#');

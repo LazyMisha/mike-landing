@@ -10,6 +10,15 @@ export const experienceLabels = {
   achievements: 'Achievements:',
 };
 
+export const projectLabels = {
+  name: 'Name:',
+  company: 'Company:',
+  type: 'Type:',
+  description: 'Description:',
+  technologies: 'Technologies:',
+  achievements: 'Achievements:',
+};
+
 export const ariaLabels = {
   readMoreAbout: (title: string, company: string) => `Read more about ${title} at ${company}`,
 };
