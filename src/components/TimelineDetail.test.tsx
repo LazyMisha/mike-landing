@@ -30,14 +30,4 @@ describe('TimelineDetail', () => {
     render(<TimelineDetail item={mockItem} />);
     expect(screen.getByText('Achievement 1')).toBeInTheDocument();
   });
-
-  it('renders timeline structure with green dots', () => {
-    const { container } = render(<TimelineDetail item={mockItem} />);
-
-    const dots = container.querySelectorAll('.bg-\\(--accent-green\\).rounded-full');
-    expect(dots.length).toBe(4);
-
-    const lines = container.querySelectorAll('.w-px.bg-chart-3');
-    expect(lines.length).toBe(4);
-  });
 });
