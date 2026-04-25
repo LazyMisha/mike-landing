@@ -3,7 +3,7 @@ import { Heading } from './Heading';
 import { Body } from './Body';
 import { ariaLabels } from '@/lib/constants';
 
-interface ExperienceCardProps {
+export interface TimelineCardProps {
   title: string;
   company: string;
   dateRange: string;
@@ -12,14 +12,14 @@ interface ExperienceCardProps {
   linkHref: string;
 }
 
-export default function ExperienceCard({
+export default function TimelineCard({
   title,
   company,
   dateRange,
   location,
   description,
   linkHref,
-}: ExperienceCardProps) {
+}: TimelineCardProps) {
   return (
     <article className="mb-4 last:mb-0">
       <Heading as='h4'>

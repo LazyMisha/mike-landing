@@ -17,9 +17,10 @@
 ## Pages
 
 - `/`: landing page; live datetime + location; theme toggle; hero photo + metadata caption; social links
-- `/experience`: all experience entries; links to `/experience/[id]`; terminal-style navigation
-- `/experience/[id]`: role, company, date, location, description, technologies, achievements; invalid id -> not found; loading state
-- `/projects`: placeholder; terminal prompt + back link + short placeholder copy
+- `/experience`: all experience entries; links to `/experience/[id]`; terminal-style navigation; uses shared `TimelineList` component
+- `/experience/[id]`: role, company, date, location, description, technologies, achievements; invalid id -> not found; loading state; uses shared `TimelineDetail` component
+- `/projects`: all projects; links to `/projects/[id]`; terminal-style navigation; uses shared `TimelineList` component; shows `work`/`pet` badge
+- `/projects/[id]`: project details; name, company, type (work/personal), description, technologies, achievements; invalid id -> not found; loading state; uses shared `TimelineDetail` component
 - `/case-studies`: placeholder; terminal prompt + back link + short placeholder copy
 - `/notes`: placeholder; terminal prompt + back link + short placeholder copy
 
@@ -31,6 +32,7 @@
 - navigation resets scroll position
 - terminal labels stay consistent across routes
 - experience detail fails safely on unknown ids
+- project detail fails safely on unknown ids
 - placeholder pages stay intentionally minimal until replaced
 
 ## Acceptance Criteria
@@ -40,3 +42,4 @@
 - route behavior stays intact
 - tests change with behavior when needed
 - relevant checks run before completion
+- timeline components are reusable across experience and projects

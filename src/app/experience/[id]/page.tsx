@@ -1,7 +1,7 @@
 import { PageWrapper } from '@/components/PageWrapper';
 import TerminalPrompt from '@/components/TerminalPrompt';
 import BackLink from '@/components/BackLink';
-import ExperienceDetail from '@/components/ExperienceDetail';
+import TimelineDetail from '@/components/TimelineDetail';
 import { notFound } from 'next/navigation';
 import { terminalCommands, cliLabels, navigationLabels } from '@/lib/constants';
 import { experiences } from '@/lib/experience-data';
@@ -28,7 +28,7 @@ export default async function ExperienceDetailPage({ params }: PageProps) {
         href="/experience"
         label={navigationLabels.backToExperienceList}
       />
-      <ExperienceDetail experience={experience} />
+      <TimelineDetail item={experience} />
     </PageWrapper>
   );
 }
