@@ -22,7 +22,7 @@
 - `/projects`: all projects; links to `/projects/[id]`; terminal-style navigation; uses shared `TimelineList` component; shows `work`/`pet` badge
 - `/projects/[id]`: project details; name, company, type (work/personal), description, technologies, achievements; invalid id -> not found; loading state; uses shared `TimelineDetail` component
 - `/case-studies`: placeholder; terminal prompt + back link + short placeholder copy
-- `/notes`: placeholder; terminal prompt + back link + short placeholder copy
+- `/notes`: static content page; terminal prompt + back link + intro body + timeline sections with bullet lists; describes portfolio build process; sources from `notes-data.ts`
 
 ## Non-Negotiable
 
