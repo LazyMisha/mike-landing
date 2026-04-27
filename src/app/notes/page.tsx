@@ -10,15 +10,15 @@ export default function NotesPage() {
     <PageWrapper>
       <TerminalPrompt
         command={terminalCommands.view}
-        argument="build.md"
+        argument="[notes]"
       />
       <BackLink href="/" label={navigationLabels.backToHome} />
-      <Body className="mb-8 md:mb-10">
+      <Body className="mb-4 md:mb-6">
         This page describes how this portfolio was designed and built, including tools, decisions, and workflow.
       </Body>
 
-      <section className="mb-8">
-        <Heading as="h2" className="text-lg font-bold mb-3">
+      <section className="mb-4 md:mb-6">
+        <Heading as="h4" className="text-lg font-bold mb-3">
           Design & Ideation
         </Heading>
         <ul className="list-disc list-inside text-sm leading-relaxed space-y-1">
@@ -27,8 +27,8 @@ export default function NotesPage() {
         </ul>
       </section>
 
-      <section className="mb-8">
-        <Heading as="h2" className="text-lg font-bold mb-3">
+      <section className="mb-4 md:mb-6">
+        <Heading as="h4" className="text-lg font-bold mb-3">
           Structure & Architecture
         </Heading>
         <ul className="list-disc list-inside text-sm leading-relaxed space-y-1">
@@ -38,8 +38,8 @@ export default function NotesPage() {
         </ul>
       </section>
 
-      <section className="mb-8">
-        <Heading as="h2" className="text-lg font-bold mb-3">
+      <section className="mb-4 md:mb-6">
+        <Heading as="h4" className="text-lg font-bold mb-3">
           Coding & Implementation
         </Heading>
         <ul className="list-disc list-inside text-sm leading-relaxed space-y-1">
@@ -49,8 +49,8 @@ export default function NotesPage() {
         </ul>
       </section>
 
-      <section className="mb-8">
-        <Heading as="h2" className="text-lg font-bold mb-3">
+      <section className="mb-4 md:mb-6">
+        <Heading as="h4" className="text-lg font-bold mb-3">
           Tools & Workflow
         </Heading>
         <ul className="list-disc list-inside text-sm leading-relaxed space-y-1">
@@ -60,8 +60,8 @@ export default function NotesPage() {
         </ul>
       </section>
 
-      <section className="mb-8">
-        <Heading as="h2" className="text-lg font-bold mb-3">
+      <section className="mb-4 md:mb-6">
+        <Heading as="h4" className="text-lg font-bold mb-3">
           Key Decisions
         </Heading>
         <ul className="list-disc list-inside text-sm leading-relaxed space-y-1">
@@ -71,8 +71,8 @@ export default function NotesPage() {
         </ul>
       </section>
 
-      <section className="mb-8">
-        <Heading as="h2" className="text-lg font-bold mb-3">
+      <section className="mb-4 md:mb-6">
+        <Heading as="h4" className="text-lg font-bold mb-3">
           Lessons Learned
         </Heading>
         <ul className="list-disc list-inside text-sm leading-relaxed space-y-1">
