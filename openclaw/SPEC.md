@@ -21,8 +21,8 @@
 - `/experience/[id]`: role, company, date, location, description, technologies, achievements; invalid id -> not found; loading state; uses shared `TimelineDetail` component
 - `/projects`: all projects; links to `/projects/[id]`; terminal-style navigation; uses shared `TimelineList` component; shows `work`/`pet` badge
 - `/projects/[id]`: project details; name, company, type (work/personal), description, technologies, achievements; invalid id -> not found; loading state; uses shared `TimelineDetail` component
-- `/case-studies`: placeholder; terminal prompt + back link + short placeholder copy
-- `/notes`: placeholder; terminal prompt + back link + short placeholder copy
+- `/case-studies`: all case studies; links to `/case-studies/[id]`; terminal-style navigation; uses shared `TimelineList` component
+- `/notes`: static content page; terminal prompt + back link + intro body + timeline sections with bullet lists; describes portfolio build process; sources from `notes-data.ts`
 
 ## Non-Negotiable
 
@@ -33,6 +33,7 @@
 - terminal labels stay consistent across routes
 - experience detail fails safely on unknown ids
 - project detail fails safely on unknown ids
+- case-study detail fails safely on unknown ids
 - placeholder pages stay intentionally minimal until replaced
 
 ## Acceptance Criteria

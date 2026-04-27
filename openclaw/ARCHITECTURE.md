@@ -12,13 +12,16 @@
 - `/experience/[id]`: detail route; async `params`; source `experiences`; invalid id -> `notFound()`; route-local `loading.tsx`, `not-found.tsx`; `TimelineDetail`
 - `/projects`: list route; `PageWrapper`, `TerminalPrompt`, `BackLink`, `TimelineList`
 - `/projects/[id]`: detail route; async `params`; source `projects`; invalid id -> `notFound()`; route-local `loading.tsx`, `not-found.tsx`; `TimelineDetail`
-- `/case-studies`, `/notes`: placeholder routes; shared prompt/back shell
+- `/case-studies`: content route; `PageWrapper`, `TerminalPrompt`, `BackLink`, `Body`, `TimelineList`; case studies sourced from `case-study-data.ts`
+- `/notes`: content route; `PageWrapper`, `TerminalPrompt`, `BackLink`, `Body`, `TimelineSection`, `Heading`; static sections sourced from `notes-data.ts`
 
 ## Data Flow
 
 - `src/lib/data.ts`: landing/profile content
 - `src/lib/experience-data.ts`: experience content
 - `src/lib/project-data.ts`: project content
+- `src/lib/case-study-data.ts`: case studies content
+- `src/lib/notes-data.ts`: notes content
 - `src/lib/constants.ts`: terminal and navigation constants
 - `public/images/`: hero image asset
 - route change: scroll reset handled by `ScrollToTop`
@@ -30,7 +33,7 @@
 - typography primitives: `Heading`, `Body`, `Small`
 - landing composition: `Hero`, `InfoSection`, `LinksSection`, `PolaroidFrame`
 - navigation system: `CliNavigation`, `TerminalPrompt`, `BackLink`
-- timeline system: `TimelineList`, `TimelineCard`, `TimelineDetail`
+- timeline system: `TimelineList`, `TimelineCard`, `TimelineDetail`, `TimelineSection`
 
 ## Editing Map
 
@@ -39,7 +42,9 @@
 - terminal labels, nav, prompt: `src/lib/constants.ts`, `src/components/CliNavigation.tsx`, route file under `src/app/`
 - experience content: `src/lib/experience-data.ts`
 - project content: `src/lib/project-data.ts`
-- timeline components: `src/components/TimelineList.tsx`, `src/components/TimelineCard.tsx`, `src/components/TimelineDetail.tsx`
+- case studies content: `src/lib/case-study-data.ts`, `src/app/case-studies/page.tsx`
+- notes content: `src/lib/notes-data.ts`, `src/app/notes/page.tsx`
+- timeline components: `src/components/TimelineList.tsx`, `src/components/TimelineCard.tsx`, `src/components/TimelineDetail.tsx`, `src/components/TimelineSection.tsx`
 - theme tokens, global visuals: `src/app/globals.css`, `src/components/Header.tsx`, `src/components/ThemeToggle.tsx`
 - shell or layout behavior: `src/app/layout.tsx`, `src/components/PageWrapper.tsx`, `src/components/Header.tsx`, `src/components/Footer.tsx`
 
@@ -61,6 +66,7 @@
 - `LandingData.personal`: `name`, `tagline`, `location`, `email`
 - `LandingData.hero`: `pronunciationLine1`, `pronunciationLine2`, `photoMeta`, `photo`
 - `LandingData.socials`: `linkedin`
+- `NoteSection`: `title`, `items[]`
 - `Experience`: `id`, `title`, `company`, `dateRange`, `location`, `description`, `technologies[]`, `achievements[]`, `linkHref`
 - `Project`: `id`, `name`, `company`, `type` ('work' | 'personal'), `description`, `technologies[]`, `achievements[]`, `linkHref`
 - `TimelineListItem`: `id`, `title`, `company`, `dateRange`, `location`, `description`, `linkHref`

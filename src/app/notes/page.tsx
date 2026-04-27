@@ -1,6 +1,10 @@
 import { PageWrapper } from '@/components/PageWrapper';
 import TerminalPrompt from '@/components/TerminalPrompt';
 import BackLink from '@/components/BackLink';
+import { Body } from '@/components/Body';
+import { Heading } from '@/components/Heading';
+import TimelineSection from '@/components/TimelineSection';
+import { notesSections } from '@/lib/notes-data';
 import { terminalCommands, cliLabels, navigationLabels } from '@/lib/constants';
 
 export default function NotesPage() {
@@ -11,12 +15,22 @@ export default function NotesPage() {
         argument={cliLabels.notes}
       />
       <BackLink href="/" label={navigationLabels.backToHome} />
-      <p className="text-base mb-4">
-        [ Notes coming soon... ]
-      </p>
-      <p className="text-sm text-gray-500 dark:text-gray-400">
-        Technical notes, thoughts, and learnings.
-      </p>
+      <Body className="mb-4 md:mb-6">
+        This page describes how this portfolio was designed and built, including tools, decisions, and workflow.
+      </Body>
+
+      {notesSections.map((section) => (
+        <TimelineSection key={section.title}>
+          <Heading as="h4" className="text-lg font-bold mb-3">
+            {section.title}
+          </Heading>
+          <ul className="list-disc list-inside text-sm leading-relaxed space-y-1">
+            {section.items.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </TimelineSection>
+      ))}
     </PageWrapper>
   );
 }
