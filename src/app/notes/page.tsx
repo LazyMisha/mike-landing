@@ -5,14 +5,14 @@ import { Body } from '@/components/Body';
 import { Heading } from '@/components/Heading';
 import TimelineSection from '@/components/TimelineSection';
 import { notesSections } from '@/lib/notes-data';
-import { terminalCommands, navigationLabels } from '@/lib/constants';
+import { terminalCommands, cliLabels, navigationLabels } from '@/lib/constants';
 
 export default function NotesPage() {
   return (
     <PageWrapper>
       <TerminalPrompt
         command={terminalCommands.view}
-        argument="[notes]"
+        argument={cliLabels.notes}
       />
       <BackLink href="/" label={navigationLabels.backToHome} />
       <Body className="mb-4 md:mb-6">

@@ -12,7 +12,7 @@
 - `/experience/[id]`: detail route; async `params`; source `experiences`; invalid id -> `notFound()`; route-local `loading.tsx`, `not-found.tsx`; `TimelineDetail`
 - `/projects`: list route; `PageWrapper`, `TerminalPrompt`, `BackLink`, `TimelineList`
 - `/projects/[id]`: detail route; async `params`; source `projects`; invalid id -> `notFound()`; route-local `loading.tsx`, `not-found.tsx`; `TimelineDetail`
-- `/case-studies`: placeholder route; terminal prompt + back link + short placeholder copy
+- `/case-studies`: content route; `PageWrapper`, `TerminalPrompt`, `BackLink`, `Body`, `TimelineList`; case studies sourced from `case-study-data.ts`
 - `/notes`: content route; `PageWrapper`, `TerminalPrompt`, `BackLink`, `Body`, `TimelineSection`, `Heading`; static sections sourced from `notes-data.ts`
 
 ## Data Flow
@@ -20,6 +20,7 @@
 - `src/lib/data.ts`: landing/profile content
 - `src/lib/experience-data.ts`: experience content
 - `src/lib/project-data.ts`: project content
+- `src/lib/case-study-data.ts`: case studies content
 - `src/lib/notes-data.ts`: notes content
 - `src/lib/constants.ts`: terminal and navigation constants
 - `public/images/`: hero image asset
@@ -41,6 +42,7 @@
 - terminal labels, nav, prompt: `src/lib/constants.ts`, `src/components/CliNavigation.tsx`, route file under `src/app/`
 - experience content: `src/lib/experience-data.ts`
 - project content: `src/lib/project-data.ts`
+- case studies content: `src/lib/case-study-data.ts`, `src/app/case-studies/page.tsx`
 - notes content: `src/lib/notes-data.ts`, `src/app/notes/page.tsx`
 - timeline components: `src/components/TimelineList.tsx`, `src/components/TimelineCard.tsx`, `src/components/TimelineDetail.tsx`, `src/components/TimelineSection.tsx`
 - theme tokens, global visuals: `src/app/globals.css`, `src/components/Header.tsx`, `src/components/ThemeToggle.tsx`
