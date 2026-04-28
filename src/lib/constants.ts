@@ -43,7 +43,7 @@ export const cliLinks = [
   { label: cliLabels.projects, href: '/projects' },
   { label: cliLabels.caseStudies, href: '/case-studies' },
   { label: cliLabels.notes, href: '/notes' },
-  { label: cliLabels.cvPreview, href: '/#' },
+  { label: cliLabels.cvPreview, href: '/cv-preview' },
 ];
 
 export const terminalCommands = {

@@ -34,6 +34,7 @@ Tone:
 - `/projects/[id]` — project detail with name, company, type, description, technologies, and achievements
 - `/case-studies` — case-study list with total count and links to detail pages
 - `/case-studies/[id]` — case-study detail with title, problem, solution, results, and technologies
+- `/cv-preview` — static professional profile preview with summary, skills, experience preview, portfolio links, and CV download action
 - `/notes` — static notes page describing portfolio build process and decisions
 
 ## Behavior
@@ -41,6 +42,7 @@ Tone:
 - theme respects system preference and can be toggled
 - terminal labels stay consistent across routes
 - list pages link to their matching detail pages
+- CV download uses a static PDF link; no generation or backend logic
 - unknown detail ids fail safely with `notFound()`
 - placeholder links/pages stay intentionally minimal until replaced
 
