@@ -1,46 +1,52 @@
-# Specification
+# Product State
 
-## Product
+## Purpose
 
-- portfolio for Mykhailo Trunov
-- audience: recruiters, hiring managers, engineering teams
-- tone: concise, professional, editorial
-- terminal motif: supportive, not gimmick
+Personal portfolio for Mykhailo Trunov.
 
-## Design
+Audience:
+- recruiters
+- hiring managers
+- engineering teams
 
-- palette: light off-white, dark near-black, lime accents
-- typography: system monospace
-- layout: narrow editorial layout; responsive
-- caption: full metadata; responsive behavior
+Tone:
+- concise
+- professional
+- editorial
+- personal enough to avoid feeling like a template
 
-## Pages
+## Visual Language
 
-- `/`: landing page; live datetime + location; theme toggle; hero photo + metadata caption; social links
-- `/experience`: all experience entries; links to `/experience/[id]`; terminal-style navigation; uses shared `TimelineList` component
-- `/experience/[id]`: role, company, date, location, description, technologies, achievements; invalid id -> not found; loading state; uses shared `TimelineDetail` component
-- `/projects`: all projects; links to `/projects/[id]`; terminal-style navigation; uses shared `TimelineList` component; shows `work`/`pet` badge
-- `/projects/[id]`: project details; name, company, type (work/personal), description, technologies, achievements; invalid id -> not found; loading state; uses shared `TimelineDetail` component
-- `/case-studies`: all case studies; links to `/case-studies/[id]`; terminal-style navigation; uses shared `TimelineList` component
-- `/notes`: static content page; terminal prompt + back link + intro body + timeline sections with bullet lists; describes portfolio build process; sources from `notes-data.ts`
+- minimalist editorial layout
+- system monospace typography
+- light off-white / dark near-black theme
+- lime accent color
+- terminal motif used as navigation language, not as a gimmick
+- sparse, text-led pages
+- responsive mobile and desktop behavior
 
-## Non-Negotiable
+## Routes
 
-- portfolio must not read like a generic template
-- pages stay sparse and text-led
-- theme respects system preference
-- navigation resets scroll position
+- `/` — landing page with hero, live datetime/location, photo metadata, theme toggle, and navigation links
+- `/experience` — experience list with total count and links to detail pages
+- `/experience/[id]` — experience detail with role, company, date, location, description, technologies, and achievements
+- `/projects` — project list with total count and work/pet type labels
+- `/projects/[id]` — project detail with name, company, type, description, technologies, and achievements
+- `/case-studies` — case-study list with total count and links to detail pages
+- `/case-studies/[id]` — case-study detail with title, problem, solution, results, and technologies
+- `/notes` — static notes page describing portfolio build process and decisions
+
+## Behavior
+
+- theme respects system preference and can be toggled
 - terminal labels stay consistent across routes
-- experience detail fails safely on unknown ids
-- project detail fails safely on unknown ids
-- case-study detail fails safely on unknown ids
-- placeholder pages stay intentionally minimal until replaced
+- list pages link to their matching detail pages
+- unknown detail ids fail safely with `notFound()`
+- placeholder links/pages stay intentionally minimal until replaced
 
 ## Acceptance Criteria
 
-- behavior stays coherent across mobile and desktop
-- mono/editorial visual language stays intact
-- route behavior stays intact
-- tests change with behavior when needed
-- relevant checks run before completion
-- timeline components are reusable across experience and projects
+- product remains coherent across mobile and desktop
+- editorial/mono visual language stays intact
+- route behavior remains predictable
+- detail routes fail safely on unknown ids
