@@ -24,6 +24,7 @@
 - `/projects/[id]` → `src/app/projects/[id]/page.tsx`
 - `/case-studies` → `src/app/case-studies/page.tsx`
 - `/case-studies/[id]` → `src/app/case-studies/[id]/page.tsx`
+- `/cv-preview` → `src/app/cv-preview/page.tsx`
 - `/notes` → `src/app/notes/page.tsx`
 
 Dynamic detail routes:
@@ -39,6 +40,7 @@ Dynamic detail routes:
 - project content → `src/lib/project-data.ts`
 - case-study content → `src/lib/case-study-data.ts`
 - notes content → `src/lib/notes-data.ts`
+- CV preview content → `src/lib/cv-preview-data.ts`
 - terminal labels, navigation labels, aria labels → `src/lib/constants.ts`
 - shared utilities → `src/lib/utils.ts`
 - image assets → `public/images/`
