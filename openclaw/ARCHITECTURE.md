@@ -1,73 +1,76 @@
 # Architecture
 
-## Runtime
+## Stack
 
-- framework: Next.js App Router
-- root layout: `src/app/layout.tsx`; global providers; header; footer; main shell
+- Next.js App Router
+- React
+- TypeScript
+- Tailwind CSS
+- Vitest / Testing Library
 
-## Route Map
+## App Shell
 
-- `/`: landing route; `PageWrapper`, `Hero`, `InfoSection`, `CliNavigation`
-- `/experience`: list route; `PageWrapper`, `TerminalPrompt`, `BackLink`, `TimelineList`
-- `/experience/[id]`: detail route; async `params`; source `experiences`; invalid id -> `notFound()`; route-local `loading.tsx`, `not-found.tsx`; `TimelineDetail`
-- `/projects`: list route; `PageWrapper`, `TerminalPrompt`, `BackLink`, `TimelineList`
-- `/projects/[id]`: detail route; async `params`; source `projects`; invalid id -> `notFound()`; route-local `loading.tsx`, `not-found.tsx`; `TimelineDetail`
-- `/case-studies`: content route; `PageWrapper`, `TerminalPrompt`, `BackLink`, `Body`, `TimelineList`; case studies sourced from `case-study-data.ts`
-- `/notes`: content route; `PageWrapper`, `TerminalPrompt`, `BackLink`, `Body`, `TimelineSection`, `Heading`; static sections sourced from `notes-data.ts`
+- root layout: `src/app/layout.tsx`
+- global styles: `src/app/globals.css`
+- providers/header/footer live in the root shell
+- page content is wrapped with `PageWrapper`
 
-## Data Flow
+## Routes
 
-- `src/lib/data.ts`: landing/profile content
-- `src/lib/experience-data.ts`: experience content
-- `src/lib/project-data.ts`: project content
-- `src/lib/case-study-data.ts`: case studies content
-- `src/lib/notes-data.ts`: notes content
-- `src/lib/constants.ts`: terminal and navigation constants
-- `public/images/`: hero image asset
-- route change: scroll reset handled by `ScrollToTop`
+- `/` → `src/app/page.tsx`
+- `/experience` → `src/app/experience/page.tsx`
+- `/experience/[id]` → `src/app/experience/[id]/page.tsx`
+- `/projects` → `src/app/projects/page.tsx`
+- `/projects/[id]` → `src/app/projects/[id]/page.tsx`
+- `/case-studies` → `src/app/case-studies/page.tsx`
+- `/case-studies/[id]` → `src/app/case-studies/[id]/page.tsx`
+- `/notes` → `src/app/notes/page.tsx`
 
-## Component Boundaries
+Dynamic detail routes:
+- use async `params`
+- read from static data in `src/lib`
+- call `notFound()` for unknown ids
+- keep route-local `loading.tsx` and `not-found.tsx` where needed
 
-- root shell: `ThemeProvider`, `Header`, `Footer`, `ScrollToTop`
-- layout constraints: `PageWrapper`
-- typography primitives: `Heading`, `Body`, `Small`
-- landing composition: `Hero`, `InfoSection`, `LinksSection`, `PolaroidFrame`
-- navigation system: `CliNavigation`, `TerminalPrompt`, `BackLink`
-- timeline system: `TimelineList`, `TimelineCard`, `TimelineDetail`, `TimelineSection`
+## Data Owners
+
+- landing/profile content → `src/lib/data.ts`
+- experience content → `src/lib/experience-data.ts`
+- project content → `src/lib/project-data.ts`
+- case-study content → `src/lib/case-study-data.ts`
+- notes content → `src/lib/notes-data.ts`
+- terminal labels, navigation labels, aria labels → `src/lib/constants.ts`
+- shared utilities → `src/lib/utils.ts`
+- image assets → `public/images/`
+
+## Component Owners
+
+- shell: `ThemeProvider`, `Header`, `Footer`
+- layout: `PageWrapper`
+- typography: `Heading`, `Body`, `Small`
+- landing: `Hero`, `InfoSection`, `LinksSection`, `PolaroidFrame`
+- navigation: `CliNavigation`, `TerminalPrompt`, `BackLink`
+- timeline UI: `TimelineList`, `TimelineCard`, `TimelineDetail`, `TimelineSection`
+- case-study detail UI: `CaseStudyDetail`
+- shadcn/base UI wrappers: `src/components/ui`
 
 ## Editing Map
 
-- home copy, location, email, socials: `src/lib/data.ts`, `src/components/Hero.tsx`, `src/components/InfoSection.tsx`, `src/components/LinksSection.tsx`
-- hero image, caption, frame: `public/images/`, `src/lib/data.ts`, `src/components/Hero.tsx`, `src/components/PolaroidFrame.tsx`
-- terminal labels, nav, prompt: `src/lib/constants.ts`, `src/components/CliNavigation.tsx`, route file under `src/app/`
-- experience content: `src/lib/experience-data.ts`
-- project content: `src/lib/project-data.ts`
-- case studies content: `src/lib/case-study-data.ts`, `src/app/case-studies/page.tsx`
-- notes content: `src/lib/notes-data.ts`, `src/app/notes/page.tsx`
-- timeline components: `src/components/TimelineList.tsx`, `src/components/TimelineCard.tsx`, `src/components/TimelineDetail.tsx`, `src/components/TimelineSection.tsx`
-- theme tokens, global visuals: `src/app/globals.css`, `src/components/Header.tsx`, `src/components/ThemeToggle.tsx`
-- shell or layout behavior: `src/app/layout.tsx`, `src/components/PageWrapper.tsx`, `src/components/Header.tsx`, `src/components/Footer.tsx`
+- copy/data changes: start in the relevant `src/lib/*` file
+- terminal/nav label changes: `src/lib/constants.ts`
+- route behavior changes: matching folder under `src/app`
+- reusable UI changes: `src/components`
+- visual tokens/global styling: `src/app/globals.css`
+- shell-level behavior: `src/app/layout.tsx`, `Header`, `Footer`, `ThemeProvider`
 
-## Key Directories
+## Tests
 
-- `src/app`: routes
-- `src/components`: shared components
-- `src/lib`: data, constants, utilities
+- route tests live beside route files under `src/app`
+- new component tests should live beside components under `src/components`
+- shared test setup lives in `src/test/setup.ts`
+- existing legacy tests under `src/app/experience` should not be copied for new component tests
 
 ## Invariants
 
 - do not duplicate shell logic outside `src/app/layout.tsx`
-- keep terminal labels in `src/lib/constants.ts`
-- keep caption implementation in `src/components/PolaroidFrame.tsx`
-- keep timeline components generic and reusable across experience and projects
-
-## Data Models
-
-- `LandingData.personal`: `name`, `tagline`, `location`, `email`
-- `LandingData.hero`: `pronunciationLine1`, `pronunciationLine2`, `photoMeta`, `photo`
-- `LandingData.socials`: `linkedin`
-- `NoteSection`: `title`, `items[]`
-- `Experience`: `id`, `title`, `company`, `dateRange`, `location`, `description`, `technologies[]`, `achievements[]`, `linkHref`
-- `Project`: `id`, `name`, `company`, `type` ('work' | 'personal'), `description`, `technologies[]`, `achievements[]`, `linkHref`
-- `TimelineListItem`: `id`, `title`, `company`, `dateRange`, `location`, `description`, `linkHref`
-- `TimelineDetailItem`: `id`, `title`, `company`, `dateRange`, `location`, `description`, `technologies[]`, `achievements[]`, `linkHref`
+- keep timeline components generic enough for list/detail reuse

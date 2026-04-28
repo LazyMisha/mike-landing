@@ -1,48 +1,60 @@
-# Code
+# Code Rules
 
-## Default Rule
+## Default
 
-- follow standard React/Next.js/TypeScript best practices unless overridden below
+Use standard React, Next.js, and TypeScript best practices unless this file says otherwise.
 
-## Decision Priority
+## Change Strategy
 
-- 1. content -> `src/lib/data.ts`, `src/lib/experience-data.ts`, `src/lib/constants.ts`
-- 2. reuse -> `src/components`
-- 3. route logic -> route folder under `src/app`
-- 4. fallback -> modify existing files before creating new ones
-
-## Workflow
-
-- content changes: start with `src/lib/*`; update components only if structure changes
-- behavior changes: update existing tests or add tests in the same area
-- finalization: run `npm run test -- --run`, `npm run typecheck`, `npm run build`
-- lint: may fail due to known issue in `git-cleanup.js`
-- when behavior or structure changes: update `ARCHITECTURE.md` (structure, ownership), `SPEC.md` (behavior), `CODE.md` (rules)
-
-## Project Rules
-
-- keep route files thin
-- keep `src/components` flat except `src/components/ui`
-- use `@/` for cross-folder imports
-- preserve surrounding export style
-- centralize reusable copy in `src/lib/data.ts`, `src/lib/experience-data.ts`, `src/lib/constants.ts`
-- keep route tests in route folders
-- keep component tests next to components
-- keep shared test setup in `src/test/setup.ts`
-
-## Conflict Resolution
-
-- if rules conflict: prioritize simplicity
-- prefer modifying existing structures over adding new ones
+- make the smallest useful change
+- prefer existing patterns over new abstractions
 - prefer data-driven changes over structural changes
+- modify existing files before creating new ones
+- keep unrelated refactors out of feature work
+
+## Components
+
+- keep component APIs simple and typed
+- use PascalCase for component names and props interfaces
+- preserve existing export style in the file being edited
+- avoid converting server components to client components without a clear need
+
+## Data and Copy
+
+- avoid duplicating strings across routes/components
+- keep route-specific mapping close to the route when it is not reusable
+- preserve the existing content tone unless the request asks for a tone change
+
+## TypeScript
+
+- prefer explicit interfaces for exported component props and data shapes
+- avoid `any` unless there is no practical alternative
+- narrow unknown/external values before use
+- keep derived data simple and readable
+
+## Styling
+
+- preserve the existing visual system
+- prefer existing Tailwind patterns and tokens
+- avoid visual redesign unless requested
+- keep responsive behavior intentional, not incidental
+
+## Testing
+
+- update or add tests when behavior changes
+- test user-visible behavior over implementation details
+- avoid brittle snapshots for ordinary UI changes
+
+## Quality Gate
+
+Before delivery, run the project checks documented in `README.md`.
+
+Do not report work as done while checks fail unless Mike explicitly accepts the risk.
 
 ## Avoid
 
-- new folder structure under `src/components`
-- duplicated labels or copy
-- new content/config owners without a clear ownership gap
-- broad refactors inside feature work
+- duplicated logic or copy
+- broad refactors inside small tasks
 - new dependencies for solved problems
-- memoization without a clear need
-- server-to-client conversion without a real requirement
-- visual redesign unless requested
+- memoization without measured need
+- hidden behavior changes
