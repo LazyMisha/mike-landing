@@ -1,9 +1,13 @@
+import { Fragment } from 'react';
+
 type PolaroidFrameProps = {
   children: React.ReactNode;
   caption?: string;
 };
 
 export function PolaroidFrame({ children, caption }: PolaroidFrameProps) {
+  const captionParts = caption?.split(' · ');
+
   return (
     <div className="h-full md:w-full">
       {/* White frame like polaroid */}
@@ -12,11 +16,18 @@ export function PolaroidFrame({ children, caption }: PolaroidFrameProps) {
         <div className="h-full flex justify-center overflow-hidden bg-muted">
           {children}
         </div>
-        {caption ? (
-          <p className="absolute inset-x-3 bottom-0 flex h-12 items-center justify-center whitespace-nowrap text-center tracking-[0.12em] text-[#4a4135] text-[7px] sm:text-[9px] md:text-xs">
-            <span>{caption.split(' · ')[0]}</span>
-            <span>{' · '}{caption.split(' · ')[1]}</span>
-            <span>{' · '}{caption.split(' · ')[2]}</span>
+        {captionParts ? (
+          <p className="absolute inset-x-3 bottom-0 flex h-12 items-center justify-center gap-2 whitespace-nowrap text-center tracking-[0.12em] text-[#4a4135] text-[7px] sm:text-[9px] md:text-xs">
+            {captionParts.map((captionPart, index) => (
+              <Fragment key={captionPart}>
+                {index > 0 ? (
+                  <span aria-hidden="true" className="inline-flex items-center justify-center tracking-normal">
+                    ·
+                  </span>
+                ) : null}
+                <span>{captionPart}</span>
+              </Fragment>
+            ))}
           </p>
         ) : null}
       </div>
