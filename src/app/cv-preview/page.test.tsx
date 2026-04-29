@@ -19,10 +19,10 @@ describe('CvPreviewPage', () => {
     expect(downloadLink).toHaveAttribute('download');
   });
 
-  it('renders core professional information', () => {
+  it('renders core professional information from the PDF CV', () => {
     render(<CvPreviewPage />);
 
-    expect(screen.getAllByText('Senior Frontend Engineer').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Senior Front-end Engineer & Scrum Master').length).toBeGreaterThan(0);
     expect(screen.getByText('Poland')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'misha_trunov@hotmail.com' })).toHaveAttribute(
       'href',
@@ -34,21 +34,32 @@ describe('CvPreviewPage', () => {
     );
   });
 
-  it('renders skills and experience preview', () => {
+  it('renders key strengths and current role highlight', () => {
     render(<CvPreviewPage />);
 
+    expect(screen.getByText('Key Strengths')).toBeInTheDocument();
     expect(screen.getByText('React')).toBeInTheDocument();
-    expect(screen.getByText('Component-driven development')).toBeInTheDocument();
-    expect(screen.getByText('Experience Preview')).toBeInTheDocument();
-    expect(screen.getByText(/Built and maintained scalable frontend features/)).toBeInTheDocument();
+    expect(screen.getByText('GitLab CI/CD')).toBeInTheDocument();
+    expect(screen.getByText('Current Role Highlight')).toBeInTheDocument();
+    expect(screen.getByText(/Designed and delivered scalable React components and APIs/)).toBeInTheDocument();
   });
 
-  it('renders portfolio navigation links', () => {
+  it('renders the CV experience snapshot', () => {
     render(<CvPreviewPage />);
 
-    expect(screen.getByRole('link', { name: '[ Experience ]' })).toHaveAttribute('href', '/experience');
-    expect(screen.getByRole('link', { name: '[ Projects ]' })).toHaveAttribute('href', '/projects');
-    expect(screen.getByRole('link', { name: '[ Case Studies ]' })).toHaveAttribute('href', '/case-studies');
-    expect(screen.getByRole('link', { name: '[ Notes ]' })).toHaveAttribute('href', '/notes');
+    expect(screen.getByText('Experience Snapshot')).toBeInTheDocument();
+    expect(screen.getAllByText('Senior Front-end Engineer & Scrum Master @ Avid').length).toBeGreaterThan(0);
+    expect(screen.getByText('Senior Front-end Engineer @ GlobalLogic')).toBeInTheDocument();
+    expect(screen.getByText('Software Test Engineer @ AB Soft')).toBeInTheDocument();
+  });
+
+  it('renders selected results and education', () => {
+    render(<CvPreviewPage />);
+
+    expect(screen.getByText('Selected Results')).toBeInTheDocument();
+    expect(screen.getByText(/Microsoft Graph API integration/)).toBeInTheDocument();
+    expect(screen.getByText('Education')).toBeInTheDocument();
+    expect(screen.getByText('Master’s degree of Business Project Management')).toBeInTheDocument();
+    expect(screen.getByText('Lviv Polytechnic National University')).toBeInTheDocument();
   });
 });
