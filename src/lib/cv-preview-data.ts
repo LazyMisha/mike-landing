@@ -3,56 +3,86 @@ import { landingData } from './data';
 export const cvPreviewData = {
   downloadHref: '/cv/mykhailo-trunov-cv.pdf',
   title: 'CV Preview',
-  subtitle: 'A short overview of my experience, skills, and engineering focus.',
+  subtitle: 'A focused web summary of the full PDF CV.',
   summary:
-    'I’m Mykhailo Trunov, a Senior Frontend Engineer focused on building scalable, maintainable, and user-friendly web applications. I enjoy solving complex frontend problems, improving developer experience, and turning product requirements into clean technical solutions.',
+    'Senior Front-end Engineer with expertise in React, JavaScript, performance optimization, and CI/CD. Experienced in building scalable, high-performance web applications, onboarding and mentoring engineers, delivering prototypes for international conferences and enterprise customers, and leading Agile delivery as a Scrum Master.',
   coreInfo: [
-    { label: 'Role', value: 'Senior Frontend Engineer' },
+    { label: 'Role', value: 'Senior Front-end Engineer & Scrum Master' },
     { label: 'Location', value: landingData.personal.location },
     { label: 'Email', value: landingData.personal.email, href: `mailto:${landingData.personal.email}` },
     { label: 'LinkedIn', value: landingData.socials.linkedin, href: landingData.socials.linkedin },
-    {
-      label: 'Focus',
-      value: 'Frontend architecture, React, UI systems, performance, testing, collaboration',
-    },
   ],
   skillGroups: [
     {
       title: 'Frontend',
-      items: ['React', 'TypeScript', 'JavaScript', 'HTML', 'CSS'],
+      items: ['React', 'JavaScript', 'TypeScript', 'Webpack'],
     },
     {
-      title: 'Architecture',
-      items: [
-        'Component-driven development',
-        'Scalable UI structure',
-        'State management',
-        'Design system thinking',
-      ],
+      title: 'Delivery',
+      items: ['GitLab CI/CD', 'Docker', 'NPM registries', 'Nginx'],
     },
     {
       title: 'Quality',
-      items: ['Testing', 'Code review', 'Maintainability', 'Performance awareness'],
+      items: ['Jest', 'Unit tests', 'Performance optimization', 'Build optimization'],
     },
     {
-      title: 'Workflow',
-      items: ['Git', 'CI/CD awareness', 'Agile collaboration', 'AI-assisted development workflow'],
+      title: 'Collaboration',
+      items: ['Scrum Master', 'Agile meetings', 'Stakeholder communication', 'Mentoring'],
     },
   ],
-  experiencePreview: {
-    title: 'Senior Frontend Engineer',
-    company: 'Selected frontend and product teams',
-    dateRange: 'Recent experience',
+  currentRole: {
+    title: 'Senior Front-end Engineer & Scrum Master',
+    company: 'Avid',
+    location: 'Poland',
+    dateRange: '05.2024 - Present',
     bullets: [
-      'Built and maintained scalable frontend features for real-world products',
-      'Collaborated with cross-functional teams to deliver clean and reliable UI',
-      'Improved frontend quality through maintainable components and clear engineering practices',
+      'Designed and delivered scalable React components and APIs, improving feature development speed and maintainability.',
+      'Built GitLab CI/CD and Docker pipelines to reduce deployment time and support reliable releases.',
+      'Improved Webpack builds with hashing and compression to reduce load times and enhance customer experience.',
+      'Created prototypes for public conferences and customer presentations, including work that supported Microsoft Graph API adoption.',
+      'Run Agile ceremonies, decompose complex work into user stories, generate sprint reports, and coordinate releases with release managers, product owners, and development teams.',
     ],
   },
-  portfolioLinks: [
-    { label: 'Experience', href: '/experience' },
-    { label: 'Projects', href: '/projects' },
-    { label: 'Case Studies', href: '/case-studies' },
-    { label: 'Notes', href: '/notes' },
+  experienceSnapshot: [
+    {
+      title: 'Senior Front-end Engineer & Scrum Master',
+      company: 'Avid',
+      location: 'Poland',
+      dateRange: '05.2024 - Present',
+    },
+    {
+      title: 'Senior Front-end Engineer',
+      company: 'GlobalLogic',
+      location: 'Ukraine, Kyiv',
+      dateRange: '04.2022 - 05.2024',
+    },
+    {
+      title: 'Front-end Engineer',
+      company: 'GlobalLogic',
+      location: 'Ukraine, Kyiv',
+      dateRange: '08.2020 - 04.2022',
+    },
+    {
+      title: 'Senior Test Engineer',
+      company: 'GlobalLogic',
+      location: 'Ukraine, Kyiv',
+      dateRange: '07.2019 - 08.2020',
+    },
+    {
+      title: 'Software Test Engineer',
+      company: 'AB Soft',
+      location: 'Ukraine, Odesa',
+      dateRange: '05.2017 - 07.2019',
+    },
   ],
+  selectedResults: [
+    'Developed a prototype to evaluate Microsoft Graph API integration, helping stakeholders approve adoption and supporting delivery of new integration-powered features.',
+    'Created AI-powered UI prototypes for IBC2023 and integrated them with backend services.',
+    'Set up and maintained GitLab CI/CD pipelines, Docker workflows, and NPM registry publishing/deployment processes.',
+    'Created visual tests for reusable React components and performance tests with Gatling and Scala from scratch.',
+  ],
+  education: {
+    degree: 'Master’s degree of Business Project Management',
+    institution: 'Lviv Polytechnic National University',
+  },
 } as const;

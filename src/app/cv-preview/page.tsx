@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import BackLink from '@/components/BackLink';
 import { Body } from '@/components/Body';
 import { Heading } from '@/components/Heading';
@@ -99,7 +98,7 @@ export default function CvPreviewPage() {
         </dl>
       </CvSection>
 
-      <CvSection title="Skills Snapshot">
+      <CvSection title="Key Strengths">
         <div className="grid gap-4 md:grid-cols-2">
           {cvPreviewData.skillGroups.map((group) => (
             <section key={group.title}>
@@ -112,27 +111,42 @@ export default function CvPreviewPage() {
         </div>
       </CvSection>
 
-      <CvSection title="Experience Preview">
+      <CvSection title="Current Role Highlight">
         <div className="space-y-2 text-sm leading-relaxed sm:text-base">
-          <p className="font-semibold">{cvPreviewData.experiencePreview.title}</p>
-          <p className="text-zinc-600 dark:text-zinc-400">
-            {cvPreviewData.experiencePreview.company} · {cvPreviewData.experiencePreview.dateRange}
+          <p className="font-semibold">
+            {cvPreviewData.currentRole.title} @ {cvPreviewData.currentRole.company}
           </p>
-          <BulletList items={cvPreviewData.experiencePreview.bullets} />
+          <p className="text-zinc-600 dark:text-zinc-400">
+            {cvPreviewData.currentRole.location} · {cvPreviewData.currentRole.dateRange}
+          </p>
+          <BulletList items={cvPreviewData.currentRole.bullets} />
         </div>
       </CvSection>
 
-      <CvSection title="More Detail">
-        <Body className="mb-3">
-          Want more detail? Explore my experience, projects, and case studies.
-        </Body>
-        <nav aria-label="Portfolio sections" className="flex flex-wrap gap-3 text-sm sm:text-base">
-          {cvPreviewData.portfolioLinks.map((link) => (
-            <Link key={link.href} href={link.href} className={accentLinkClassName}>
-              [ {link.label} ]
-            </Link>
+      <CvSection title="Experience Snapshot">
+        <ol className="space-y-3 text-sm leading-relaxed sm:text-base">
+          {cvPreviewData.experienceSnapshot.map((item) => (
+            <li key={`${item.company}-${item.title}-${item.dateRange}`}>
+              <p className="font-semibold">
+                {item.title} @ {item.company}
+              </p>
+              <p className="text-zinc-600 dark:text-zinc-400">
+                {item.location} · {item.dateRange}
+              </p>
+            </li>
           ))}
-        </nav>
+        </ol>
+      </CvSection>
+
+      <CvSection title="Selected Results">
+        <BulletList items={cvPreviewData.selectedResults} />
+      </CvSection>
+
+      <CvSection title="Education">
+        <div className="text-sm leading-relaxed sm:text-base">
+          <p className="font-semibold">{cvPreviewData.education.degree}</p>
+          <p className="text-zinc-600 dark:text-zinc-400">{cvPreviewData.education.institution}</p>
+        </div>
       </CvSection>
     </PageWrapper>
   );
