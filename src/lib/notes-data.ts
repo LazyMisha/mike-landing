@@ -5,50 +5,50 @@ export interface NoteSection {
 
 export const notesSections: NoteSection[] = [
   {
-    title: 'Design \u0026 Ideation',
+    title: 'Design & Positioning',
     items: [
-      'ChatGPT used for layout ideas, UX iteration, and structure',
-      'Focus on clarity and fast iteration over pixel perfection',
+      'Portfolio positioned around real CV strengths: frontend craft, AI interest, delivery, and quality',
+      'Tone kept concise, professional, editorial, and personal enough to avoid feeling like a template',
     ],
   },
   {
-    title: 'Structure \u0026 Architecture',
+    title: 'Content Alignment',
     items: [
-      'Sections: experience, projects, case studies, notes',
-      'Flat structure, no over-engineering',
-      'Portfolio is a communication tool, not a complex system',
+      'Experience, projects, case studies, and CV preview are based on the downloadable PDF CV',
+      'Placeholder companies and fake metrics were removed in favor of accurate, CV-backed content',
+      'Qualitative results are used where the CV does not provide exact numbers',
     ],
   },
   {
-    title: 'Coding \u0026 Implementation',
+    title: 'Structure & Architecture',
     items: [
-      'OpenClaw used as coding agent',
-      'Generated structure and scaffolded components',
-      'AI used for speed, not for decision-making',
+      'Sections: experience, projects, case studies, CV preview, and notes',
+      'Static data files keep content easy to review and update',
+      'Portfolio remains a communication tool, not an over-engineered system',
     ],
   },
   {
-    title: 'Tools \u0026 Workflow',
+    title: 'AI-assisted Workflow',
     items: [
-      'ChatGPT → ideation, UX, content',
-      'OpenClaw → code generation',
-      'Stitch → UI experimentation',
+      'AI used for planning, content iteration, code changes, and review support',
+      'Human judgment kept as the source of truth for career facts and final wording',
+      'AI-assisted development treated as a workflow advantage, not a replacement for thinking',
+    ],
+  },
+  {
+    title: 'Coding & Verification',
+    items: [
+      'Built with Next.js, React, TypeScript, Tailwind CSS, and Vitest',
+      'Route behavior stays static, predictable, and easy to deploy',
+      'Tests, linting, type checks, and production builds are used before shipping changes',
     ],
   },
   {
     title: 'Key Decisions',
     items: [
-      'No backend (static approach)',
-      'Prioritized readability and simplicity',
-      'Consistent terminal-style UI',
-    ],
-  },
-  {
-    title: 'Lessons Learned',
-    items: [
-      'AI accelerates execution, not thinking',
-      'Simplicity is more effective than abstraction for portfolios',
-      'Clear communication \u003e visual complexity',
+      'No backend or generated CV logic; the PDF is a static downloadable asset',
+      'Terminal-style UI kept as navigation language rather than a gimmick',
+      'Accuracy and clarity prioritized over exaggerated portfolio storytelling',
     ],
   },
 ];

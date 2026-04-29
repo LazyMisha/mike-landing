@@ -11,41 +11,47 @@ export interface CaseStudy {
 export const caseStudies: CaseStudy[] = [
   {
     id: '1',
-    title: 'High-Frequency Trading Latency Optimization',
-    problem: 'Trading system experiencing 250μs latency spikes during market volatility, causing missed arbitrage opportunities and $2M daily losses.',
-    solution: 'Implemented kernel-bypass networking with DPDK, custom memory allocators, and lock-free data structures. Rewrote hot path in Rust with careful cache-line optimization.',
+    title: 'Microsoft Graph API adoption prototype',
+    problem:
+      'The team needed to evaluate whether Microsoft Graph API could support a planned product direction while the API surface still required clarification and stakeholder confidence.',
+    solution:
+      'I developed a frontend prototype to explore the integration path, clarify user-facing behavior, and validate technical feasibility. The work included collaboration with the Microsoft product team around beta API details and translating the findings into deliverable product features.',
     result: [
-      'Reduced latency by 60% (250μs → 100μs)',
-      'Eliminated latency spikes during volatility',
-      '$2M daily loss prevented',
+      'Stakeholders approved adoption after reviewing the prototype and integration direction',
+      'The team gained clearer understanding of beta API behavior and product fit',
+      'New Microsoft Graph-powered features moved from prototype exploration into delivery work',
     ],
-    technologies: ['Rust', 'C++', 'DPDK', 'Linux Kernel', 'CUDA'],
+    technologies: ['React', 'JavaScript', 'Microsoft Graph API', 'API integration'],
     linkHref: '/case-studies/1',
   },
   {
     id: '2',
-    title: 'ML Training Infrastructure at Scale',
-    problem: 'Training jobs failing at 40% rate on 1000+ GPU clusters, wasting compute resources and delaying model deployment by weeks.',
-    solution: 'Built fault-tolerant training orchestrator with automatic checkpointing, spot instance handling, and dynamic resource allocation.',
+    title: 'AI-powered prototype delivery for IBC2023',
+    problem:
+      'A conference-facing product idea needed a frontend prototype that could show how AI-powered services might fit into a real user workflow.',
+    solution:
+      'I created UI prototypes and integrated them with AI-powered services, shaping the frontend experience so the concept could be demonstrated clearly in an IBC2023 context.',
     result: [
-      'Reduced job failure rate from 40% to 5%',
-      'Saved $500K/month in compute costs',
-      'Model deployment time: 3 weeks → 3 days',
+      'A demo-ready UI prototype was created for international conference presentation work',
+      'Frontend flows were connected with AI-powered services for a more realistic product demonstration',
+      'The work helped communicate an emerging product direction through a tangible interface',
     ],
-    technologies: ['Python', 'Kubernetes', 'TensorFlow', 'PyTorch', 'Apache Kafka'],
+    technologies: ['React', 'JavaScript', 'TypeScript', 'AI-powered services', 'API integration'],
     linkHref: '/case-studies/2',
   },
   {
     id: '3',
-    title: 'Zero-Downtime Database Migration',
-    problem: 'Legacy PostgreSQL cluster hitting throughput limits during peak hours, causing 500 errors and user complaints.',
-    solution: 'Designed dual-write pattern with gradual traffic shifting, real-time data validation, and automatic rollback triggers.',
+    title: 'Frontend quality foundations',
+    problem:
+      'Reusable UI components and frontend features needed stronger automated quality coverage, including visual behavior and performance-oriented checks.',
+    solution:
+      'Before moving fully into frontend engineering, I built testing foundations as a Senior Test Engineer: visual tests for reusable React components, performance tests with Gatling and Scala, and an environment for testing UI features against Canary Chrome.',
     result: [
-      'Zero downtime during 3-month migration',
-      'Throughput increased 10x',
-      'Zero data loss or corruption',
+      'Reusable React components gained visual test coverage from scratch',
+      'Performance testing foundations were created with Gatling and Scala',
+      'UI feature testing against Canary Chrome became part of the quality workflow',
     ],
-    technologies: ['PostgreSQL', 'CockroachDB', 'Kafka', 'Go', 'Terraform'],
+    technologies: ['React', 'Java', 'Groovy', 'GitLab CI/CD', 'JUnit', 'Rest Assured', 'Docker', 'Gatling', 'Scala'],
     linkHref: '/case-studies/3',
   },
 ];
