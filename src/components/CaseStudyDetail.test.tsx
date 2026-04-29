@@ -10,6 +10,13 @@ describe('CaseStudyDetail', () => {
     solution: 'Test solution description',
     result: ['Result 1', 'Result 2'],
     technologies: ['React', 'TypeScript'],
+    timeline: [
+      {
+        date: '2024',
+        title: 'Problem framing',
+        description: 'Clarified the initial challenge',
+      },
+    ],
     linkHref: '/test',
   };
 
@@ -41,5 +48,21 @@ describe('CaseStudyDetail', () => {
     render(<CaseStudyDetail item={mockItem} />);
     expect(screen.getByText('technologies:')).toBeInTheDocument();
     expect(screen.getByText('React, TypeScript')).toBeInTheDocument();
+  });
+
+  it('renders timeline when provided', () => {
+    render(<CaseStudyDetail item={mockItem} />);
+
+    expect(screen.getByText('timeline:')).toBeInTheDocument();
+    expect(screen.getByText('Problem framing')).toBeInTheDocument();
+    expect(screen.getByText('Clarified the initial challenge')).toBeInTheDocument();
+  });
+
+  it('does not render timeline section when timeline is absent', () => {
+    const itemWithoutTimeline = { ...mockItem, timeline: undefined };
+
+    render(<CaseStudyDetail item={itemWithoutTimeline} />);
+
+    expect(screen.queryByText('timeline:')).not.toBeInTheDocument();
   });
 });

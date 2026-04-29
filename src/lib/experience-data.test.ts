@@ -47,10 +47,9 @@ describe('Experience Data', () => {
   });
 
   it('should have timeline with milestones for each experience', () => {
-    experiences.forEach(() => {
-      // expect(exp.timeline.start).toBeDefined();
-      // expect(exp.timeline.end).toBeDefined();
-      // expect(exp.timeline.milestones.length).toBeGreaterThan(0);
+    experiences.forEach((exp) => {
+      expect(exp.timeline).toBeDefined();
+      expect(exp.timeline?.length).toBeGreaterThan(0);
     });
   });
 
@@ -61,7 +60,12 @@ describe('Experience Data', () => {
   });
 
   it('should have timeline milestones with date and event', () => {
-    // Skip this test - timeline field does not exist on Experience type
-    expect(true).toBe(true);
+    experiences.forEach((exp) => {
+      exp.timeline?.forEach((milestone) => {
+        expect(milestone.date).toBeTruthy();
+        expect(milestone.title).toBeTruthy();
+        expect(milestone.description).toBeTruthy();
+      });
+    });
   });
 });

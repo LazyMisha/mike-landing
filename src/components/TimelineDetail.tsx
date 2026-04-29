@@ -1,5 +1,7 @@
 import TimelineSection from './TimelineSection';
+import TimelineMilestones from './TimelineMilestones';
 import { experienceLabels } from '@/lib/constants';
+import type { TimelineMilestone } from '@/lib/timeline';
 
 export interface TimelineDetailItem {
   id: string;
@@ -10,6 +12,7 @@ export interface TimelineDetailItem {
   description: string;
   technologies: string[];
   achievements: string[];
+  timeline?: TimelineMilestone[];
   linkHref: string;
 }
 
@@ -75,6 +78,13 @@ export default function TimelineDetail({ item }: TimelineDetailProps) {
           </ul>
         </div>
       </TimelineSection>
+
+      {item.timeline && item.timeline.length > 0 && (
+        <TimelineMilestones
+          label={experienceLabels.timeline}
+          entries={item.timeline}
+        />
+      )}
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import TimelineSection from './TimelineSection';
+import TimelineMilestones from './TimelineMilestones';
 import { caseStudyLabels } from '@/lib/constants';
+import type { TimelineMilestone } from '@/lib/timeline';
 
 export interface CaseStudyDetailItem {
   id: string;
@@ -8,6 +10,7 @@ export interface CaseStudyDetailItem {
   solution: string;
   result: string[];
   technologies?: string[];
+  timeline?: TimelineMilestone[];
   linkHref: string;
 }
 
@@ -61,6 +64,13 @@ export default function CaseStudyDetail({ item }: CaseStudyDetailProps) {
             <p className="text-gray-400">{item.technologies.join(', ')}</p>
           </div>
         </TimelineSection>
+      )}
+
+      {item.timeline && item.timeline.length > 0 && (
+        <TimelineMilestones
+          label={caseStudyLabels.timeline}
+          entries={item.timeline}
+        />
       )}
     </div>
   );

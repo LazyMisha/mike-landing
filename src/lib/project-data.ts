@@ -1,3 +1,5 @@
+import type { TimelineMilestone } from './timeline';
+
 export interface Project {
   id: string;
   name: string;
@@ -6,6 +8,7 @@ export interface Project {
   description: string;
   technologies: string[];
   achievements?: string[];
+  timeline?: TimelineMilestone[];
   linkHref: string;
 }
 
@@ -23,6 +26,26 @@ export const projects: Project[] = [
       'Collaborated with the Microsoft product team to clarify beta API behavior',
       'Supported delivery of new integration-powered product features',
     ],
+    timeline: [
+      {
+        date: '2024',
+        title: 'Context: evaluate product fit for Microsoft Graph',
+        description:
+          'The work started as a feasibility check for how Microsoft Graph API could support an existing product workflow.',
+      },
+      {
+        date: '2024',
+        title: 'Build: prototype the integration path',
+        description:
+          'A frontend prototype was used to explore user-facing behavior and clarify beta API details with the Microsoft product team.',
+      },
+      {
+        date: '2024',
+        title: 'Outcome: move from exploration into delivery',
+        description:
+          'The prototype helped stakeholders approve adoption and informed follow-up implementation work.',
+      },
+    ],
     linkHref: '/projects/1',
   },
   {
@@ -37,6 +60,26 @@ export const projects: Project[] = [
       'Created UI prototypes for IBC2023',
       'Integrated frontend flows with AI-powered services',
       'Supported product demonstration work for an international conference context',
+    ],
+    timeline: [
+      {
+        date: '2023',
+        title: 'Context: shape a conference-ready product story',
+        description:
+          'The team needed a presentable frontend flow that could communicate an AI-powered concept in an IBC2023 setting.',
+      },
+      {
+        date: '2023',
+        title: 'Build: prototype the UI around AI-powered services',
+        description:
+          'React UI work and API integration were iterated quickly to make the experience demo-ready.',
+      },
+      {
+        date: 'IBC2023',
+        title: 'Outcome: deliver a tangible demonstration flow',
+        description:
+          'The result gave stakeholders and conference audiences a clearer view of the emerging product direction.',
+      },
     ],
     linkHref: '/projects/2',
   },
@@ -53,6 +96,26 @@ export const projects: Project[] = [
       'Used Docker and NPM registries for containerization, publishing, and deployment workflows',
       'Supported smoother release coordination across engineering and release teams',
     ],
+    timeline: [
+      {
+        date: '2022-2024',
+        title: 'Context: reduce friction in frontend delivery',
+        description:
+          'Pipeline work grew out of the need for more predictable builds, publishing, and deployment-related steps.',
+      },
+      {
+        date: '2022-2024',
+        title: 'Build: standardize CI/CD and Docker workflows',
+        description:
+          'GitLab CI/CD, Docker, and registry workflows were maintained and refined for day-to-day engineering use.',
+      },
+      {
+        date: 'Ongoing',
+        title: 'Outcome: support steadier release coordination',
+        description:
+          'The work improved release reliability and reduced manual coordination overhead across teams.',
+      },
+    ],
     linkHref: '/projects/3',
   },
   {
@@ -68,6 +131,26 @@ export const projects: Project[] = [
       'Worked with optimized build creation for production frontend delivery',
       'Connected performance awareness with everyday frontend engineering practice',
     ],
+    timeline: [
+      {
+        date: '2022-2024',
+        title: 'Context: improve production asset delivery',
+        description:
+          'Build optimization work focused on making frontend output more predictable and efficient.',
+      },
+      {
+        date: '2022-2024',
+        title: 'Build: refine Webpack configuration',
+        description:
+          'Hashing, compression, and build tooling adjustments were used to improve production build behavior.',
+      },
+      {
+        date: 'Ongoing',
+        title: 'Outcome: reinforce performance-aware frontend delivery',
+        description:
+          'The effort connected tooling maintenance with more reliable everyday frontend releases.',
+      },
+    ],
     linkHref: '/projects/4',
   },
   {
@@ -82,6 +165,26 @@ export const projects: Project[] = [
       'Built a static portfolio with a concise editorial/terminal style',
       'Aligned portfolio content with the downloadable PDF CV',
       'Used tests and build checks to keep content changes safe',
+    ],
+    timeline: [
+      {
+        date: 'Current',
+        title: 'Context: create a concise portfolio with CV-aligned detail pages',
+        description:
+          'The project started as a focused portfolio build for recruiters, hiring managers, and engineering teams.',
+      },
+      {
+        date: 'Current',
+        title: 'Build: implement a terminal-led editorial UI',
+        description:
+          'Next.js, React, TypeScript, and Tailwind were used to ship a static site with reusable detail-page patterns.',
+      },
+      {
+        date: 'Current',
+        title: 'Outcome: maintain a test-backed personal showcase',
+        description:
+          'The site now acts as both a portfolio and a practical AI-assisted development exercise.',
+      },
     ],
     linkHref: '/projects/5',
   },

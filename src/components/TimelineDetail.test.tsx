@@ -12,6 +12,13 @@ describe('TimelineDetail', () => {
     description: 'Test description',
     technologies: ['React', 'TypeScript'],
     achievements: ['Achievement 1'],
+    timeline: [
+      {
+        date: '2024',
+        title: 'Started work',
+        description: 'Initial prototype work',
+      },
+    ],
     linkHref: '/test',
   };
 
@@ -29,5 +36,21 @@ describe('TimelineDetail', () => {
   it('renders achievements', () => {
     render(<TimelineDetail item={mockItem} />);
     expect(screen.getByText('Achievement 1')).toBeInTheDocument();
+  });
+
+  it('renders timeline when provided', () => {
+    render(<TimelineDetail item={mockItem} />);
+
+    expect(screen.getByText('Timeline:')).toBeInTheDocument();
+    expect(screen.getByText('Started work')).toBeInTheDocument();
+    expect(screen.getByText('Initial prototype work')).toBeInTheDocument();
+  });
+
+  it('does not render timeline section when timeline is absent', () => {
+    const itemWithoutTimeline = { ...mockItem, timeline: undefined };
+
+    render(<TimelineDetail item={itemWithoutTimeline} />);
+
+    expect(screen.queryByText('Timeline:')).not.toBeInTheDocument();
   });
 });

@@ -1,3 +1,5 @@
+import type { TimelineMilestone } from './timeline';
+
 export interface CaseStudy {
   id: string;
   title: string;
@@ -5,6 +7,7 @@ export interface CaseStudy {
   solution: string;
   result: string[];
   technologies?: string[];
+  timeline?: TimelineMilestone[];
   linkHref: string;
 }
 
@@ -22,6 +25,26 @@ export const caseStudies: CaseStudy[] = [
       'New Microsoft Graph-powered features moved from prototype exploration into delivery work',
     ],
     technologies: ['React', 'JavaScript', 'Microsoft Graph API', 'API integration'],
+    timeline: [
+      {
+        date: '2024',
+        title: 'Problem: validate whether Microsoft Graph fit the product direction',
+        description:
+          'The team needed both technical clarity and stakeholder confidence before committing to adoption.',
+      },
+      {
+        date: '2024',
+        title: 'Implementation: prototype the user-facing integration',
+        description:
+          'A frontend prototype was used to test feasibility, clarify API behavior, and translate open questions into something reviewable.',
+      },
+      {
+        date: '2024',
+        title: 'Outcome: adoption became easier to justify',
+        description:
+          'The prototype created a clearer path from investigation to implementation and highlighted the value of concrete exploratory UI work.',
+      },
+    ],
     linkHref: '/case-studies/1',
   },
   {
@@ -37,6 +60,26 @@ export const caseStudies: CaseStudy[] = [
       'The work helped communicate an emerging product direction through a tangible interface',
     ],
     technologies: ['React', 'JavaScript', 'TypeScript', 'AI-powered services', 'API integration'],
+    timeline: [
+      {
+        date: '2023',
+        title: 'Context: make an AI concept understandable in a conference setting',
+        description:
+          'The challenge was to turn an abstract product idea into a flow that could be shown clearly at IBC2023.',
+      },
+      {
+        date: '2023',
+        title: 'Prototype: build a demo-ready frontend experience',
+        description:
+          'UI prototypes were connected to AI-powered services so the concept could be experienced rather than only described.',
+      },
+      {
+        date: 'IBC2023',
+        title: 'Learning: a realistic flow tells the story faster',
+        description:
+          'The project reinforced how quickly a working interface can align stakeholders around an emerging direction.',
+      },
+    ],
     linkHref: '/case-studies/2',
   },
   {
@@ -52,6 +95,26 @@ export const caseStudies: CaseStudy[] = [
       'UI feature testing against Canary Chrome became part of the quality workflow',
     ],
     technologies: ['React', 'Java', 'Groovy', 'GitLab CI/CD', 'JUnit', 'Rest Assured', 'Docker', 'Gatling', 'Scala'],
+    timeline: [
+      {
+        date: '2019',
+        title: 'Problem: frontend quality checks were too shallow',
+        description:
+          'Reusable UI components and feature work needed stronger visual and performance-oriented validation.',
+      },
+      {
+        date: '2019-2020',
+        title: 'Implementation: build testing foundations from scratch',
+        description:
+          'Visual tests, performance tests, and a Canary Chrome UI environment were introduced as practical quality tools.',
+      },
+      {
+        date: '2020',
+        title: 'Outcome: testing infrastructure shaped later frontend work',
+        description:
+          'The experience reinforced a lasting preference for testable UI, reliable delivery, and confidence in release quality.',
+      },
+    ],
     linkHref: '/case-studies/3',
   },
 ];

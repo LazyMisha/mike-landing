@@ -38,6 +38,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
           description: project.description,
           technologies: project.technologies,
           achievements: project.achievements || [],
+          timeline: project.timeline,
           linkHref: project.linkHref,
         }}
       />

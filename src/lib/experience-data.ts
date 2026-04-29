@@ -1,3 +1,5 @@
+import type { TimelineMilestone } from './timeline';
+
 export const experiences: Experience[] = [
   {
     id: '1',
@@ -14,6 +16,26 @@ export const experiences: Experience[] = [
       'Improved Webpack builds with hashing and compression to support better loading behavior',
       'Created prototypes for public conferences and customer presentations',
       'Developed a Microsoft Graph API integration prototype that helped stakeholders approve adoption',
+    ],
+    timeline: [
+      {
+        date: '05.2024',
+        title: 'Joined Avid in a combined frontend and Scrum Master role',
+        description:
+          'Started owning frontend delivery alongside Agile coordination for product and release work.',
+      },
+      {
+        date: '2024',
+        title: 'Built a Microsoft Graph API prototype',
+        description:
+          'Used a frontend prototype to evaluate adoption, clarify integration behavior, and support stakeholder review.',
+      },
+      {
+        date: 'Current',
+        title: 'Sustained delivery pipelines and release coordination',
+        description:
+          'Continue working on CI/CD, Docker, Webpack improvements, and release collaboration across teams.',
+      },
     ],
     linkHref: '/experience/1',
   },
@@ -33,6 +55,26 @@ export const experiences: Experience[] = [
       'Created documentation for reusable components, APIs, and engineering workflows',
       'Created UI prototypes integrated with AI-powered services for IBC2023',
     ],
+    timeline: [
+      {
+        date: '04.2022',
+        title: 'Stepped into the senior frontend role',
+        description:
+          'Took on broader ownership across feature delivery, backend support, and cross-team coordination.',
+      },
+      {
+        date: '2023',
+        title: 'Delivered an AI-powered UI prototype for IBC2023',
+        description:
+          'Turned an emerging product direction into a demo-ready frontend experience for conference presentation work.',
+      },
+      {
+        date: '2022-2024',
+        title: 'Kept delivery systems and collaboration patterns moving',
+        description:
+          'Maintained CI/CD, documentation, and day-to-day coordination with frontend, backend, design, DevOps, and management.',
+      },
+    ],
     linkHref: '/experience/2',
   },
   {
@@ -48,6 +90,20 @@ export const experiences: Experience[] = [
       'Built frontend features with JavaScript and ReactJS',
       'Collaborated with product and engineering teams on UI delivery',
       'Developed practical frontend foundations that supported later senior engineering responsibilities',
+    ],
+    timeline: [
+      {
+        date: '08.2020',
+        title: 'Started the frontend engineering track',
+        description:
+          'Moved into product-facing UI work with JavaScript and ReactJS as the core stack.',
+      },
+      {
+        date: '2020-2022',
+        title: 'Built day-to-day React and JavaScript foundations',
+        description:
+          'Strengthened component delivery, product collaboration, and maintainable frontend implementation.',
+      },
     ],
     linkHref: '/experience/3',
   },
@@ -66,6 +122,26 @@ export const experiences: Experience[] = [
       'Created an environment to test UI features against Canary Chrome from scratch',
       'Used automation and CI/CD practices to support reliable product quality',
     ],
+    timeline: [
+      {
+        date: '07.2019',
+        title: 'Joined as Senior Test Engineer',
+        description:
+          'Focused on automation and quality infrastructure for product delivery.',
+      },
+      {
+        date: '2019-2020',
+        title: 'Built visual and performance testing foundations',
+        description:
+          'Created visual tests for reusable React components and performance checks with Gatling and Scala.',
+      },
+      {
+        date: '2020',
+        title: 'Prepared a Canary Chrome UI test environment',
+        description:
+          'Set up an environment for validating UI features against Canary Chrome as part of the quality workflow.',
+      },
+    ],
     linkHref: '/experience/4',
   },
   {
@@ -82,6 +158,26 @@ export const experiences: Experience[] = [
       'Reported bugs and communicated quality findings with other teams',
       'Built an early foundation in automation, reliability, and cross-team collaboration',
     ],
+    timeline: [
+      {
+        date: '05.2017',
+        title: 'Started at AB Soft',
+        description:
+          'Joined as a Software Test Engineer working with Java, TestNG, and Jenkins.',
+      },
+      {
+        date: '2017-2019',
+        title: 'Built UI automation and testing support',
+        description:
+          'Created and maintained UI automation coverage while tracking issues and test behavior.',
+      },
+      {
+        date: '2017-2019',
+        title: 'Established cross-team communication habits',
+        description:
+          'Reported bugs and coordinated quality feedback with other teams to improve release confidence.',
+      },
+    ],
     linkHref: '/experience/5',
   },
 ];
@@ -95,5 +191,6 @@ export interface Experience {
   description: string;
   technologies: string[];
   achievements: string[];
+  timeline?: TimelineMilestone[];
   linkHref: string;
 }

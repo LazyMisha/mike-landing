@@ -8,6 +8,7 @@ export const experienceLabels = {
   description: 'Description:',
   technologies: 'Technologies:',
   achievements: 'Achievements:',
+  timeline: 'Timeline:',
 };
 
 export const projectLabels = {
@@ -24,6 +25,7 @@ export const caseStudyLabels = {
   solution: 'solution:',
   result: 'result:',
   technologies: 'technologies:',
+  timeline: 'timeline:',
 };
 
 export const ariaLabels = {
