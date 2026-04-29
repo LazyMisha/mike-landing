@@ -4,9 +4,8 @@ export function InfoSection() {
   return (
     <section className="flex flex-col gap-3 pb-4 md:pb-6">
       <Body className="max-w-[75ch]">
-        I&apos;m a fan of frontend challenges - the more complex, the better.
-        I turn complex problems into clean, scalable solutions that work in the real world.
-        I value clear communication, teamwork, and never stop learning.
+        I&apos;m a fan of frontend craft, AI, and complex problems — especially when they turn into simple,
+        useful products people actually use.
       </Body>
     </section>
   );
