@@ -1,7 +1,7 @@
 export const landingData = {
   personal: {
     name: "Mykhailo",
-    tagline: "Creative software engineer passionate about functional design.",
+    tagline: "Senior Front-end Engineer focused on React, performance, CI/CD, and AI-assisted product work.",
     location: "Poland",
     email: "misha_trunov@hotmail.com",
   },

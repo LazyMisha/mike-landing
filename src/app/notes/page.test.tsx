@@ -15,20 +15,20 @@ describe('NotesPage', () => {
 
   it('renders all section titles', () => {
     render(<NotesPage />);
-    expect(screen.getByText('Design & Ideation')).toBeInTheDocument();
+    expect(screen.getByText('Design & Positioning')).toBeInTheDocument();
+    expect(screen.getByText('Content Alignment')).toBeInTheDocument();
     expect(screen.getByText('Structure & Architecture')).toBeInTheDocument();
-    expect(screen.getByText('Coding & Implementation')).toBeInTheDocument();
-    expect(screen.getByText('Tools & Workflow')).toBeInTheDocument();
+    expect(screen.getByText('AI-assisted Workflow')).toBeInTheDocument();
+    expect(screen.getByText('Coding & Verification')).toBeInTheDocument();
     expect(screen.getByText('Key Decisions')).toBeInTheDocument();
-    expect(screen.getByText('Lessons Learned')).toBeInTheDocument();
   });
 
   it('renders all bullet items', () => {
     render(<NotesPage />);
-    expect(screen.getByText('ChatGPT used for layout ideas, UX iteration, and structure')).toBeInTheDocument();
-    expect(screen.getByText('OpenClaw used as coding agent')).toBeInTheDocument();
-    expect(screen.getByText('No backend (static approach)')).toBeInTheDocument();
-    expect(screen.getByText('AI accelerates execution, not thinking')).toBeInTheDocument();
+    expect(screen.getByText('Experience, projects, case studies, and CV preview are based on the downloadable PDF CV')).toBeInTheDocument();
+    expect(screen.getByText('Placeholder companies and fake metrics were removed in favor of accurate, CV-backed content')).toBeInTheDocument();
+    expect(screen.getByText('AI used for planning, content iteration, code changes, and review support')).toBeInTheDocument();
+    expect(screen.getByText('Accuracy and clarity prioritized over exaggerated portfolio storytelling')).toBeInTheDocument();
   });
 
   it('renders back link to home', () => {

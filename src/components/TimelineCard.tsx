@@ -25,15 +25,21 @@ export default function TimelineCard({
       <Heading as='h4'>
         {title}
       </Heading>
-      <Body>
-        @ {company}
-      </Body>
-      <div className="text-sm text-gray-500 dark:text-gray-400 flex items-center gap-2">
-        <span>{dateRange}</span>
-      </div>
-      <div className="text-sm text-gray-500 dark:text-gray-400 flex items-center gap-2">
-        <span>{location}</span>
-      </div>
+      {company ? (
+        <Body>
+          @ {company}
+        </Body>
+      ) : null}
+      {dateRange ? (
+        <div className="text-sm text-gray-500 dark:text-gray-400 flex items-center gap-2">
+          <span>{dateRange}</span>
+        </div>
+      ) : null}
+      {location ? (
+        <div className="text-sm text-gray-500 dark:text-gray-400 flex items-center gap-2">
+          <span>{location}</span>
+        </div>
+      ) : null}
       <Body className='line-clamp-3'>
         {description}
       </Body>
