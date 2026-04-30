@@ -10,7 +10,6 @@ export default function BackLink({ href, label }: BackLinkProps) {
     <div className="mb-4 md:mb-6">
       <Link
         href={href}
-        scroll={false}
         className="text-(--accent-green) transition-colors duration-200 inline-block cursor-pointer focus:underline focus:outline-none"
       >
         ← {label}
