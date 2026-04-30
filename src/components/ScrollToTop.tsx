@@ -1,20 +1,25 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
+
+function scrollPageToTop() {
+  document.scrollingElement?.scrollTo({ top: 0, left: 0 });
+  window.scrollTo({ top: 0, left: 0 });
+}
 
 export function ScrollToTop() {
   const pathname = usePathname();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
     }
 
-    requestAnimationFrame(() => {
-      document.scrollingElement?.scrollTo({ top: 0, left: 0 });
-      window.scrollTo({ top: 0, left: 0 });
-    });
+    scrollPageToTop();
+    const animationFrame = requestAnimationFrame(scrollPageToTop);
+
+    return () => cancelAnimationFrame(animationFrame);
   }, [pathname]);
 
   return null;
