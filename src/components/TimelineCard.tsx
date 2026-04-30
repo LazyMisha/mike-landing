@@ -45,7 +45,6 @@ export default function TimelineCard({
       </Body>
       <Link
         href={linkHref}
-        scroll={false}
         className="text-(--accent-green) hover:text-(--accent-green-hover) transition-colors duration-200 inline-block cursor-pointer focus:underline focus:outline-none"
         aria-label={ariaLabels.readMoreAbout(title, company)}
       >

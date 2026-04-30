@@ -13,7 +13,6 @@ export default function CliNavigation() {
           <Link 
             key={link.label} 
             href={link.href}
-            scroll={false}
             className="text-(--accent-green) transition-colors duration-200 inline-block cursor-pointer focus:underline focus:outline-none"
           >
             {link.label}
