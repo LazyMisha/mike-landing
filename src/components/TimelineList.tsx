@@ -1,4 +1,5 @@
 import TimelineCard from './TimelineCard';
+import TimelineSection from './TimelineSection';
 
 export interface TimelineListItem {
   id: string;
@@ -19,17 +20,18 @@ export default function TimelineList({ items, preview = false }: TimelineListPro
   const displayedItems = preview ? items.slice(0, 3) : items;
 
   return (
-    <div className="space-y-8">
+    <div>
       {displayedItems.map((item) => (
-        <TimelineCard
-          key={item.id}
-          title={item.title}
-          company={item.company}
-          dateRange={item.dateRange}
-          location={item.location}
-          description={item.description}
-          linkHref={item.linkHref}
-        />
+        <TimelineSection key={item.id}>
+          <TimelineCard
+            title={item.title}
+            company={item.company}
+            dateRange={item.dateRange}
+            location={item.location}
+            description={item.description}
+            linkHref={item.linkHref}
+          />
+        </TimelineSection>
       ))}
       
       {/* Preview indicator with "..." */}
