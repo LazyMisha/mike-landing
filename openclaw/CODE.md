@@ -24,6 +24,7 @@ Use standard React, Next.js, and TypeScript best practices unless this file says
 - avoid duplicating strings across routes/components
 - keep route-specific mapping close to the route when it is not reusable
 - preserve the existing content tone unless the request asks for a tone change
+- for project entries, keep canonical copy and external URLs in `src/lib/project-data.ts`
 
 ## TypeScript
 
@@ -44,6 +45,7 @@ Use standard React, Next.js, and TypeScript best practices unless this file says
 - update or add tests when behavior changes
 - test user-visible behavior over implementation details
 - avoid brittle snapshots for ordinary UI changes
+- when changing project data or links, update `/projects` and `/projects/[id]` tests as needed
 
 ## Quality Gate
 

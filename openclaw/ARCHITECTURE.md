@@ -59,6 +59,7 @@ Dynamic detail routes:
 ## Editing Map
 
 - copy/data changes: start in the relevant `src/lib/*` file
+- project entries, live links, and source links: `src/lib/project-data.ts`
 - terminal/nav label changes: `src/lib/constants.ts`
 - route behavior changes: matching folder under `src/app`
 - reusable UI changes: `src/components`
@@ -72,7 +73,16 @@ Dynamic detail routes:
 - shared test setup lives in `src/test/setup.ts`
 - existing legacy tests under `src/app/experience` should not be copied for new component tests
 
+## Projects Flow
+
+- `src/lib/project-data.ts` owns the project list and optional `liveHref` / `sourceHref` values.
+- `src/app/projects/page.tsx` maps project data into `TimelineList` items.
+- `TimelineCard` renders the project title, company, optional live/source links, description preview, and detail link.
+- `src/app/projects/[id]/page.tsx` resolves a project by `id`, calls `notFound()` for missing ids, and passes `showMetadata={false}` to `TimelineDetail`.
+- `TimelineDetail` keeps metadata support for experience detail pages, but project detail pages use the compact title/company header instead.
+
 ## Invariants
 
 - do not duplicate shell logic outside `src/app/layout.tsx`
 - keep timeline components generic enough for list/detail reuse
+- preserve optional link support in timeline cards/details for project pages

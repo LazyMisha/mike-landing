@@ -1,7 +1,13 @@
 # Mike's Landing Page
 
 - personal portfolio (Next.js, AI-optimized documentation system)
+- public repository: https://github.com/LazyMisha/mike-landing
 - live: https://mike-landing-swart.vercel.app
+
+## Current Portfolio State
+
+- `/projects` currently highlights QuizLab only.
+- QuizLab links directly to the live project and source code from the projects list.
 
 ## Development
 
