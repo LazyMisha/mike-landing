@@ -29,6 +29,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
         label={navigationLabels.backToProjects}
       />
       <TimelineDetail
+        showMetadata={false}
         item={{
           id: project.id,
           title: project.name,
@@ -38,6 +39,8 @@ export default async function ProjectDetailPage({ params }: PageProps) {
           description: project.description,
           technologies: project.technologies,
           achievements: project.achievements || [],
+          liveHref: project.liveHref,
+          sourceHref: project.sourceHref,
           linkHref: project.linkHref,
         }}
       />

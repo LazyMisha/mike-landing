@@ -8,6 +8,8 @@ export interface TimelineListItem {
   dateRange: string;
   location: string;
   description: string;
+  liveHref?: string;
+  sourceHref?: string;
   linkHref: string;
 }
 
@@ -29,6 +31,8 @@ export default function TimelineList({ items, preview = false }: TimelineListPro
             dateRange={item.dateRange}
             location={item.location}
             description={item.description}
+            liveHref={item.liveHref}
+            sourceHref={item.sourceHref}
             linkHref={item.linkHref}
           />
         </TimelineSection>

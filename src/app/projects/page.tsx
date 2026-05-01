@@ -22,9 +22,11 @@ export default function ProjectsPage() {
           id: project.id,
           title: project.name,
           company: project.company,
-          dateRange: project.type === 'personal' ? 'pet' : 'work',
+          dateRange: '',
           location: '',
           description: project.description,
+          liveHref: project.liveHref,
+          sourceHref: project.sourceHref,
           linkHref: project.linkHref,
         }))}
       />
