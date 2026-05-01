@@ -25,7 +25,7 @@ export default function TimelineCard({
   linkHref,
 }: TimelineCardProps) {
   return (
-    <article className="mb-4 last:mb-0">
+    <article className="flex flex-col gap-1 last:mb-0">
       <Heading as='h4'>
         {title}
       </Heading>
@@ -45,7 +45,7 @@ export default function TimelineCard({
         </div>
       ) : null}
       {(liveHref || sourceHref) ? (
-        <div className="my-3 flex flex-col gap-1 font-mono text-sm">
+        <div className="flex flex-col font-mono text-sm">
           {liveHref ? (
             <a
               href={liveHref}

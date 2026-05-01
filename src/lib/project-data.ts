@@ -18,7 +18,7 @@ export const projects: Project[] = [
     company: 'Personal',
     type: 'personal',
     description:
-      'A simple ISTQB exam preparation quiz built with vanilla JavaScript and CSS. One of my older projects, created fully without AI assistance before AI coding tools became mainstream.',
+      'No AI, no frameworks — just a straightforward vanilla JavaScript and CSS project from 2022, built for ISTQB exam preparation.',
     technologies: ['Vanilla JavaScript', 'CSS', 'Webpack', 'GitHub Pages', 'Zero AI'],
     achievements: [
       'Built selectable quiz sessions for ISTQB CTFL practice',
