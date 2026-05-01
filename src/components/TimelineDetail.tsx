@@ -10,37 +10,48 @@ export interface TimelineDetailItem {
   description: string;
   technologies: string[];
   achievements: string[];
+  liveHref?: string;
+  sourceHref?: string;
   linkHref: string;
 }
 
 interface TimelineDetailProps {
   item: TimelineDetailItem;
+  showMetadata?: boolean;
 }
 
-export default function TimelineDetail({ item }: TimelineDetailProps) {
+export default function TimelineDetail({ item, showMetadata = true }: TimelineDetailProps) {
   return (
     <div>
-      {/* Metadata Section */}
-      <TimelineSection>
-        <div className="font-mono text-sm">
-          <p>
-            <span className="font-semibold">{experienceLabels.role}</span>{' '}
-            {item.title}
-          </p>
-          <p>
-            <span className="font-semibold">{experienceLabels.company}</span>{' '}
-            {item.company}
-          </p>
-          <p>
-            <span className="font-semibold">{experienceLabels.date}</span>{' '}
-            {item.dateRange}
-          </p>
-          <p>
-            <span className="font-semibold">{experienceLabels.location}</span>{' '}
-            {item.location}
-          </p>
-        </div>
-      </TimelineSection>
+      {showMetadata ? (
+        <TimelineSection>
+          <div className="font-mono text-sm">
+            <p>
+              <span className="font-semibold">{experienceLabels.role}</span>{' '}
+              {item.title}
+            </p>
+            <p>
+              <span className="font-semibold">{experienceLabels.company}</span>{' '}
+              {item.company}
+            </p>
+            <p>
+              <span className="font-semibold">{experienceLabels.date}</span>{' '}
+              {item.dateRange}
+            </p>
+            <p>
+              <span className="font-semibold">{experienceLabels.location}</span>{' '}
+              {item.location}
+            </p>
+          </div>
+        </TimelineSection>
+      ) : (
+        <TimelineSection>
+          <div className="font-mono text-sm">
+            <p className="font-semibold text-lg">{item.title}</p>
+            {item.company ? <p>@ {item.company}</p> : null}
+          </div>
+        </TimelineSection>
+      )}
 
       {/* Description Section */}
       <TimelineSection>
@@ -63,6 +74,36 @@ export default function TimelineDetail({ item }: TimelineDetailProps) {
           <p className="text-gray-400">{item.technologies.join(', ')}</p>
         </div>
       </TimelineSection>
+
+      {(item.liveHref || item.sourceHref) ? (
+        <TimelineSection>
+          <div className="font-mono text-sm">
+            <p className="font-semibold mb-4 md:mb-6">Links:</p>
+            <div className="flex flex-col gap-2">
+              {item.liveHref ? (
+                <a
+                  href={item.liveHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-(--accent-green) hover:text-(--accent-green-hover) transition-colors duration-200 underline underline-offset-4"
+                >
+                  Live project
+                </a>
+              ) : null}
+              {item.sourceHref ? (
+                <a
+                  href={item.sourceHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-(--accent-green) hover:text-(--accent-green-hover) transition-colors duration-200 underline underline-offset-4"
+                >
+                  Source code
+                </a>
+              ) : null}
+            </div>
+          </div>
+        </TimelineSection>
+      ) : null}
 
       {/* Achievements Section */}
       <TimelineSection>

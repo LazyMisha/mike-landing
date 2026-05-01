@@ -19,10 +19,25 @@ describe('ProjectsPage', () => {
     expect(screen.getByText(`total: ${projects.length}`)).toBeInTheDocument();
   });
 
-  it('renders all projects', () => {
+  it('renders only QuizLab for now', () => {
     render(<ProjectsPage />);
-    projects.forEach(project => {
-      expect(screen.getByText(project.name)).toBeInTheDocument();
-    });
+
+    expect(projects).toHaveLength(1);
+    expect(screen.getByText('QuizLab')).toBeInTheDocument();
+    expect(screen.getByText(/ISTQB exam preparation quiz/)).toBeInTheDocument();
+  });
+
+  it('renders QuizLab project links on the projects page', () => {
+    render(<ProjectsPage />);
+
+    expect(screen.getByRole('link', { name: 'Live project' })).toHaveAttribute(
+      'href',
+      'https://lazymisha.github.io/quizlab/',
+    );
+    expect(screen.getByRole('link', { name: 'Source code' })).toHaveAttribute(
+      'href',
+      'https://github.com/LazyMisha/quizlab',
+    );
+    expect(screen.queryByText('pet')).not.toBeInTheDocument();
   });
 });

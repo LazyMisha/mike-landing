@@ -20,4 +20,34 @@ describe('ProjectDetailPage', () => {
 
     expect(screen.getByText(project.technologies.join(', '))).toBeInTheDocument();
   });
+
+  it('renders external links when a project has them', async () => {
+    const project = projects.find((item) => item.name === 'QuizLab');
+    if (!project) {
+      throw new Error('QuizLab project fixture is missing');
+    }
+
+    const params = Promise.resolve({ id: project.id });
+    render(await ProjectDetailPage({ params }));
+
+    expect(screen.getByRole('link', { name: 'Live project' })).toHaveAttribute(
+      'href',
+      'https://lazymisha.github.io/quizlab/',
+    );
+    expect(screen.getByRole('link', { name: 'Source code' })).toHaveAttribute(
+      'href',
+      'https://github.com/LazyMisha/quizlab',
+    );
+  });
+
+  it('does not render project metadata labels', async () => {
+    const project = projects[0];
+    const params = Promise.resolve({ id: project.id });
+    render(await ProjectDetailPage({ params }));
+
+    expect(screen.queryByText('Role:')).not.toBeInTheDocument();
+    expect(screen.queryByText('Company:')).not.toBeInTheDocument();
+    expect(screen.queryByText('Date:')).not.toBeInTheDocument();
+    expect(screen.queryByText('Location:')).not.toBeInTheDocument();
+  });
 });

@@ -9,6 +9,8 @@ export interface TimelineCardProps {
   dateRange: string;
   location: string;
   description: string;
+  liveHref?: string;
+  sourceHref?: string;
   linkHref: string;
 }
 
@@ -18,6 +20,8 @@ export default function TimelineCard({
   dateRange,
   location,
   description,
+  liveHref,
+  sourceHref,
   linkHref,
 }: TimelineCardProps) {
   return (
@@ -38,6 +42,30 @@ export default function TimelineCard({
       {location ? (
         <div className="text-sm text-gray-500 dark:text-gray-400 flex items-center gap-2">
           <span>{location}</span>
+        </div>
+      ) : null}
+      {(liveHref || sourceHref) ? (
+        <div className="my-3 flex flex-col gap-1 font-mono text-sm">
+          {liveHref ? (
+            <a
+              href={liveHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-(--accent-green) hover:text-(--accent-green-hover) transition-colors duration-200 underline underline-offset-4"
+            >
+              Live project
+            </a>
+          ) : null}
+          {sourceHref ? (
+            <a
+              href={sourceHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-(--accent-green) hover:text-(--accent-green-hover) transition-colors duration-200 underline underline-offset-4"
+            >
+              Source code
+            </a>
+          ) : null}
         </div>
       ) : null}
       <Body className='line-clamp-3'>
