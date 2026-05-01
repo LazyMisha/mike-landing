@@ -24,7 +24,7 @@ describe('ProjectsPage', () => {
 
     expect(projects).toHaveLength(1);
     expect(screen.getByText('QuizLab')).toBeInTheDocument();
-    expect(screen.getByText(/ISTQB exam preparation quiz/)).toBeInTheDocument();
+    expect(screen.getByText(/built for ISTQB exam preparation/)).toBeInTheDocument();
   });
 
   it('renders QuizLab project links on the projects page', () => {
