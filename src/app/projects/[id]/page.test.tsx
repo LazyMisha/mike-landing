@@ -62,6 +62,23 @@ describe('ProjectDetailPage', () => {
     );
   });
 
+  it('renders IBC2023 detail page with Watch demo link', async () => {
+    const project = projects.find((item) => item.name === 'MediaCentral AI Prototype for IBC2023');
+    if (!project) {
+      throw new Error('IBC2023 project fixture is missing');
+    }
+
+    const params = Promise.resolve({ id: project.id });
+    render(await ProjectDetailPage({ params }));
+
+    expect(screen.getByText(project.name)).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Watch demo' })).toHaveAttribute(
+      'href',
+      'https://www.youtube.com/watch?v=h-VYajOnqrI',
+    );
+    expect(screen.queryByRole('link', { name: 'Source code' })).not.toBeInTheDocument();
+  });
+
   it('does not render project metadata labels', async () => {
     const project = projects.find((p) => p.id === 'quizlab');
     if (!project) throw new Error('QuizLab fixture missing');

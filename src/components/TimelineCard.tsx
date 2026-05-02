@@ -10,6 +10,7 @@ export interface TimelineCardProps {
   location: string;
   description: string;
   liveHref?: string;
+  liveLabel?: string;
   sourceHref?: string;
   linkHref: string;
 }
@@ -21,6 +22,7 @@ export default function TimelineCard({
   location,
   description,
   liveHref,
+  liveLabel,
   sourceHref,
   linkHref,
 }: TimelineCardProps) {
@@ -53,7 +55,7 @@ export default function TimelineCard({
               rel="noopener noreferrer"
               className="text-(--accent-green) hover:text-(--accent-green-hover) transition-colors duration-200 underline underline-offset-4"
             >
-              Live project
+              {liveLabel || 'Live project'}
             </a>
           ) : null}
           {sourceHref ? (

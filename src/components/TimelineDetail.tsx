@@ -11,6 +11,7 @@ export interface TimelineDetailItem {
   technologies: string[];
   achievements: string[];
   liveHref?: string;
+  liveLabel?: string;
   sourceHref?: string;
   linkHref: string;
 }
@@ -87,7 +88,7 @@ export default function TimelineDetail({ item, showMetadata = true }: TimelineDe
                   rel="noopener noreferrer"
                   className="text-(--accent-green) hover:text-(--accent-green-hover) transition-colors duration-200 underline underline-offset-4"
                 >
-                  Live project
+                  {item.liveLabel || 'Live project'}
                 </a>
               ) : null}
               {item.sourceHref ? (
