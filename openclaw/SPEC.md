@@ -47,13 +47,6 @@ Tone:
 - unknown detail ids fail safely with `notFound()`
 - placeholder links/pages stay intentionally minimal until replaced
 
-## Current Project Content
-
-- `/projects` currently lists only QuizLab.
-- QuizLab is a personal ISTQB exam preparation quiz built with vanilla JavaScript, CSS, and Webpack.
-- QuizLab includes direct links to the live GitHub Pages deployment and source repository.
-- QuizLab copy intentionally mentions that it was created without AI assistance before AI coding tools became mainstream.
-
 ## Acceptance Criteria
 
 - product remains coherent across mobile and desktop
