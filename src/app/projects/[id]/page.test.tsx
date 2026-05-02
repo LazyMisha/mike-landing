@@ -40,6 +40,26 @@ describe('ProjectDetailPage', () => {
     );
   });
 
+  it('renders AI Prompt Laba detail page with links', async () => {
+    const project = projects.find((item) => item.name === 'AI Prompt Laba');
+    if (!project) {
+      throw new Error('AI Prompt Laba project fixture is missing');
+    }
+
+    const params = Promise.resolve({ id: project.id });
+    render(await ProjectDetailPage({ params }));
+
+    expect(screen.getByText(project.name)).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Live project' })).toHaveAttribute(
+      'href',
+      'https://ai-prmptlaba-web.vercel.app/',
+    );
+    expect(screen.getByRole('link', { name: 'Source code' })).toHaveAttribute(
+      'href',
+      'https://github.com/LazyMisha/ai-prmptlaba-web',
+    );
+  });
+
   it('does not render project metadata labels', async () => {
     const project = projects[0];
     const params = Promise.resolve({ id: project.id });
