@@ -1,6 +1,6 @@
 # Mike's Landing Page
 
-- personal portfolio (Next.js, AI-optimized documentation system)
+- personal portfolio
 - live: https://mike-landing-swart.vercel.app
 
 ## Development
