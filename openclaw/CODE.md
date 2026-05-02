@@ -45,7 +45,6 @@ Use standard React, Next.js, and TypeScript best practices unless this file says
 - update or add tests when behavior changes
 - test user-visible behavior over implementation details
 - avoid brittle snapshots for ordinary UI changes
-- when changing project data or links, update `/projects` and `/projects/[id]` tests as needed
 
 ## Quality Gate
 
