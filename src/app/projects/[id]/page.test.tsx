@@ -5,7 +5,8 @@ import { projects } from '@/lib/project-data';
 
 describe('ProjectDetailPage', () => {
   it('renders project details', async () => {
-    const project = projects[0];
+    const project = projects.find((p) => p.id === 'quizlab');
+    if (!project) throw new Error('QuizLab fixture missing');
     const params = Promise.resolve({ id: project.id });
     render(await ProjectDetailPage({ params }));
 
@@ -14,7 +15,8 @@ describe('ProjectDetailPage', () => {
   });
 
   it('renders technologies', async () => {
-    const project = projects[0];
+    const project = projects.find((p) => p.id === 'quizlab');
+    if (!project) throw new Error('QuizLab fixture missing');
     const params = Promise.resolve({ id: project.id });
     render(await ProjectDetailPage({ params }));
 
@@ -61,7 +63,8 @@ describe('ProjectDetailPage', () => {
   });
 
   it('does not render project metadata labels', async () => {
-    const project = projects[0];
+    const project = projects.find((p) => p.id === 'quizlab');
+    if (!project) throw new Error('QuizLab fixture missing');
     const params = Promise.resolve({ id: project.id });
     render(await ProjectDetailPage({ params }));
 

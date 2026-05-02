@@ -13,22 +13,6 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: 'quizlab',
-    name: 'QuizLab',
-    company: 'Personal',
-    type: 'personal',
-    description:
-      'No AI, no frameworks — just a straightforward vanilla JavaScript and CSS project from 2022, built for ISTQB exam preparation.',
-    technologies: ['Vanilla JavaScript', 'CSS', 'Webpack', 'GitHub Pages', 'Zero AI'],
-    achievements: [
-      'Built selectable quiz sessions for ISTQB CTFL practice',
-      'Created before AI coding tools became part of everyday development',
-    ],
-    liveHref: 'https://lazymisha.github.io/quizlab/',
-    sourceHref: 'https://github.com/LazyMisha/quizlab',
-    linkHref: '/projects/quizlab',
-  },
-  {
     id: 'ai-prompt-laba',
     name: 'AI Prompt Laba',
     company: 'Personal',
@@ -44,5 +28,21 @@ export const projects: Project[] = [
     liveHref: 'https://ai-prmptlaba-web.vercel.app/',
     sourceHref: 'https://github.com/LazyMisha/ai-prmptlaba-web',
     linkHref: '/projects/ai-prompt-laba',
+  },
+  {
+    id: 'quizlab',
+    name: 'QuizLab',
+    company: 'Personal',
+    type: 'personal',
+    description:
+      'No AI, no frameworks — just a straightforward vanilla JavaScript and CSS project from 2022, built for ISTQB exam preparation.',
+    technologies: ['Vanilla JavaScript', 'CSS', 'Webpack', 'GitHub Pages', 'Zero AI'],
+    achievements: [
+      'Built selectable quiz sessions for ISTQB CTFL practice',
+      'Created before AI coding tools became part of everyday development',
+    ],
+    liveHref: 'https://lazymisha.github.io/quizlab/',
+    sourceHref: 'https://github.com/LazyMisha/quizlab',
+    linkHref: '/projects/quizlab',
   },
 ];
