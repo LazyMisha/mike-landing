@@ -24,7 +24,6 @@ Use standard React, Next.js, and TypeScript best practices unless this file says
 - avoid duplicating strings across routes/components
 - keep route-specific mapping close to the route when it is not reusable
 - preserve the existing content tone unless the request asks for a tone change
-- for project entries, keep canonical copy and external URLs in `src/lib/project-data.ts`
 
 ## TypeScript
 
