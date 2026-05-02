@@ -9,6 +9,7 @@ export interface TimelineListItem {
   location: string;
   description: string;
   liveHref?: string;
+  liveLabel?: string;
   sourceHref?: string;
   linkHref: string;
 }
@@ -32,6 +33,7 @@ export default function TimelineList({ items, preview = false }: TimelineListPro
             location={item.location}
             description={item.description}
             liveHref={item.liveHref}
+            liveLabel={item.liveLabel}
             sourceHref={item.sourceHref}
             linkHref={item.linkHref}
           />

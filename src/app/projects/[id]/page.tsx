@@ -40,6 +40,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
           technologies: project.technologies,
           achievements: project.achievements || [],
           liveHref: project.liveHref,
+          liveLabel: project.liveLabel,
           sourceHref: project.sourceHref,
           linkHref: project.linkHref,
         }}

@@ -26,6 +26,7 @@ export default function ProjectsPage() {
           location: '',
           description: project.description,
           liveHref: project.liveHref,
+          liveLabel: project.liveLabel,
           sourceHref: project.sourceHref,
           linkHref: project.linkHref,
         }))}

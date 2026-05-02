@@ -7,11 +7,31 @@ export interface Project {
   technologies: string[];
   achievements?: string[];
   liveHref?: string;
+  liveLabel?: string;
   sourceHref?: string;
   linkHref: string;
 }
 
 export const projects: Project[] = [
+  {
+    id: 'ai-ibc2023',
+    name: 'MediaCentral AI Prototype for IBC2023',
+    company: 'GlobalLogic / Avid',
+    type: 'work',
+    description:
+      'Implemented demo-ready UI prototypes from scratch and integrated frontend flows with backend AI-powered services for Avid MediaCentral Cloud UX, helping showcase AI-assisted media production workflows during IBC2023.',
+    technologies: ['React', 'JavaScript', 'AI Services', 'REST APIs', 'Webpack', 'GitLab CI/CD'],
+    achievements: [
+      'Implemented the frontend prototype from scratch for AI-powered MediaCentral Cloud UX workflows',
+      'Integrated UI flows with backend AI-powered services',
+      'Built demo-ready chatbot, recommendation engine, A-roll/B-roll suggestions, summary, transcription, and translation experiences',
+      'Contributed to a prototype showcased during IBC2023',
+      'Demonstrated how AI could support creative and editorial media teams',
+    ],
+    liveHref: 'https://www.youtube.com/watch?v=h-VYajOnqrI',
+    liveLabel: 'Watch demo',
+    linkHref: '/projects/ai-ibc2023',
+  },
   {
     id: 'ai-prompt-laba',
     name: 'AI Prompt Laba',
