@@ -19,25 +19,24 @@ describe('ProjectsPage', () => {
     expect(screen.getByText(`total: ${projects.length}`)).toBeInTheDocument();
   });
 
-  it('renders only QuizLab for now', () => {
+  it('renders all projects', () => {
     render(<ProjectsPage />);
 
-    expect(projects).toHaveLength(1);
+    expect(projects.length).toBeGreaterThanOrEqual(2);
     expect(screen.getByText('QuizLab')).toBeInTheDocument();
     expect(screen.getByText(/built for ISTQB exam preparation/)).toBeInTheDocument();
+    expect(screen.getByText('AI Prompt Laba')).toBeInTheDocument();
+    expect(screen.getByText(/prompt engineering tool/)).toBeInTheDocument();
   });
 
-  it('renders QuizLab project links on the projects page', () => {
+  it('renders AI Prompt Laba project links on the projects page', () => {
     render(<ProjectsPage />);
 
-    expect(screen.getByRole('link', { name: 'Live project' })).toHaveAttribute(
-      'href',
-      'https://lazymisha.github.io/quizlab/',
-    );
-    expect(screen.getByRole('link', { name: 'Source code' })).toHaveAttribute(
-      'href',
-      'https://github.com/LazyMisha/quizlab',
-    );
-    expect(screen.queryByText('pet')).not.toBeInTheDocument();
+    const liveLinks = screen.getAllByRole('link', { name: 'Live project' });
+    const sourceLinks = screen.getAllByRole('link', { name: 'Source code' });
+    const liveHrefs = liveLinks.map((link) => link.getAttribute('href'));
+    const sourceHrefs = sourceLinks.map((link) => link.getAttribute('href'));
+    expect(liveHrefs).toContain('https://ai-prmptlaba-web.vercel.app/');
+    expect(sourceHrefs).toContain('https://github.com/LazyMisha/ai-prmptlaba-web');
   });
 });
