@@ -24,7 +24,7 @@ export const projects: Project[] = [
     achievements: [
       'Implemented the frontend prototype from scratch for AI-powered MediaCentral Cloud UX workflows',
       'Integrated UI flows with backend AI-powered services',
-      'Built demo-ready chatbot, recommendation, summary, transcription, translation, and AI-assisted search experiences',
+      'Built demo-ready chatbot, recommendation engine, A-roll/B-roll suggestions, summary, transcription, and translation experiences',
       'Contributed to a prototype showcased during IBC2023',
       'Demonstrated how AI could support creative and editorial media teams',
     ],

@@ -37,10 +37,12 @@ describe('ProjectsPage', () => {
     const watchLinks = screen.getAllByRole('link', { name: 'Watch demo' });
     const liveLinks = screen.getAllByRole('link', { name: 'Live project' });
     const sourceLinks = screen.getAllByRole('link', { name: 'Source code' });
+    const liveHrefs = liveLinks.map((link) => link.getAttribute('href'));
+    const sourceHrefs = sourceLinks.map((link) => link.getAttribute('href'));
 
     expect(watchLinks).toHaveLength(1);
     expect(watchLinks[0]).toHaveAttribute('href', 'https://www.youtube.com/watch?v=h-VYajOnqrI');
-    expect(liveLinks.length).toBeGreaterThanOrEqual(1);
-    expect(sourceLinks.length).toBeGreaterThanOrEqual(1);
+    expect(liveHrefs).toContain('https://ai-prmptlaba-web.vercel.app/');
+    expect(sourceHrefs).toContain('https://github.com/LazyMisha/ai-prmptlaba-web');
   });
 });
