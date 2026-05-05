@@ -30,4 +30,13 @@ describe('TimelineDetail', () => {
     render(<TimelineDetail item={mockItem} />);
     expect(screen.getByText('Achievement 1')).toBeInTheDocument();
   });
+
+  it('renders compact header when showMetadata is false', () => {
+    render(<TimelineDetail item={mockItem} showMetadata={false} />);
+    expect(screen.getByText('Test Title')).toBeInTheDocument();
+    expect(screen.queryByText('Role:')).not.toBeInTheDocument();
+    expect(screen.queryByText('Company:')).not.toBeInTheDocument();
+    expect(screen.queryByText('Date:')).not.toBeInTheDocument();
+    expect(screen.queryByText('Location:')).not.toBeInTheDocument();
+  });
 });

@@ -6,8 +6,8 @@ import { ariaLabels } from '@/lib/constants';
 export interface TimelineCardProps {
   title: string;
   company: string;
-  dateRange: string;
-  location: string;
+  dateRange?: string;
+  location?: string;
   description: string;
   liveHref?: string;
   liveLabel?: string;

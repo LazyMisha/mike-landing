@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { PageWrapper } from '@/components/PageWrapper';
 import TimelineList from '@/components/TimelineList';
 import TerminalPrompt from '@/components/TerminalPrompt';
@@ -5,6 +6,11 @@ import BackLink from '@/components/BackLink';
 import { Body } from '@/components/Body';
 import { caseStudies } from '@/lib/case-study-data';
 import { terminalCommands, cliLabels, navigationLabels } from '@/lib/constants';
+
+export const metadata: Metadata = {
+  title: 'Case Studies — Mykhailo Trunov',
+  description: 'Detailed case studies of engineering work by Mykhailo Trunov.',
+};
 
 export default function CaseStudiesPage() {
   return (
@@ -22,8 +28,6 @@ export default function CaseStudiesPage() {
           id: study.id,
           title: study.title,
           company: '',
-          dateRange: '',
-          location: '',
           description: study.problem,
           linkHref: study.linkHref,
         }))}

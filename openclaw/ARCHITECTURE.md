@@ -10,79 +10,28 @@
 
 ## App Shell
 
-- root layout: `src/app/layout.tsx`
-- global styles: `src/app/globals.css`
-- providers/header/footer live in the root shell
-- page content is wrapped with `PageWrapper`
-
-## Routes
-
-- `/` → `src/app/page.tsx`
-- `/experience` → `src/app/experience/page.tsx`
-- `/experience/[id]` → `src/app/experience/[id]/page.tsx`
-- `/projects` → `src/app/projects/page.tsx`
-- `/projects/[id]` → `src/app/projects/[id]/page.tsx`
-- `/case-studies` → `src/app/case-studies/page.tsx`
-- `/case-studies/[id]` → `src/app/case-studies/[id]/page.tsx`
-- `/cv-preview` → `src/app/cv-preview/page.tsx`
-- `/notes` → `src/app/notes/page.tsx`
-
-Dynamic detail routes:
-- use async `params`
-- read from static data in `src/lib`
-- call `notFound()` for unknown ids
-- keep route-local `loading.tsx` and `not-found.tsx` where needed
-
-## Data Owners
-
-- landing/profile content → `src/lib/data.ts`
-- experience content → `src/lib/experience-data.ts`
-- project content → `src/lib/project-data.ts`
-- case-study content → `src/lib/case-study-data.ts`
-- notes content → `src/lib/notes-data.ts`
-- CV preview content → `src/lib/cv-preview-data.ts`
-- terminal labels, navigation labels, aria labels → `src/lib/constants.ts`
-- shared utilities → `src/lib/utils.ts`
-- image assets → `public/images/`
-
-## Component Owners
-
-- shell: `ThemeProvider`, `Header`, `Footer`
-- layout: `PageWrapper`
-- typography: `Heading`, `Body`, `Small`
-- landing: `Hero`, `InfoSection`, `LinksSection`, `PolaroidFrame`
-- navigation: `CliNavigation`, `TerminalPrompt`, `BackLink`
-- timeline UI: `TimelineList`, `TimelineCard`, `TimelineDetail`, `TimelineSection`
-- case-study detail UI: `CaseStudyDetail`
-- shadcn/base UI wrappers: `src/components/ui`
-
-## Editing Map
-
-- copy/data changes: start in the relevant `src/lib/*` file
-- project entries, live links, and source links: `src/lib/project-data.ts`
-- terminal/nav label changes: `src/lib/constants.ts`
-- route behavior changes: matching folder under `src/app`
-- reusable UI changes: `src/components`
-- visual tokens/global styling: `src/app/globals.css`
-- shell-level behavior: `src/app/layout.tsx`, `Header`, `Footer`, `ThemeProvider`
+- Root layout: `src/app/layout.tsx`
+- Global styles: `src/app/globals.css`
+- Theme provider, header (with `LiveClock`), footer, and `PageWrapper` compose the shell
+- `LiveClock` is isolated as its own client component so its 1-second updates don't re-render `ThemeToggle`
+- Shell logic does not live outside `src/app/layout.tsx`
 
 ## Tests
 
-- route tests live beside route files under `src/app`
-- new component tests should live beside components under `src/components`
-- shared test setup lives in `src/test/setup.ts`
-- existing legacy tests under `src/app/experience` should not be copied for new component tests
+- Route tests live beside route files under `src/app`
+- Component tests live beside components under `src/components`
+- Shared test setup: `src/test/setup.ts`
+
+## Shared Timeline UI
+
+`TimelineList`, `TimelineCard`, and `TimelineDetail` serve `/experience`, `/projects`, and `/case-studies`.
+
+- `TimelineDetail` uses `showMetadata` to switch between full metadata layout (experience) and compact title/company header (projects)
+- `TimelineList` uses `preview` to show only the first 3 items (used on `/cv-preview`)
+- `TimelineListItem.dateRange` and `location` are optional so projects and case-studies don't need to pass empty strings
 
 ## Projects Flow
 
-- `src/lib/project-data.ts` owns the project list and optional `liveHref` / `sourceHref` values.
-- `src/app/projects/page.tsx` maps project data into `TimelineList` items.
-- `TimelineCard` renders the project title, company, optional live/source links, description preview, and detail link.
-- `src/app/projects/[id]/page.tsx` resolves a project by `id`, calls `notFound()` for missing ids, and passes `showMetadata={false}` to `TimelineDetail`.
-- `TimelineDetail` keeps metadata support for experience detail pages, but project detail pages use the compact title/company header instead.
-
-## Invariants
-
-- do not duplicate shell logic outside `src/app/layout.tsx`
-- keep timeline components generic enough for list/detail reuse
-- preserve optional link support in timeline cards/details for project pages
+- `src/lib/project-data.ts` owns the project list and optional `liveHref` / `sourceHref`
+- `TimelineCard` renders title, company, optional live/source links, description preview, and detail link
+- `src/app/projects/[id]/page.tsx` resolves by `id`, calls `notFound()` for missing IDs, passes `showMetadata={false}` to `TimelineDetail`

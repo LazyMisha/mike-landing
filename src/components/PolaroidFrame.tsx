@@ -10,6 +10,12 @@ export function PolaroidFrame({ children, caption }: PolaroidFrameProps) {
 
   return (
     <div className="h-full md:w-full">
+      {/*
+        Colors are intentionally fixed (no dark mode variants).
+        A real Polaroid frame stays beige regardless of ambient light,
+        so the off-white border and warm caption color are preserved
+        across both themes for authenticity.
+      */}
       {/* White frame like polaroid */}
       <div className="relative h-full bg-[#f7f1e2] p-3 pb-12 shadow-[0_12px_24px_rgba(37,27,16,0.35)]">
         {/* Photo area */}

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { PageWrapper } from '@/components/PageWrapper';
 import TerminalPrompt from '@/components/TerminalPrompt';
 import BackLink from '@/components/BackLink';
@@ -6,6 +7,11 @@ import { Heading } from '@/components/Heading';
 import TimelineSection from '@/components/TimelineSection';
 import { notesSections } from '@/lib/notes-data';
 import { terminalCommands, cliLabels, navigationLabels } from '@/lib/constants';
+
+export const metadata: Metadata = {
+  title: 'Notes — Mykhailo Trunov',
+  description: 'Notes on how this portfolio was designed and built.',
+};
 
 export default function NotesPage() {
   return (

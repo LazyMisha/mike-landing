@@ -5,8 +5,8 @@ export interface TimelineListItem {
   id: string;
   title: string;
   company: string;
-  dateRange: string;
-  location: string;
+  dateRange?: string;
+  location?: string;
   description: string;
   liveHref?: string;
   liveLabel?: string;

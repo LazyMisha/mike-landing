@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import TimelineCard from '../../components/TimelineCard';
+import TimelineCard from './TimelineCard';
 
 describe('TimelineCard', () => {
   const mockProps = {
@@ -33,5 +33,15 @@ describe('TimelineCard', () => {
     const link = screen.getByText(/read more/i);
     expect(link).toBeInTheDocument();
     expect(link.closest('a')).toHaveAttribute('href', '#');
+  });
+
+  it('does not render dateRange when undefined', () => {
+    render(<TimelineCard {...mockProps} dateRange={undefined} />);
+    expect(screen.queryByText('05.2024 - Present')).not.toBeInTheDocument();
+  });
+
+  it('does not render location when undefined', () => {
+    render(<TimelineCard {...mockProps} location={undefined} />);
+    expect(screen.queryByText('Poland')).not.toBeInTheDocument();
   });
 });
