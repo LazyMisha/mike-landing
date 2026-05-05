@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import BackLink from '@/components/BackLink';
 import { Body } from '@/components/Body';
 import { Heading } from '@/components/Heading';
@@ -6,6 +7,11 @@ import TerminalPrompt from '@/components/TerminalPrompt';
 import TimelineSection from '@/components/TimelineSection';
 import { cliLabels, navigationLabels, terminalCommands } from '@/lib/constants';
 import { cvPreviewData } from '@/lib/cv-preview-data';
+
+export const metadata: Metadata = {
+  title: 'CV Preview — Mykhailo Trunov',
+  description: 'A focused web summary of the full PDF CV for Mykhailo Trunov, Senior Front-end Engineer.',
+};
 
 const accentLinkClassName =
   'text-(--accent-green) transition-colors duration-200 hover:text-(--accent-green-hover) focus:underline focus:outline-none';

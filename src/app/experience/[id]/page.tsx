@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { PageWrapper } from '@/components/PageWrapper';
 import TerminalPrompt from '@/components/TerminalPrompt';
 import BackLink from '@/components/BackLink';
@@ -8,6 +9,16 @@ import { experiences } from '@/lib/experience-data';
 
 interface PageProps {
   params: Promise<{ id: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { id } = await params;
+  const experience = experiences.find((exp) => exp.id === id);
+  if (!experience) return { title: 'Not Found' };
+  return {
+    title: `${experience.title} — Mykhailo Trunov`,
+    description: experience.description.slice(0, 160),
+  };
 }
 
 export default async function ExperienceDetailPage({ params }: PageProps) {

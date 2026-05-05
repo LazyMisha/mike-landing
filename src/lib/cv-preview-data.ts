@@ -1,4 +1,5 @@
 import { landingData } from './data';
+import { experiences } from './experience-data';
 
 export const cvPreviewData = {
   downloadHref: '/cv/mykhailo-trunov-cv.pdf',
@@ -43,38 +44,12 @@ export const cvPreviewData = {
       'Run Agile ceremonies, decompose complex work into user stories, generate sprint reports, and coordinate releases with release managers, product owners, and development teams.',
     ],
   },
-  experienceSnapshot: [
-    {
-      title: 'Senior Front-end Engineer & Scrum Master',
-      company: 'Avid',
-      location: 'Poland',
-      dateRange: '05.2024 - Present',
-    },
-    {
-      title: 'Senior Front-end Engineer',
-      company: 'GlobalLogic',
-      location: 'Ukraine, Kyiv',
-      dateRange: '04.2022 - 05.2024',
-    },
-    {
-      title: 'Front-end Engineer',
-      company: 'GlobalLogic',
-      location: 'Ukraine, Kyiv',
-      dateRange: '08.2020 - 04.2022',
-    },
-    {
-      title: 'Senior Test Engineer',
-      company: 'GlobalLogic',
-      location: 'Ukraine, Kyiv',
-      dateRange: '07.2019 - 08.2020',
-    },
-    {
-      title: 'Software Test Engineer',
-      company: 'AB Soft',
-      location: 'Ukraine, Odesa',
-      dateRange: '05.2017 - 07.2019',
-    },
-  ],
+  experienceSnapshot: experiences.map((exp) => ({
+    title: exp.title,
+    company: exp.company,
+    location: exp.location,
+    dateRange: exp.dateRange,
+  })),
   selectedResults: [
     'Developed a prototype to evaluate Microsoft Graph API integration, helping stakeholders approve adoption and supporting delivery of new integration-powered features.',
     'Created AI-powered UI prototypes for IBC2023 and integrated them with backend services.',

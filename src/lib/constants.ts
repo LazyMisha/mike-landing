@@ -54,6 +54,7 @@ export const terminalCommands = {
 export const navigationLabels = {
   backToExperienceList: '[ back to experience list ]',
   backToProjects: '[ back to projects ]',
+  backToCaseStudies: '[ back to case studies ]',
   backToHome: '[ back to home ]',
 };
 
@@ -62,3 +63,23 @@ export const errorMessages = {
   projectNotFound: 'Error: Project not found',
   pageNotFound: 'Error: Page not found',
 };
+
+export const footerLabels = {
+  builtWith: 'Built with',
+  separator: '·',
+};
+
+export const buildTools = [
+  {
+    name: 'OpenClaw',
+    href: 'https://openclaw.ai',
+    icon: '🦞',
+    ariaLabel: 'OpenClaw - AI Agent Framework',
+  },
+  {
+    name: 'Claude Code',
+    href: 'https://claude.ai/code',
+    icon: 'terminal',
+    ariaLabel: 'Claude Code - AI Coding Agent',
+  },
+] as const;

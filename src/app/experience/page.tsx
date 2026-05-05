@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { PageWrapper } from '@/components/PageWrapper';
 import TimelineList from '@/components/TimelineList';
 import TerminalPrompt from '@/components/TerminalPrompt';
@@ -5,6 +6,11 @@ import BackLink from '@/components/BackLink';
 import { Body } from '@/components/Body';
 import { experiences } from '@/lib/experience-data';
 import { terminalCommands, cliLabels, navigationLabels } from '@/lib/constants';
+
+export const metadata: Metadata = {
+  title: 'Experience — Mykhailo Trunov',
+  description: 'Professional experience and career timeline for Mykhailo Trunov, Senior Front-end Engineer.',
+};
 
 export default function ExperiencePage() {
   return (
