@@ -5,7 +5,7 @@ type SmallProps = {
 
 export function Small({ children, className = "" }: SmallProps) {
   return (
-    <p className={`text-xs leading-tight ${className}`}>
+    <p className={`text-sm leading-tight ${className}`}>
       {children}
     </p>
   );

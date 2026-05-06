@@ -90,8 +90,8 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --accent-green: #0EA5A4;
-  --accent-green-hover: #0F766E;
+  --accent-green: #5DAE9E;
+  --accent-green-hover: #4C9D8D;
 }
 
 .dark {
@@ -131,8 +131,8 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
-  --accent-green: #4ADE80;
-  --accent-green-hover: #86EFAC;
+  --accent-green: #7DD3C8;
+  --accent-green-hover: #6CC2B7;
 }
 
 @layer base {

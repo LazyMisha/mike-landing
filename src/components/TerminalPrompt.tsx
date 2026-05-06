@@ -11,7 +11,7 @@ export default function TerminalPrompt({ command, argument }: TerminalPromptProp
           {terminalPrompt} {command}
           {argument ? ' ' : null}
           {argument ? (
-            <span className="text-(--accent-green) transition-colors duration-200 inline-block cursor-pointer focus:underline focus:outline-none">
+            <span className="font-medium text-(--accent-green) transition-colors duration-200 inline-block cursor-pointer focus:underline focus:outline-none">
               {argument}
             </span>
           ) : null}

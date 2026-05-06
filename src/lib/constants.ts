@@ -52,10 +52,10 @@ export const terminalCommands = {
 };
 
 export const navigationLabels = {
-  backToExperienceList: '[ back to experience list ]',
-  backToProjects: '[ back to projects ]',
-  backToCaseStudies: '[ back to case studies ]',
-  backToHome: '[ back to home ]',
+  backToExperienceList: '[back to experience list]',
+  backToProjects: '[back to projects]',
+  backToCaseStudies: '[back to case studies]',
+  backToHome: '[back to home]',
 };
 
 export const errorMessages = {

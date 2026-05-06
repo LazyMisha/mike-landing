@@ -14,11 +14,6 @@ describe('ProjectsPage', () => {
     expect(screen.getByText(/back to home/)).toBeInTheDocument();
   });
 
-  it('renders total count', () => {
-    render(<ProjectsPage />);
-    expect(screen.getByText(`total: ${projects.length}`)).toBeInTheDocument();
-  });
-
   it('renders all projects', () => {
     render(<ProjectsPage />);
 

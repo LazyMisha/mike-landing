@@ -28,9 +28,9 @@ describe('TimelineCard', () => {
     expect(screen.getByText(/Designing scalable React components/i)).toBeInTheDocument();
   });
 
-  it('renders "read more" link with correct href', () => {
+  it('renders "more..." link with correct href', () => {
     render(<TimelineCard {...mockProps} />);
-    const link = screen.getByText(/read more/i);
+    const link = screen.getByText(/more\.\.\./);
     expect(link).toBeInTheDocument();
     expect(link.closest('a')).toHaveAttribute('href', '#');
   });

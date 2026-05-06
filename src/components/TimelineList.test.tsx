@@ -39,11 +39,11 @@ describe('TimelineList', () => {
     expect(screen.getByText('04.2022 - 05.2024')).toBeInTheDocument();
   });
 
-  it('renders read more links for all items', () => {
+  it('renders more... links for all items', () => {
     render(<TimelineList items={mockItems} />);
 
-    const readMoreLinks = screen.getAllByText(/read more/i);
-    expect(readMoreLinks).toHaveLength(2);
+    const moreLinks = screen.getAllByText(/more\.\.\./);
+    expect(moreLinks).toHaveLength(2);
   });
 
   it('renders items without optional metadata', () => {
@@ -71,7 +71,7 @@ describe('TimelineList', () => {
       linkHref: `/test/${i}`,
     }));
     render(<TimelineList items={manyItems} preview />);
-    expect(screen.getAllByText(/read more/i)).toHaveLength(3);
+    expect(screen.getAllByText(/more\.\.\./)).toHaveLength(3);
     expect(screen.getByText('...')).toBeInTheDocument();
   });
 });

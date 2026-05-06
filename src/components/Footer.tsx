@@ -4,8 +4,8 @@ import { footerLabels, buildTools } from '@/lib/constants';
 
 export function Footer() {
   return (
-    <footer className="mt-auto px-4 py-3 max-w-[75ch] mx-auto w-full">
-      <div className="flex items-center justify-center gap-1.5 text-[10px] text-muted-foreground tracking-wide">
+    <footer className="mt-auto px-4 py-2 max-w-[75ch] mx-auto w-full">
+      <div className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground tracking-wide min-h-9">
         <span>{footerLabels.builtWith}</span>
         {buildTools.map((tool, index) => (
           <span key={tool.name} className="contents">

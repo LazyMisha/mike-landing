@@ -5,7 +5,7 @@ type BodyProps = {
 
 export function Body({ children, className = "" }: BodyProps) {
   return (
-    <p className={`text-sm leading-relaxed sm:text-base ${className}`}>
+    <p className={`text-base leading-relaxed ${className}`}>
       {children}
     </p>
   );

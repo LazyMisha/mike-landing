@@ -1,5 +1,3 @@
-import { Fragment } from 'react';
-
 type PolaroidFrameProps = {
   children: React.ReactNode;
   caption?: string;
@@ -23,18 +21,16 @@ export function PolaroidFrame({ children, caption }: PolaroidFrameProps) {
           {children}
         </div>
         {captionParts ? (
-          <p className="absolute inset-x-3 bottom-0 flex h-12 items-center justify-center gap-2 whitespace-nowrap text-center tracking-[0.12em] text-[#4a4135] text-[7px] sm:text-[9px] md:text-xs">
-            {captionParts.map((captionPart, index) => (
-              <Fragment key={captionPart}>
-                {index > 0 ? (
-                  <span aria-hidden="true" className="inline-flex items-center justify-center tracking-normal">
-                    ·
-                  </span>
-                ) : null}
-                <span>{captionPart}</span>
-              </Fragment>
-            ))}
-          </p>
+          <div className="absolute inset-x-3 bottom-0 flex h-12 flex-col items-center justify-center gap-0.5 text-center tracking-[0.12em] text-[#4a4135] text-[10px] sm:text-xs md:text-sm">
+            <p className="whitespace-nowrap">
+              {captionParts.slice(0, 2).join(' · ')}
+            </p>
+            {captionParts.length > 2 ? (
+              <p className="whitespace-nowrap">
+                {captionParts.slice(2).join(' · ')}
+              </p>
+            ) : null}
+          </div>
         ) : null}
       </div>
     </div>

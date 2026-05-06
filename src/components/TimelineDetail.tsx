@@ -80,13 +80,13 @@ export default function TimelineDetail({ item, showMetadata = true }: TimelineDe
         <TimelineSection>
           <div className="font-mono text-sm">
             <p className="font-semibold mb-4 md:mb-6">Links:</p>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col items-start gap-2">
               {item.liveHref ? (
                 <a
                   href={item.liveHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-(--accent-green) hover:text-(--accent-green-hover) transition-colors duration-200 underline underline-offset-4"
+                  className="font-medium text-(--accent-green) hover:text-(--accent-green-hover) transition-colors duration-200 underline underline-offset-4"
                 >
                   {item.liveLabel || 'Live project'}
                 </a>
@@ -96,7 +96,7 @@ export default function TimelineDetail({ item, showMetadata = true }: TimelineDe
                   href={item.sourceHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-(--accent-green) hover:text-(--accent-green-hover) transition-colors duration-200 underline underline-offset-4"
+                  className="font-medium text-(--accent-green) hover:text-(--accent-green-hover) transition-colors duration-200 underline underline-offset-4"
                 >
                   Source code
                 </a>

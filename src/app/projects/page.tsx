@@ -3,7 +3,6 @@ import { PageWrapper } from '@/components/PageWrapper';
 import TimelineList from '@/components/TimelineList';
 import TerminalPrompt from '@/components/TerminalPrompt';
 import BackLink from '@/components/BackLink';
-import { Body } from '@/components/Body';
 import { projects } from '@/lib/project-data';
 import { terminalCommands, cliLabels, navigationLabels } from '@/lib/constants';
 
@@ -20,9 +19,6 @@ export default function ProjectsPage() {
         argument={cliLabels.projects}
       />
       <BackLink href="/" label={navigationLabels.backToHome} />
-      <Body className='mb-4 md:mb-6'>
-        total: {projects.length}
-      </Body>
       <TimelineList
         items={projects.map((project) => ({
           id: project.id,

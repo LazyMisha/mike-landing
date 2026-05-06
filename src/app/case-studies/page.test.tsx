@@ -14,11 +14,6 @@ describe('CaseStudiesPage', () => {
     expect(screen.getByText(/back to home/)).toBeInTheDocument();
   });
 
-  it('renders total count', () => {
-    render(<CaseStudiesPage />);
-    expect(screen.getByText(`total: ${caseStudies.length}`)).toBeInTheDocument();
-  });
-
   it('renders all case studies', () => {
     render(<CaseStudiesPage />);
     caseStudies.forEach(study => {
