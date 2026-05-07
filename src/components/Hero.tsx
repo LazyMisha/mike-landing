@@ -38,7 +38,7 @@ export function Hero() {
             width={photo.width}
             height={photo.height}
             className="h-full w-auto object-cover"
-            loading="eager"
+            priority
           />
         </PolaroidFrame>
       </div>

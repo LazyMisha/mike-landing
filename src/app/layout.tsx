@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Suspense } from "react";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -6,8 +7,16 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Mykhailo Trunov — Senior Front-end Engineer",
+  title: {
+    default: "Mykhailo Trunov — Senior Front-end Engineer",
+    template: "%s | Mykhailo Trunov",
+  },
   description: "Minimalist personal portfolio for Mykhailo Trunov",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -24,7 +33,9 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
-          <ScrollToTop />
+          <Suspense fallback={null}>
+            <ScrollToTop />
+          </Suspense>
         </ThemeProvider>
       </body>
     </html>
