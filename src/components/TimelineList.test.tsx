@@ -53,7 +53,7 @@ describe('TimelineList', () => {
         title: 'AI Prompt Laba',
         company: 'Personal',
         description: 'A prompt engineering tool.',
-        linkHref: '/projects/ai-prompt-laba',
+        linkHref: '/projects/2',
       },
     ];
     render(<TimelineList items={itemsWithoutMeta} />);

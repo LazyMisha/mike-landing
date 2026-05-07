@@ -14,7 +14,7 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: 'ai-ibc2023',
+    id: '1',
     name: 'MediaCentral AI Prototype for IBC2023',
     company: 'GlobalLogic / Avid',
     type: 'work',
@@ -30,10 +30,10 @@ export const projects: Project[] = [
     ],
     liveHref: 'https://www.youtube.com/watch?v=h-VYajOnqrI',
     liveLabel: 'Watch demo',
-    linkHref: '/projects/ai-ibc2023',
+    linkHref: '/projects/1',
   },
   {
-    id: 'ai-prompt-laba',
+    id: '2',
     name: 'AI Prompt Laba',
     company: 'Personal',
     type: 'personal',
@@ -47,10 +47,10 @@ export const projects: Project[] = [
     ],
     liveHref: 'https://ai-prmptlaba-web.vercel.app/',
     sourceHref: 'https://github.com/LazyMisha/ai-prmptlaba-web',
-    linkHref: '/projects/ai-prompt-laba',
+    linkHref: '/projects/2',
   },
   {
-    id: 'quizlab',
+    id: '3',
     name: 'QuizLab',
     company: 'Personal',
     type: 'personal',
@@ -63,6 +63,6 @@ export const projects: Project[] = [
     ],
     liveHref: 'https://lazymisha.github.io/quizlab/',
     sourceHref: 'https://github.com/LazyMisha/quizlab',
-    linkHref: '/projects/quizlab',
+    linkHref: '/projects/3',
   },
 ];
