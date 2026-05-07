@@ -14,10 +14,10 @@ export const metadata: Metadata = {
 };
 
 const accentLinkClassName =
-  'font-medium text-(--accent-green) transition-colors duration-200 hover:text-(--accent-green-hover) focus:underline focus:outline-none';
+  'font-semibold text-(--brand) transition-colors duration-200 hover:text-(--brand-hover) focus:underline focus:outline-none';
 
 const downloadLinkClassName =
-  'mt-5 inline-flex rounded-sm border border-(--accent-green) px-4 py-2 text-sm font-semibold text-(--accent-green) transition-colors duration-200 hover:bg-(--accent-green) hover:text-black focus:outline-none focus:ring-2 focus:ring-(--accent-green) focus:ring-offset-2 focus:ring-offset-background';
+  'mt-5 inline-flex rounded-sm border border-(--brand) px-4 py-2 text-sm font-semibold text-(--brand) transition-colors duration-200 hover:bg-(--brand) hover:text-black focus:outline-none focus:ring-2 focus:ring-(--brand) focus:ring-offset-2 focus:ring-offset-background';
 
 interface CvSectionProps {
   title: string;

@@ -7,7 +7,7 @@ export default function TimelineSection({ children }: TimelineSectionProps) {
     <div className="relative mb-4 md:mb-6">
       {/* Green dot marker */}
       <span
-        className="absolute left-0 top-1.5 w-2 h-2 bg-(--accent-green) rounded-full"
+        className="absolute left-0 top-1.5 w-2 h-2 bg-(--brand) rounded-full"
         aria-hidden="true"
       />
       {/* Vertical line segment with small gap from dot */}

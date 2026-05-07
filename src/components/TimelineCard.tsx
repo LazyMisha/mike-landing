@@ -53,7 +53,7 @@ export default function TimelineCard({
               href={liveHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium text-(--accent-green) hover:text-(--accent-green-hover) transition-colors duration-200 underline underline-offset-4"
+              className="font-semibold text-(--brand) hover:text-(--brand-hover) transition-colors duration-200 underline underline-offset-4"
             >
               {liveLabel || 'Live project'}
             </a>
@@ -63,7 +63,7 @@ export default function TimelineCard({
               href={sourceHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium text-(--accent-green) hover:text-(--accent-green-hover) transition-colors duration-200 underline underline-offset-4"
+              className="font-semibold text-(--brand) hover:text-(--brand-hover) transition-colors duration-200 underline underline-offset-4"
             >
               Source code
             </a>
@@ -75,7 +75,7 @@ export default function TimelineCard({
       </Body>
       <Link
         href={linkHref}
-        className="font-medium text-(--accent-green) hover:text-(--accent-green-hover) transition-colors duration-200 inline-block cursor-pointer focus:underline focus:outline-none self-start"
+        className="font-semibold text-(--brand) hover:text-(--brand-hover) transition-colors duration-200 inline-block cursor-pointer focus:underline focus:outline-none self-start"
         aria-label={ariaLabels.readMoreAbout(title, company)}
       >
         more...

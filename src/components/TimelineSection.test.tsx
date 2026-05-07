@@ -12,13 +12,13 @@ describe('TimelineSection', () => {
     expect(screen.getByText('Test content')).toBeInTheDocument();
   });
 
-  it('renders green dot marker', () => {
+  it('renders brand dot marker', () => {
     const { container } = render(
       <TimelineSection>
         <div>Content</div>
       </TimelineSection>
     );
-    const dots = container.querySelectorAll('.bg-\\(--accent-green\\).rounded-full');
+    const dots = container.querySelectorAll('.bg-\\(--brand\\).rounded-full');
     expect(dots.length).toBe(1);
   });
 

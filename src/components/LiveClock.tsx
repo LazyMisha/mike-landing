@@ -22,5 +22,5 @@ export function LiveClock() {
     return () => clearInterval(interval);
   }, []);
 
-  return <div className="text-sm text-muted-foreground">{dateTime}</div>;
+  return <div className="text-muted-foreground leading-relaxed">{dateTime}</div>;
 }

@@ -86,7 +86,7 @@ export default function TimelineDetail({ item, showMetadata = true }: TimelineDe
                   href={item.liveHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-medium text-(--accent-green) hover:text-(--accent-green-hover) transition-colors duration-200 underline underline-offset-4"
+                  className="font-semibold text-(--brand) hover:text-(--brand-hover) transition-colors duration-200 underline underline-offset-4"
                 >
                   {item.liveLabel || 'Live project'}
                 </a>
@@ -96,7 +96,7 @@ export default function TimelineDetail({ item, showMetadata = true }: TimelineDe
                   href={item.sourceHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-medium text-(--accent-green) hover:text-(--accent-green-hover) transition-colors duration-200 underline underline-offset-4"
+                  className="font-semibold text-(--brand) hover:text-(--brand-hover) transition-colors duration-200 underline underline-offset-4"
                 >
                   Source code
                 </a>

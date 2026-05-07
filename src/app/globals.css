@@ -48,17 +48,8 @@
 }
 
 :root {
-  --background: #f5f5ff;
-  --background-gradient: radial-gradient(
-    ellipse 80% 60% at 50% 0%,
-    rgba(255, 183, 197, 0.16),
-    transparent 70%
-  ),
-  radial-gradient(
-    ellipse 60% 40% at 75% 15%,
-    rgba(173, 216, 230, 0.12),
-    transparent 70%
-  );
+  --background: #fdfdfd;
+  --background-gradient: none;
   --foreground: #1a1a1a;
   --card: #ffffff;
   --card-foreground: #1a1a1a;
@@ -69,7 +60,7 @@
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
+  --muted-foreground: oklch(0.4 0 0);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
@@ -90,8 +81,8 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --accent-green: #5DAE9E;
-  --accent-green-hover: #4C9D8D;
+  --brand: #006cac;
+  --brand-hover: #005a94;
 }
 
 .dark {
@@ -131,8 +122,8 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
-  --accent-green: #7DD3C8;
-  --accent-green-hover: #6CC2B7;
+  --brand: #7DD3C8;
+  --brand-hover: #6CC2B7;
 }
 
 @layer base {
