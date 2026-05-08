@@ -20,14 +20,14 @@ export default function CaseStudyDetail({ item }: CaseStudyDetailProps) {
     <div>
       {/* Title Section */}
       <TimelineSection>
-        <div className="font-mono text-sm">
+        <div className="font-mono text-base">
           <p className="font-semibold text-lg">{item.title}</p>
         </div>
       </TimelineSection>
 
       {/* Problem Section */}
       <TimelineSection>
-        <div className="font-mono text-sm">
+        <div className="font-mono text-base">
           <p className="font-semibold mb-2">{caseStudyLabels.problem}</p>
           <p className="leading-relaxed">{item.problem}</p>
         </div>
@@ -35,7 +35,7 @@ export default function CaseStudyDetail({ item }: CaseStudyDetailProps) {
 
       {/* Solution Section */}
       <TimelineSection>
-        <div className="font-mono text-sm">
+        <div className="font-mono text-base">
           <p className="font-semibold mb-2">{caseStudyLabels.solution}</p>
           <p className="leading-relaxed">{item.solution}</p>
         </div>
@@ -43,7 +43,7 @@ export default function CaseStudyDetail({ item }: CaseStudyDetailProps) {
 
       {/* Result Section */}
       <TimelineSection>
-        <div className="font-mono text-sm">
+        <div className="font-mono text-base">
           <p className="font-semibold mb-2">{caseStudyLabels.result}</p>
           <ul className="list-disc list-inside space-y-1">
             {item.result.map((res, idx) => (
@@ -56,9 +56,9 @@ export default function CaseStudyDetail({ item }: CaseStudyDetailProps) {
       {/* Technologies Section */}
       {item.technologies && item.technologies.length > 0 && (
         <TimelineSection>
-          <div className="font-mono text-sm">
+          <div className="font-mono text-base">
             <p className="font-semibold mb-2">{caseStudyLabels.technologies}</p>
-            <p className="text-gray-400">{item.technologies.join(', ')}</p>
+            <p className="text-muted-foreground">{item.technologies.join(', ')}</p>
           </div>
         </TimelineSection>
       )}

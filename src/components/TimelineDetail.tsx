@@ -1,3 +1,4 @@
+import { ExternalLinkIcon, GithubIcon, YouTubeIcon } from '@/components/icons';
 import TimelineSection from './TimelineSection';
 import { experienceLabels } from '@/lib/constants';
 
@@ -26,7 +27,7 @@ export default function TimelineDetail({ item, showMetadata = true }: TimelineDe
     <div>
       {showMetadata ? (
         <TimelineSection>
-          <div className="font-mono text-sm">
+          <div className="font-mono text-base">
             <p>
               <span className="font-semibold">{experienceLabels.role}</span>{' '}
               {item.title}
@@ -47,7 +48,7 @@ export default function TimelineDetail({ item, showMetadata = true }: TimelineDe
         </TimelineSection>
       ) : (
         <TimelineSection>
-          <div className="font-mono text-sm">
+          <div className="font-mono text-base">
             <p className="font-semibold text-lg">{item.title}</p>
             {item.company ? <p>@ {item.company}</p> : null}
           </div>
@@ -56,9 +57,9 @@ export default function TimelineDetail({ item, showMetadata = true }: TimelineDe
 
       {/* Description Section */}
       <TimelineSection>
-        <div className="font-mono text-sm">
+        <div className="font-mono text-base">
           <p className="font-semibold mb-4 md:mb-6">{experienceLabels.description}</p>
-          <div className="font-mono text-sm leading-relaxed">
+          <div className="leading-relaxed">
             {item.description.split('\n\n').map((para, i) => (
               <p key={i} className="mb-4 last:mb-0">
                 {para}
@@ -70,15 +71,15 @@ export default function TimelineDetail({ item, showMetadata = true }: TimelineDe
 
       {/* Technologies Section */}
       <TimelineSection>
-        <div className="font-mono text-sm">
+        <div className="font-mono text-base">
           <p className="font-semibold mb-4 md:mb-6">{experienceLabels.technologies}</p>
-          <p className="text-gray-400">{item.technologies.join(', ')}</p>
+          <p className="text-muted-foreground">{item.technologies.join(', ')}</p>
         </div>
       </TimelineSection>
 
       {(item.liveHref || item.sourceHref) ? (
         <TimelineSection>
-          <div className="font-mono text-sm">
+          <div className="font-mono text-base">
             <p className="font-semibold mb-4 md:mb-6">Links:</p>
             <div className="flex flex-col items-start gap-2">
               {item.liveHref ? (
@@ -86,8 +87,13 @@ export default function TimelineDetail({ item, showMetadata = true }: TimelineDe
                   href={item.liveHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold text-(--brand) hover:text-(--brand-hover) transition-colors duration-200 underline underline-offset-4"
+                  className="font-semibold text-(--brand) hover:text-(--brand-hover) transition-colors duration-200 underline underline-offset-4 flex items-center gap-1.5"
                 >
+                  {item.liveLabel === 'Watch demo' ? (
+                    <YouTubeIcon />
+                  ) : (
+                    <ExternalLinkIcon />
+                  )}
                   {item.liveLabel || 'Live project'}
                 </a>
               ) : null}
@@ -96,8 +102,9 @@ export default function TimelineDetail({ item, showMetadata = true }: TimelineDe
                   href={item.sourceHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold text-(--brand) hover:text-(--brand-hover) transition-colors duration-200 underline underline-offset-4"
+                  className="font-semibold text-(--brand) hover:text-(--brand-hover) transition-colors duration-200 underline underline-offset-4 flex items-center gap-1.5"
                 >
+                  <GithubIcon />
                   Source code
                 </a>
               ) : null}
@@ -108,7 +115,7 @@ export default function TimelineDetail({ item, showMetadata = true }: TimelineDe
 
       {/* Achievements Section */}
       <TimelineSection>
-        <div className="font-mono text-sm">
+        <div className="font-mono text-base">
           <p className="font-semibold mb-4 md:mb-6">{experienceLabels.achievements}</p>
           <ul className="list-disc list-inside space-y-1">
             {item.achievements.map((ach, idx) => (

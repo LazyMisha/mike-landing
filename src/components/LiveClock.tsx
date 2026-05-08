@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { landingData } from "@/lib/data";
 
 export function LiveClock() {
@@ -22,5 +23,9 @@ export function LiveClock() {
     return () => clearInterval(interval);
   }, []);
 
-  return <div className="text-muted-foreground leading-relaxed">{dateTime}</div>;
+  return (
+    <Link href="/" className="text-muted-foreground leading-relaxed">
+      {dateTime}
+    </Link>
+  );
 }

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ExternalLinkIcon, GithubIcon, YouTubeIcon } from '@/components/icons';
 import { Heading } from './Heading';
 import { Body } from './Body';
 import { ariaLabels } from '@/lib/constants';
@@ -53,8 +54,13 @@ export default function TimelineCard({
               href={liveHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold text-(--brand) hover:text-(--brand-hover) transition-colors duration-200 underline underline-offset-4"
+              className="font-semibold text-(--brand) hover:text-(--brand-hover) transition-colors duration-200 underline underline-offset-4 flex items-center gap-1.5"
             >
+              {liveLabel === 'Watch demo' ? (
+                <YouTubeIcon />
+              ) : (
+                <ExternalLinkIcon />
+              )}
               {liveLabel || 'Live project'}
             </a>
           ) : null}
@@ -63,8 +69,9 @@ export default function TimelineCard({
               href={sourceHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold text-(--brand) hover:text-(--brand-hover) transition-colors duration-200 underline underline-offset-4"
+              className="font-semibold text-(--brand) hover:text-(--brand-hover) transition-colors duration-200 underline underline-offset-4 flex items-center gap-1.5"
             >
+              <GithubIcon />
               Source code
             </a>
           ) : null}
