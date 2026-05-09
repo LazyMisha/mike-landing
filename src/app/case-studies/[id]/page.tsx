@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { PageWrapper } from '@/components/PageWrapper';
-import TerminalPrompt from '@/components/TerminalPrompt';
-import BackLink from '@/components/BackLink';
+import PageShell from '@/components/PageShell';
 import CaseStudyDetail from '@/components/CaseStudyDetail';
 import { notFound } from 'next/navigation';
-import { terminalCommands, cliLabels, navigationLabels } from '@/lib/constants';
+import { terminalCommands, cliLabels } from '@/lib/cli-constants';
+import { navigationLabels } from '@/lib/navigation-constants';
 import { caseStudies } from '@/lib/case-study-data';
 
 interface PageProps {
@@ -30,16 +29,13 @@ export default async function CaseStudyDetailPage({ params }: PageProps) {
   }
 
   return (
-    <PageWrapper>
-      <TerminalPrompt
-        command={terminalCommands.view}
-        argument={`${cliLabels.caseStudies}/${id}`}
-      />
-      <BackLink
-        href="/case-studies"
-        label={navigationLabels.backToCaseStudies}
-      />
+    <PageShell
+      command={terminalCommands.view}
+      argument={`${cliLabels.caseStudies}/${id}`}
+      backHref="/case-studies"
+      backLabel={navigationLabels.backToCaseStudies}
+    >
       <CaseStudyDetail item={caseStudy} />
-    </PageWrapper>
+    </PageShell>
   );
 }

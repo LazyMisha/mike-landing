@@ -1,6 +1,6 @@
 import { ExternalLinkIcon, GithubIcon, YouTubeIcon } from '@/components/icons';
-import TimelineSection from './TimelineSection';
-import { experienceLabels } from '@/lib/constants';
+import AccentSection from '@/components/ui/AccentSection';
+import { experienceLabels } from '@/lib/experience-data';
 
 export interface TimelineDetailItem {
   id: string;
@@ -26,7 +26,7 @@ export default function TimelineDetail({ item, showMetadata = true }: TimelineDe
   return (
     <div>
       {showMetadata ? (
-        <TimelineSection>
+        <AccentSection>
           <div className="font-mono text-base">
             <p>
               <span className="font-semibold">{experienceLabels.role}</span>{' '}
@@ -45,18 +45,18 @@ export default function TimelineDetail({ item, showMetadata = true }: TimelineDe
               {item.location}
             </p>
           </div>
-        </TimelineSection>
+        </AccentSection>
       ) : (
-        <TimelineSection>
+        <AccentSection>
           <div className="font-mono text-base">
             <p className="font-semibold text-lg">{item.title}</p>
             {item.company ? <p>@ {item.company}</p> : null}
           </div>
-        </TimelineSection>
+        </AccentSection>
       )}
 
       {/* Description Section */}
-      <TimelineSection>
+      <AccentSection>
         <div className="font-mono text-base">
           <p className="font-semibold mb-4 md:mb-6">{experienceLabels.description}</p>
           <div className="leading-relaxed">
@@ -67,18 +67,18 @@ export default function TimelineDetail({ item, showMetadata = true }: TimelineDe
             ))}
           </div>
         </div>
-      </TimelineSection>
+      </AccentSection>
 
       {/* Technologies Section */}
-      <TimelineSection>
+      <AccentSection>
         <div className="font-mono text-base">
           <p className="font-semibold mb-4 md:mb-6">{experienceLabels.technologies}</p>
           <p className="text-muted-foreground">{item.technologies.join(', ')}</p>
         </div>
-      </TimelineSection>
+      </AccentSection>
 
       {(item.liveHref || item.sourceHref) ? (
-        <TimelineSection>
+        <AccentSection>
           <div className="font-mono text-base">
             <p className="font-semibold mb-4 md:mb-6">Links:</p>
             <div className="flex flex-col items-start gap-2">
@@ -110,11 +110,11 @@ export default function TimelineDetail({ item, showMetadata = true }: TimelineDe
               ) : null}
             </div>
           </div>
-        </TimelineSection>
+        </AccentSection>
       ) : null}
 
       {/* Achievements Section */}
-      <TimelineSection>
+      <AccentSection>
         <div className="font-mono text-base">
           <p className="font-semibold mb-4 md:mb-6">{experienceLabels.achievements}</p>
           <ul className="list-disc list-inside space-y-1">
@@ -123,7 +123,7 @@ export default function TimelineDetail({ item, showMetadata = true }: TimelineDe
             ))}
           </ul>
         </div>
-      </TimelineSection>
+      </AccentSection>
     </div>
   );
 }

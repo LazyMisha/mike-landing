@@ -1,22 +1,22 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import TimelineSection from './TimelineSection';
+import AccentSection from '@/components/ui/AccentSection';
 
-describe('TimelineSection', () => {
+describe('AccentSection', () => {
   it('renders children content', () => {
     render(
-      <TimelineSection>
+      <AccentSection>
         <div>Test content</div>
-      </TimelineSection>
+      </AccentSection>
     );
     expect(screen.getByText('Test content')).toBeInTheDocument();
   });
 
   it('renders brand dot marker', () => {
     const { container } = render(
-      <TimelineSection>
+      <AccentSection>
         <div>Content</div>
-      </TimelineSection>
+      </AccentSection>
     );
     const dots = container.querySelectorAll('.bg-\\(--brand\\).rounded-full');
     expect(dots.length).toBe(1);
@@ -24,9 +24,9 @@ describe('TimelineSection', () => {
 
   it('renders vertical line', () => {
     const { container } = render(
-      <TimelineSection>
+      <AccentSection>
         <div>Content</div>
-      </TimelineSection>
+      </AccentSection>
     );
     const lines = container.querySelectorAll('.w-px.bg-chart-3');
     expect(lines.length).toBe(1);

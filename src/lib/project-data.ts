@@ -12,6 +12,15 @@ export interface Project {
   linkHref: string;
 }
 
+export const projectLabels = {
+  name: 'Name:',
+  company: 'Company:',
+  type: 'Type:',
+  description: 'Description:',
+  technologies: 'Technologies:',
+  achievements: 'Achievements:',
+} as const;
+
 export const projects: Project[] = [
   {
     id: '1',

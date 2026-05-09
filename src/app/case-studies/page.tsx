@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { PageWrapper } from '@/components/PageWrapper';
-import TimelineList from '@/components/TimelineList';
-import TerminalPrompt from '@/components/TerminalPrompt';
-import BackLink from '@/components/BackLink';
+import PageShell from '@/components/PageShell';
+import TimelineList from '@/components/timeline/TimelineList';
 import { caseStudies } from '@/lib/case-study-data';
-import { terminalCommands, cliLabels, navigationLabels } from '@/lib/constants';
+import { terminalCommands, cliLabels } from '@/lib/cli-constants';
+import { navigationLabels } from '@/lib/navigation-constants';
 
 export const metadata: Metadata = {
   title: 'Case Studies — Mykhailo Trunov',
@@ -13,12 +12,12 @@ export const metadata: Metadata = {
 
 export default function CaseStudiesPage() {
   return (
-    <PageWrapper>
-      <TerminalPrompt
-        command={terminalCommands.list}
-        argument={cliLabels.caseStudies}
-      />
-      <BackLink href="/" label={navigationLabels.backToHome} />
+    <PageShell
+      command={terminalCommands.list}
+      argument={cliLabels.caseStudies}
+      backHref="/"
+      backLabel={navigationLabels.backToHome}
+    >
       <TimelineList
         items={caseStudies.map((study) => ({
           id: study.id,
@@ -28,6 +27,6 @@ export default function CaseStudiesPage() {
           linkHref: study.linkHref,
         }))}
       />
-    </PageWrapper>
+    </PageShell>
   );
 }

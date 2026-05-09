@@ -1,0 +1,10 @@
+export const navigationLabels = {
+  backToExperienceList: '[back to experience list]',
+  backToProjects: '[back to projects]',
+  backToCaseStudies: '[back to case studies]',
+  backToHome: '[back to home]',
+} as const;
+
+export const ariaLabels = {
+  readMoreAbout: (title: string, company: string) => `Read more about ${title} at ${company}`,
+} as const;

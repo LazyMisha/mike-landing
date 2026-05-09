@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { PageWrapper } from '@/components/PageWrapper';
 import TerminalPrompt from '@/components/TerminalPrompt';
 import BackLink from '@/components/BackLink';
-import TimelineDetail from '@/components/TimelineDetail';
+import ProjectDetail from '@/components/ProjectDetail';
 import { notFound } from 'next/navigation';
-import { terminalCommands, cliLabels, navigationLabels } from '@/lib/constants';
+import { terminalCommands, cliLabels } from '@/lib/cli-constants';
+import { navigationLabels } from '@/lib/navigation-constants';
 import { projects } from '@/lib/project-data';
 
 interface PageProps {
@@ -39,23 +40,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
         href="/projects"
         label={navigationLabels.backToProjects}
       />
-      <TimelineDetail
-        showMetadata={false}
-        item={{
-          id: project.id,
-          title: project.name,
-          company: project.company,
-          dateRange: project.type === 'personal' ? 'pet' : 'work',
-          location: '',
-          description: project.description,
-          technologies: project.technologies,
-          achievements: project.achievements || [],
-          liveHref: project.liveHref,
-          liveLabel: project.liveLabel,
-          sourceHref: project.sourceHref,
-          linkHref: project.linkHref,
-        }}
-      />
+      <ProjectDetail item={project} />
     </PageWrapper>
   );
 }

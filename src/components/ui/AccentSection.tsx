@@ -1,8 +1,8 @@
-interface TimelineSectionProps {
+interface AccentSectionProps {
   children: React.ReactNode;
 }
 
-export default function TimelineSection({ children }: TimelineSectionProps) {
+export default function AccentSection({ children }: AccentSectionProps) {
   return (
     <div className="relative mb-4 md:mb-6">
       {/* Green dot marker */}
@@ -14,7 +14,7 @@ export default function TimelineSection({ children }: TimelineSectionProps) {
       <div
         className="absolute left-[3px] top-5 w-px bg-chart-3"
         style={{ height: '100%' }}
-        aria-hidden="true" 
+        aria-hidden="true"
       />
       {/* Content */}
       <div className="ml-6">

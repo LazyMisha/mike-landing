@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { PageWrapper } from '@/components/PageWrapper';
-import TimelineList from '@/components/TimelineList';
-import TerminalPrompt from '@/components/TerminalPrompt';
-import BackLink from '@/components/BackLink';
+import PageShell from '@/components/PageShell';
+import TimelineList from '@/components/timeline/TimelineList';
 import { experiences } from '@/lib/experience-data';
-import { terminalCommands, cliLabels, navigationLabels } from '@/lib/constants';
+import { terminalCommands, cliLabels } from '@/lib/cli-constants';
+import { navigationLabels } from '@/lib/navigation-constants';
 
 export const metadata: Metadata = {
   title: 'Experience — Mykhailo Trunov',
@@ -13,15 +12,13 @@ export const metadata: Metadata = {
 
 export default function ExperiencePage() {
   return (
-    <PageWrapper>
-      <TerminalPrompt
-        command={terminalCommands.view}
-        argument={cliLabels.experience}
-      />
-      <BackLink href="/" label={navigationLabels.backToHome} />
-      <TimelineList
-        items={experiences}
-      />
-    </PageWrapper>
+    <PageShell
+      command={terminalCommands.view}
+      argument={cliLabels.experience}
+      backHref="/"
+      backLabel={navigationLabels.backToHome}
+    >
+      <TimelineList items={experiences} />
+    </PageShell>
   );
 }

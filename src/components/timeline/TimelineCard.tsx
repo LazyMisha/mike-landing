@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import { ExternalLinkIcon, GithubIcon, YouTubeIcon } from '@/components/icons';
-import { Heading } from './Heading';
-import { Body } from './Body';
-import { ariaLabels } from '@/lib/constants';
+import { Heading } from '@/components/ui/Heading';
+import { ariaLabels } from '@/lib/navigation-constants';
 
 export interface TimelineCardProps {
   title: string;
@@ -28,14 +27,14 @@ export default function TimelineCard({
   linkHref,
 }: TimelineCardProps) {
   return (
-    <article className="flex flex-col gap-1 last:mb-0">
+    <article className="flex flex-col gap-2 last:mb-0">
       <Heading as='h4'>
         {title}
       </Heading>
       {company ? (
-        <Body>
+        <p className="text-base leading-relaxed">
           @ {company}
-        </Body>
+        </p>
       ) : null}
       {dateRange ? (
         <div className="text-sm text-gray-500 dark:text-gray-400 flex items-center gap-2">
@@ -48,7 +47,7 @@ export default function TimelineCard({
         </div>
       ) : null}
       {(liveHref || sourceHref) ? (
-        <div className="flex flex-col items-start font-mono text-sm">
+        <div className="flex flex-col gap-2 items-start font-mono text-sm">
           {liveHref ? (
             <a
               href={liveHref}
@@ -77,9 +76,9 @@ export default function TimelineCard({
           ) : null}
         </div>
       ) : null}
-      <Body className='line-clamp-3'>
+      <p className="text-base leading-relaxed line-clamp-3">
         {description}
-      </Body>
+      </p>
       <Link
         href={linkHref}
         className="font-semibold text-(--brand) hover:text-(--brand-hover) transition-colors duration-200 inline-block cursor-pointer focus:underline focus:outline-none self-start"

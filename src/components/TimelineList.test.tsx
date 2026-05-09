@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import TimelineList from './TimelineList';
-import type { TimelineListItem } from './TimelineList';
+import TimelineList from './timeline/TimelineList';
+import type { TimelineListItem } from './timeline/TimelineList';
 
 describe('TimelineList', () => {
   const mockItems: TimelineListItem[] = [

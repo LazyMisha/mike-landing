@@ -1,23 +1,17 @@
-import { PageWrapper } from '@/components/PageWrapper';
-import TerminalPrompt from '@/components/TerminalPrompt';
-import BackLink from '@/components/BackLink';
-import { Body } from '@/components/Body';
-import { terminalCommands, cliLabels } from '@/lib/constants';
+import PageShell from '@/components/PageShell';
+import { terminalCommands, cliLabels } from '@/lib/cli-constants';
 
 export default function CaseStudyNotFound() {
   return (
-    <PageWrapper>
-      <TerminalPrompt
-        command={terminalCommands.view}
-        argument={`${cliLabels.caseStudies}/unknown`}
-      />
-      <BackLink
-        href="/case-studies"
-        label="[ back to case studies ]"
-      />
-      <Body className="mt-6">
+    <PageShell
+      command={terminalCommands.view}
+      argument={`${cliLabels.caseStudies}/unknown`}
+      backHref="/case-studies"
+      backLabel="[ back to case studies ]"
+    >
+      <p className="text-base leading-relaxed mt-6 text-red-600 dark:text-red-400">
         Error: Case study not found
-      </Body>
-    </PageWrapper>
+      </p>
+    </PageShell>
   );
 }

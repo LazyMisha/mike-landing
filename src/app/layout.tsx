@@ -29,9 +29,9 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col font-mono antialiased">
         <ThemeProvider>
           <Header />
-          <main className="flex-1">
+          <div className="flex-1">
             {children}
-          </main>
+          </div>
           <Footer />
           <Suspense fallback={null}>
             <ScrollToTop />

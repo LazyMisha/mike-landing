@@ -1,5 +1,5 @@
-import { Hero } from "@/components/Hero";
-import { InfoSection } from "@/components/InfoSection";
+import { Hero } from "@/components/landing/Hero";
+import { InfoSection } from "@/components/landing/InfoSection";
 import { PageWrapper } from "@/components/PageWrapper";
 import CliNavigation from "@/components/CliNavigation";
 

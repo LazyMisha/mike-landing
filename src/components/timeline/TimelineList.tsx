@@ -1,5 +1,5 @@
 import TimelineCard from './TimelineCard';
-import TimelineSection from './TimelineSection';
+import AccentSection from '@/components/ui/AccentSection';
 
 export interface TimelineListItem {
   id: string;
@@ -25,7 +25,7 @@ export default function TimelineList({ items, preview = false }: TimelineListPro
   return (
     <div>
       {displayedItems.map((item) => (
-        <TimelineSection key={item.id}>
+        <AccentSection key={item.id}>
           <TimelineCard
             title={item.title}
             company={item.company}
@@ -37,7 +37,7 @@ export default function TimelineList({ items, preview = false }: TimelineListPro
             sourceHref={item.sourceHref}
             linkHref={item.linkHref}
           />
-        </TimelineSection>
+        </AccentSection>
       ))}
       
       {/* Preview indicator with "..." */}

@@ -41,3 +41,6 @@ yarn-error.log*
 next-env.d.ts
 
 git-cleanup.js
+
+# graphify
+/graphify-out

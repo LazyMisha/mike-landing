@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import TerminalPrompt from './TerminalPrompt';
-import { terminalCommands,cliLinks } from '@/lib/constants';
+import { terminalCommands, cliLinks } from '@/lib/cli-constants';
 
 export default function CliNavigation() {
   return (

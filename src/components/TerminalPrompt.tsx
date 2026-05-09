@@ -1,4 +1,4 @@
-import { terminalPrompt } from '../lib/constants';
+import { terminalPrompt } from '@/lib/cli-constants';
 
 interface TerminalPromptProps {
     command: string;

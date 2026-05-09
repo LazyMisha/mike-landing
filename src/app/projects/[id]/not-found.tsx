@@ -1,23 +1,19 @@
-import { PageWrapper } from '@/components/PageWrapper';
-import TerminalPrompt from '@/components/TerminalPrompt';
-import BackLink from '@/components/BackLink';
-import { Body } from '@/components/Body';
-import { terminalCommands, cliLabels, navigationLabels, errorMessages } from '@/lib/constants';
+import PageShell from '@/components/PageShell';
+import { terminalCommands, cliLabels } from '@/lib/cli-constants';
+import { navigationLabels } from '@/lib/navigation-constants';
+import { errorMessages } from '@/lib/error-messages';
 
 export default function ProjectNotFound() {
   return (
-    <PageWrapper>
-      <TerminalPrompt
-        command={terminalCommands.view}
-        argument={`${cliLabels.projects}/unknown`}
-      />
-      <BackLink
-        href="/projects"
-        label={navigationLabels.backToProjects}
-      />
-      <Body className="mt-6">
+    <PageShell
+      command={terminalCommands.view}
+      argument={`${cliLabels.projects}/unknown`}
+      backHref="/projects"
+      backLabel={navigationLabels.backToProjects}
+    >
+      <p className="text-base leading-relaxed mt-6 text-red-600 dark:text-red-400">
         {errorMessages.projectNotFound}
-      </Body>
-    </PageWrapper>
+      </p>
+    </PageShell>
   );
 }

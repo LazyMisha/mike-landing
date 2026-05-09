@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import BackLink from '@/components/BackLink';
-import { Body } from '@/components/Body';
-import { Heading } from '@/components/Heading';
-import { PageWrapper } from '@/components/PageWrapper';
-import TerminalPrompt from '@/components/TerminalPrompt';
-import TimelineSection from '@/components/TimelineSection';
-import { cliLabels, navigationLabels, terminalCommands } from '@/lib/constants';
+import PageShell from '@/components/PageShell';
+import { Heading } from '@/components/ui/Heading';
+import AccentSection from '@/components/ui/AccentSection';
+import { cliLabels, terminalCommands } from '@/lib/cli-constants';
+import { navigationLabels } from '@/lib/navigation-constants';
 import { cvPreviewData } from '@/lib/cv-preview-data';
 
 export const metadata: Metadata = {
@@ -26,12 +24,12 @@ interface CvSectionProps {
 
 function CvSection({ title, children }: CvSectionProps) {
   return (
-    <TimelineSection>
+    <AccentSection>
       <Heading as="h2" className="mb-3">
         {title}
       </Heading>
       {children}
-    </TimelineSection>
+    </AccentSection>
   );
 }
 
@@ -66,25 +64,24 @@ function AccentLink({ href, children, download, className = accentLinkClassName 
 
 export default function CvPreviewPage() {
   return (
-    <PageWrapper>
-      <TerminalPrompt
-        command={terminalCommands.view}
-        argument={`${cliLabels.cvPreview}/mykhailo-trunov.md`}
-      />
-      <BackLink href="/" label={navigationLabels.backToHome} />
-
+    <PageShell
+      command={terminalCommands.view}
+      argument={`${cliLabels.cvPreview}/mykhailo-trunov.md`}
+      backHref="/"
+      backLabel={navigationLabels.backToHome}
+    >
       <section className="mb-6 md:mb-8">
         <Heading>{cvPreviewData.title}</Heading>
-        <Body className="mt-3 max-w-2xl text-zinc-600 dark:text-zinc-400">
+        <p className="text-base leading-relaxed mt-3 max-w-2xl text-zinc-600 dark:text-zinc-400">
           {cvPreviewData.subtitle}
-        </Body>
+        </p>
         <AccentLink href={cvPreviewData.downloadHref} download className={downloadLinkClassName}>
           Download CV
         </AccentLink>
       </section>
 
       <CvSection title="Professional Summary">
-        <Body>{cvPreviewData.summary}</Body>
+        <p className="text-base leading-relaxed">{cvPreviewData.summary}</p>
       </CvSection>
 
       <CvSection title="Core Information">
@@ -154,6 +151,6 @@ export default function CvPreviewPage() {
           <p className="text-zinc-600 dark:text-zinc-400">{cvPreviewData.education.institution}</p>
         </div>
       </CvSection>
-    </PageWrapper>
+    </PageShell>
   );
 }

@@ -1,22 +1,19 @@
-import { PageWrapper } from '@/components/PageWrapper';
-import TerminalPrompt from '@/components/TerminalPrompt';
-import BackLink from '@/components/BackLink';
-import { terminalCommands, cliLabels, navigationLabels, errorMessages } from '@/lib/constants';
+import PageShell from '@/components/PageShell';
+import { terminalCommands, cliLabels } from '@/lib/cli-constants';
+import { navigationLabels } from '@/lib/navigation-constants';
+import { errorMessages } from '@/lib/error-messages';
 
 export default function ExperienceNotFound() {
   return (
-    <PageWrapper>
-      <TerminalPrompt
-        command={terminalCommands.view}
-        argument={`${cliLabels.experience}/?`}
-      />
-      <BackLink
-        href="/experience"
-        label={navigationLabels.backToExperienceList}
-      />
-      <p className="text-red-600 dark:text-red-400">
+    <PageShell
+      command={terminalCommands.view}
+      argument={`${cliLabels.experience}/?`}
+      backHref="/experience"
+      backLabel={navigationLabels.backToExperienceList}
+    >
+      <p className="text-base leading-relaxed text-red-600 dark:text-red-400">
         {errorMessages.experienceNotFound}
       </p>
-    </PageWrapper>
+    </PageShell>
   );
 }

@@ -1,5 +1,6 @@
-import TimelineSection from './TimelineSection';
-import { caseStudyLabels } from '@/lib/constants';
+import AccentSection from '@/components/ui/AccentSection';
+import DetailSection from '@/components/ui/DetailSection';
+import { caseStudyLabels } from '@/lib/case-study-data';
 
 export interface CaseStudyDetailItem {
   id: string;
@@ -19,48 +20,42 @@ export default function CaseStudyDetail({ item }: CaseStudyDetailProps) {
   return (
     <div>
       {/* Title Section */}
-      <TimelineSection>
-        <div className="font-mono text-base">
-          <p className="font-semibold text-lg">{item.title}</p>
-        </div>
-      </TimelineSection>
+      <AccentSection>
+        <p className="font-mono text-base font-semibold text-lg">{item.title}</p>
+      </AccentSection>
 
       {/* Problem Section */}
-      <TimelineSection>
-        <div className="font-mono text-base">
-          <p className="font-semibold mb-2">{caseStudyLabels.problem}</p>
+      <AccentSection>
+        <DetailSection label={caseStudyLabels.problem}>
           <p className="leading-relaxed">{item.problem}</p>
-        </div>
-      </TimelineSection>
+        </DetailSection>
+      </AccentSection>
 
       {/* Solution Section */}
-      <TimelineSection>
-        <div className="font-mono text-base">
-          <p className="font-semibold mb-2">{caseStudyLabels.solution}</p>
+      <AccentSection>
+        <DetailSection label={caseStudyLabels.solution}>
           <p className="leading-relaxed">{item.solution}</p>
-        </div>
-      </TimelineSection>
+        </DetailSection>
+      </AccentSection>
 
       {/* Result Section */}
-      <TimelineSection>
-        <div className="font-mono text-base">
-          <p className="font-semibold mb-2">{caseStudyLabels.result}</p>
+      <AccentSection>
+        <DetailSection label={caseStudyLabels.result}>
           <ul className="list-disc list-inside space-y-1">
             {item.result.map((res, idx) => (
               <li key={idx}>{res}</li>
             ))}
           </ul>
-        </div>
-      </TimelineSection>
+        </DetailSection>
+      </AccentSection>
 
       {/* Technologies Section */}
       {item.technologies && item.technologies.length > 0 && (
-        <TimelineSection>
-          <div className="font-mono text-base">
-            <p className="font-semibold mb-2">{caseStudyLabels.technologies}</p>
+        <AccentSection>
+          <DetailSection label={caseStudyLabels.technologies}>
             <p className="text-muted-foreground">{item.technologies.join(', ')}</p>
-          </div>
-        </TimelineSection>
+          </DetailSection>
+        </AccentSection>
       )}
     </div>
   );

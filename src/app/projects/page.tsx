@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { PageWrapper } from '@/components/PageWrapper';
-import TimelineList from '@/components/TimelineList';
-import TerminalPrompt from '@/components/TerminalPrompt';
-import BackLink from '@/components/BackLink';
+import PageShell from '@/components/PageShell';
+import TimelineList from '@/components/timeline/TimelineList';
 import { projects } from '@/lib/project-data';
-import { terminalCommands, cliLabels, navigationLabels } from '@/lib/constants';
+import { terminalCommands, cliLabels } from '@/lib/cli-constants';
+import { navigationLabels } from '@/lib/navigation-constants';
 
 export const metadata: Metadata = {
   title: 'Projects — Mykhailo Trunov',
@@ -13,12 +12,12 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <PageWrapper>
-      <TerminalPrompt
-        command={terminalCommands.view}
-        argument={cliLabels.projects}
-      />
-      <BackLink href="/" label={navigationLabels.backToHome} />
+    <PageShell
+      command={terminalCommands.view}
+      argument={cliLabels.projects}
+      backHref="/"
+      backLabel={navigationLabels.backToHome}
+    >
       <TimelineList
         items={projects.map((project) => ({
           id: project.id,
@@ -31,6 +30,6 @@ export default function ProjectsPage() {
           linkHref: project.linkHref,
         }))}
       />
-    </PageWrapper>
+    </PageShell>
   );
 }

@@ -1,9 +1,8 @@
 import Image from "next/image";
-import { PolaroidFrame } from "./PolaroidFrame";
-import { Heading } from "./Heading";
-import { Small } from "./Small";
-import { Body } from "./Body";
-import { LinksSection } from './LinksSection';
+import { PolaroidFrame } from "@/components/PolaroidFrame";
+import { Heading } from "@/components/ui/Heading";
+import { Small } from "@/components/ui/Small";
+import { LinksSection } from '@/components/landing/LinksSection';
 import { landingData } from "@/lib/data";
 
 export function Hero() {
@@ -27,7 +26,7 @@ export function Hero() {
           <br />
           {pronunciationLine2}
         </Small>
-        <Body>I&apos;m a Senior Frontend Engineer</Body>
+        <p className="text-base leading-relaxed">I&apos;m a Senior Frontend Engineer</p>
         <LinksSection />
       </div>
       <div className="h-[40vh] flex md:flex-1 items-start justify-center md:h-full md:mt-0">

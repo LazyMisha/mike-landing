@@ -97,3 +97,13 @@ export interface Experience {
   achievements: string[];
   linkHref: string;
 }
+
+export const experienceLabels = {
+  role: 'Role:',
+  company: 'Company:',
+  date: 'Date:',
+  location: 'Location:',
+  description: 'Description:',
+  technologies: 'Technologies:',
+  achievements: 'Achievements:',
+} as const;

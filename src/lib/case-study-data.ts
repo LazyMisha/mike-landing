@@ -55,3 +55,10 @@ export const caseStudies: CaseStudy[] = [
     linkHref: '/case-studies/3',
   },
 ];
+
+export const caseStudyLabels = {
+  problem: 'problem:',
+  solution: 'solution:',
+  result: 'result:',
+  technologies: 'technologies:',
+} as const;

@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { PageWrapper } from '@/components/PageWrapper';
-import TerminalPrompt from '@/components/TerminalPrompt';
-import BackLink from '@/components/BackLink';
-import TimelineDetail from '@/components/TimelineDetail';
+import PageShell from '@/components/PageShell';
+import TimelineDetail from '@/components/timeline/TimelineDetail';
 import { notFound } from 'next/navigation';
-import { terminalCommands, cliLabels, navigationLabels } from '@/lib/constants';
+import { terminalCommands, cliLabels } from '@/lib/cli-constants';
+import { navigationLabels } from '@/lib/navigation-constants';
 import { experiences } from '@/lib/experience-data';
 
 interface PageProps {
@@ -30,16 +29,13 @@ export default async function ExperienceDetailPage({ params }: PageProps) {
   }
 
   return (
-    <PageWrapper>
-      <TerminalPrompt
-        command={terminalCommands.view}
-        argument={`${cliLabels.experience}/${id}`}
-      />
-      <BackLink
-        href="/experience"
-        label={navigationLabels.backToExperienceList}
-      />
+    <PageShell
+      command={terminalCommands.view}
+      argument={`${cliLabels.experience}/${id}`}
+      backHref="/experience"
+      backLabel={navigationLabels.backToExperienceList}
+    >
       <TimelineDetail item={experience} />
-    </PageWrapper>
+    </PageShell>
   );
 }

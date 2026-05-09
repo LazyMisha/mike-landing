@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Terminal } from 'lucide-react';
-import { footerLabels, buildTools } from '@/lib/constants';
+import { footerLabels, buildTools } from '@/lib/footer-constants';
 
 export function Footer() {
   return (
