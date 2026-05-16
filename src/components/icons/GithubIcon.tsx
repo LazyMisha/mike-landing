@@ -1,4 +1,4 @@
-export function GithubIcon({ className = "w-4 h-4" }: { className?: string }) {
+export function GithubIcon({ className = 'w-4 h-4' }: { className?: string }) {
   return (
     <svg
       className={`text-[#181717] dark:text-white ${className}`}

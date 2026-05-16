@@ -26,8 +26,10 @@ export default function ProjectDetail({ item }: ProjectDetailProps) {
     <div>
       {/* Title Section */}
       <AccentSection>
-        <p className="font-mono text-base font-semibold text-lg">{item.name}</p>
-        {item.company ? <p className="font-mono text-base">@ {item.company}</p> : null}
+        <p className="font-mono text-base text-lg font-semibold">{item.name}</p>
+        {item.company ? (
+          <p className="font-mono text-base">@ {item.company}</p>
+        ) : null}
       </AccentSection>
 
       {/* Type & Company */}
@@ -47,7 +49,9 @@ export default function ProjectDetail({ item }: ProjectDetailProps) {
       {/* Technologies Section */}
       <AccentSection>
         <DetailSection label={projectLabels.technologies}>
-          <p className="text-muted-foreground">{item.technologies.join(', ')}</p>
+          <p className="text-muted-foreground">
+            {item.technologies.join(', ')}
+          </p>
         </DetailSection>
       </AccentSection>
 
@@ -55,7 +59,7 @@ export default function ProjectDetail({ item }: ProjectDetailProps) {
       {item.achievements && item.achievements.length > 0 && (
         <AccentSection>
           <DetailSection label={projectLabels.achievements}>
-            <ul className="list-disc list-inside space-y-1">
+            <ul className="list-inside list-disc space-y-1">
               {item.achievements.map((ach, idx) => (
                 <li key={idx}>{ach}</li>
               ))}
@@ -65,17 +69,17 @@ export default function ProjectDetail({ item }: ProjectDetailProps) {
       )}
 
       {/* Links Section */}
-      {(item.liveHref || item.sourceHref) ? (
+      {item.liveHref || item.sourceHref ? (
         <AccentSection>
           <div className="font-mono text-base">
-            <p className="font-semibold mb-4 md:mb-6">Links:</p>
+            <p className="mb-4 font-semibold md:mb-6">Links:</p>
             <div className="flex flex-col items-start gap-2">
               {item.liveHref ? (
                 <a
                   href={item.liveHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold text-(--brand) hover:text-(--brand-hover) transition-colors duration-200 underline underline-offset-4 flex items-center gap-1.5"
+                  className="flex items-center gap-1.5 font-semibold text-(--brand) underline underline-offset-4 transition-colors duration-200 hover:text-(--brand-hover)"
                 >
                   {item.liveLabel === 'Watch demo' ? (
                     <YouTubeIcon />
@@ -90,7 +94,7 @@ export default function ProjectDetail({ item }: ProjectDetailProps) {
                   href={item.sourceHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold text-(--brand) hover:text-(--brand-hover) transition-colors duration-200 underline underline-offset-4 flex items-center gap-1.5"
+                  className="flex items-center gap-1.5 font-semibold text-(--brand) underline underline-offset-4 transition-colors duration-200 hover:text-(--brand-hover)"
                 >
                   <GithubIcon />
                   Source code

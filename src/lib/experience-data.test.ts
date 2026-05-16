@@ -20,31 +20,31 @@ describe('Experience Data', () => {
   });
 
   it('should have unique IDs for all experiences', () => {
-    const ids = experiences.map(exp => exp.id);
+    const ids = experiences.map((exp) => exp.id);
     const uniqueIds = new Set(ids);
     expect(uniqueIds.size).toBe(ids.length);
   });
 
   it('should have descriptions that are not empty', () => {
-    experiences.forEach(exp => {
+    experiences.forEach((exp) => {
       expect(exp.description.trim().length).toBeGreaterThan(0);
     });
   });
 
   it('should have at least one technology for each experience', () => {
-    experiences.forEach(exp => {
+    experiences.forEach((exp) => {
       expect(exp.technologies.length).toBeGreaterThan(0);
     });
   });
 
   it('should have at least one achievement for each experience', () => {
-    experiences.forEach(exp => {
+    experiences.forEach((exp) => {
       expect(exp.achievements.length).toBeGreaterThan(0);
     });
   });
 
   it('should have valid linkHref pointing to experience detail page', () => {
-    experiences.forEach(exp => {
+    experiences.forEach((exp) => {
       expect(exp.linkHref).toMatch(/^\/experience\/[\w-]+$/);
     });
   });

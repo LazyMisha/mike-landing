@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import PageShell from '@/components/PageShell';
 import { Heading } from '@/components/ui/Heading';
 import AccentSection from '@/components/ui/AccentSection';
@@ -8,7 +8,8 @@ import { cvPreviewData } from '@/lib/cv-preview-data';
 
 export const metadata: Metadata = {
   title: 'CV Preview — Mykhailo Trunov',
-  description: 'A focused web summary of the full PDF CV for Mykhailo Trunov, Senior Front-end Engineer.',
+  description:
+    'A focused web summary of the full PDF CV for Mykhailo Trunov, Senior Front-end Engineer.',
 };
 
 const accentLinkClassName =
@@ -39,7 +40,7 @@ interface BulletListProps {
 
 function BulletList({ items }: BulletListProps) {
   return (
-    <ul className="list-disc list-inside space-y-1 text-sm leading-relaxed sm:text-base">
+    <ul className="list-inside list-disc space-y-1 text-sm leading-relaxed sm:text-base">
       {items.map((item) => (
         <li key={item}>{item}</li>
       ))}
@@ -54,7 +55,12 @@ interface AccentLinkProps {
   className?: string;
 }
 
-function AccentLink({ href, children, download, className = accentLinkClassName }: AccentLinkProps) {
+function AccentLink({
+  href,
+  children,
+  download,
+  className = accentLinkClassName,
+}: AccentLinkProps) {
   return (
     <a href={href} download={download} className={className}>
       {children}
@@ -72,10 +78,14 @@ export default function CvPreviewPage() {
     >
       <section className="mb-6 md:mb-8">
         <Heading>{cvPreviewData.title}</Heading>
-        <p className="text-base leading-relaxed mt-3 max-w-2xl text-zinc-600 dark:text-zinc-400">
+        <p className="mt-3 max-w-2xl text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
           {cvPreviewData.subtitle}
         </p>
-        <AccentLink href={cvPreviewData.downloadHref} download className={downloadLinkClassName}>
+        <AccentLink
+          href={cvPreviewData.downloadHref}
+          download
+          className={downloadLinkClassName}
+        >
           Download CV
         </AccentLink>
       </section>
@@ -87,7 +97,10 @@ export default function CvPreviewPage() {
       <CvSection title="Core Information">
         <dl className="space-y-2 text-sm leading-relaxed sm:text-base">
           {cvPreviewData.coreInfo.map((item) => (
-            <div key={item.label} className="grid gap-1 sm:grid-cols-[7rem_1fr]">
+            <div
+              key={item.label}
+              className="grid gap-1 sm:grid-cols-[7rem_1fr]"
+            >
               <dt className="font-semibold">{item.label}:</dt>
               <dd>
                 {'href' in item ? (
@@ -117,10 +130,12 @@ export default function CvPreviewPage() {
       <CvSection title="Current Role Highlight">
         <div className="space-y-2 text-sm leading-relaxed sm:text-base">
           <p className="font-semibold">
-            {cvPreviewData.currentRole.title} @ {cvPreviewData.currentRole.company}
+            {cvPreviewData.currentRole.title} @{' '}
+            {cvPreviewData.currentRole.company}
           </p>
           <p className="text-zinc-600 dark:text-zinc-400">
-            {cvPreviewData.currentRole.location} · {cvPreviewData.currentRole.dateRange}
+            {cvPreviewData.currentRole.location} ·{' '}
+            {cvPreviewData.currentRole.dateRange}
           </p>
           <BulletList items={cvPreviewData.currentRole.bullets} />
         </div>
@@ -148,7 +163,9 @@ export default function CvPreviewPage() {
       <CvSection title="Education">
         <div className="text-sm leading-relaxed sm:text-base">
           <p className="font-semibold">{cvPreviewData.education.degree}</p>
-          <p className="text-zinc-600 dark:text-zinc-400">{cvPreviewData.education.institution}</p>
+          <p className="text-zinc-600 dark:text-zinc-400">
+            {cvPreviewData.education.institution}
+          </p>
         </div>
       </CvSection>
     </PageShell>

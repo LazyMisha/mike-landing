@@ -21,7 +21,9 @@ export default function CaseStudyDetail({ item }: CaseStudyDetailProps) {
     <div>
       {/* Title Section */}
       <AccentSection>
-        <p className="font-mono text-base font-semibold text-lg">{item.title}</p>
+        <p className="font-mono text-base text-lg font-semibold">
+          {item.title}
+        </p>
       </AccentSection>
 
       {/* Problem Section */}
@@ -41,7 +43,7 @@ export default function CaseStudyDetail({ item }: CaseStudyDetailProps) {
       {/* Result Section */}
       <AccentSection>
         <DetailSection label={caseStudyLabels.result}>
-          <ul className="list-disc list-inside space-y-1">
+          <ul className="list-inside list-disc space-y-1">
             {item.result.map((res, idx) => (
               <li key={idx}>{res}</li>
             ))}
@@ -53,7 +55,9 @@ export default function CaseStudyDetail({ item }: CaseStudyDetailProps) {
       {item.technologies && item.technologies.length > 0 && (
         <AccentSection>
           <DetailSection label={caseStudyLabels.technologies}>
-            <p className="text-muted-foreground">{item.technologies.join(', ')}</p>
+            <p className="text-muted-foreground">
+              {item.technologies.join(', ')}
+            </p>
           </DetailSection>
         </AccentSection>
       )}

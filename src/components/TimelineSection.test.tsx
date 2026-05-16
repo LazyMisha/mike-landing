@@ -7,7 +7,7 @@ describe('AccentSection', () => {
     render(
       <AccentSection>
         <div>Test content</div>
-      </AccentSection>
+      </AccentSection>,
     );
     expect(screen.getByText('Test content')).toBeInTheDocument();
   });
@@ -16,7 +16,7 @@ describe('AccentSection', () => {
     const { container } = render(
       <AccentSection>
         <div>Content</div>
-      </AccentSection>
+      </AccentSection>,
     );
     const dots = container.querySelectorAll('.bg-\\(--brand\\).rounded-full');
     expect(dots.length).toBe(1);
@@ -26,7 +26,7 @@ describe('AccentSection', () => {
     const { container } = render(
       <AccentSection>
         <div>Content</div>
-      </AccentSection>
+      </AccentSection>,
     );
     const lines = container.querySelectorAll('.w-px.bg-chart-3');
     expect(lines.length).toBe(1);

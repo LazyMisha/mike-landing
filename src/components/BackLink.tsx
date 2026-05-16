@@ -10,7 +10,7 @@ export default function BackLink({ href, label }: BackLinkProps) {
     <div className="mb-4 md:mb-6">
       <Link
         href={href}
-        className="font-semibold text-(--brand) transition-colors duration-200 inline-block cursor-pointer focus:underline focus:outline-none"
+        className="inline-block cursor-pointer font-semibold text-(--brand) transition-colors duration-200 focus:underline focus:outline-none"
       >
         ← {label}
       </Link>

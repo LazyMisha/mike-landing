@@ -21,7 +21,12 @@ export const caseStudies: CaseStudy[] = [
       'The team gained clearer understanding of beta API behavior and product fit',
       'New Microsoft Graph-powered features moved from prototype exploration into delivery work',
     ],
-    technologies: ['React', 'JavaScript', 'Microsoft Graph API', 'API integration'],
+    technologies: [
+      'React',
+      'JavaScript',
+      'Microsoft Graph API',
+      'API integration',
+    ],
     linkHref: '/case-studies/1',
   },
   {
@@ -36,7 +41,13 @@ export const caseStudies: CaseStudy[] = [
       'Frontend flows were connected with AI-powered services for a more realistic product demonstration',
       'The work helped communicate an emerging product direction through a tangible interface',
     ],
-    technologies: ['React', 'JavaScript', 'TypeScript', 'AI-powered services', 'API integration'],
+    technologies: [
+      'React',
+      'JavaScript',
+      'TypeScript',
+      'AI-powered services',
+      'API integration',
+    ],
     linkHref: '/case-studies/2',
   },
   {
@@ -51,7 +62,17 @@ export const caseStudies: CaseStudy[] = [
       'Performance testing foundations were created with Gatling and Scala',
       'UI feature testing against Canary Chrome became part of the quality workflow',
     ],
-    technologies: ['React', 'Java', 'Groovy', 'GitLab CI/CD', 'JUnit', 'Rest Assured', 'Docker', 'Gatling', 'Scala'],
+    technologies: [
+      'React',
+      'Java',
+      'Groovy',
+      'GitLab CI/CD',
+      'JUnit',
+      'Rest Assured',
+      'Docker',
+      'Gatling',
+      'Scala',
+    ],
     linkHref: '/case-studies/3',
   },
 ];

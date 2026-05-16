@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import PageShell from '@/components/PageShell';
 import { Heading } from '@/components/ui/Heading';
 import AccentSection from '@/components/ui/AccentSection';
@@ -19,16 +19,17 @@ export default function NotesPage() {
       backHref="/"
       backLabel={navigationLabels.backToHome}
     >
-      <p className="text-base leading-relaxed mb-4 md:mb-6">
-        This page describes how this portfolio was designed and built, including tools, decisions, and workflow.
+      <p className="mb-4 text-base leading-relaxed md:mb-6">
+        This page describes how this portfolio was designed and built, including
+        tools, decisions, and workflow.
       </p>
 
       {notesSections.map((section) => (
         <AccentSection key={section.title}>
-          <Heading as="h4" className="text-lg font-bold mb-3">
+          <Heading as="h4" className="mb-3 text-lg font-bold">
             {section.title}
           </Heading>
-          <ul className="list-disc list-inside text-sm leading-relaxed space-y-1">
+          <ul className="list-inside list-disc space-y-1 text-sm leading-relaxed">
             {section.items.map((item) => (
               <li key={item}>{item}</li>
             ))}

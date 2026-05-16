@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import PageShell from '@/components/PageShell';
 import TimelineDetail from '@/components/timeline/TimelineDetail';
 import { notFound } from 'next/navigation';
@@ -10,7 +10,9 @@ interface PageProps {
   params: Promise<{ id: string }>;
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { id } = await params;
   const experience = experiences.find((exp) => exp.id === id);
   if (!experience) return { title: 'Not Found' };

@@ -10,11 +10,19 @@ interface PageShellProps {
   backLabel?: string;
 }
 
-export default function PageShell({ children, command, argument, backHref, backLabel }: PageShellProps) {
+export default function PageShell({
+  children,
+  command,
+  argument,
+  backHref,
+  backLabel,
+}: PageShellProps) {
   return (
     <PageWrapper>
       <TerminalPrompt command={command} argument={argument} />
-      {backHref && backLabel ? <BackLink href={backHref} label={backLabel} /> : null}
+      {backHref && backLabel ? (
+        <BackLink href={backHref} label={backLabel} />
+      ) : null}
       {children}
     </PageWrapper>
   );

@@ -22,7 +22,10 @@ interface TimelineDetailProps {
   showMetadata?: boolean;
 }
 
-export default function TimelineDetail({ item, showMetadata = true }: TimelineDetailProps) {
+export default function TimelineDetail({
+  item,
+  showMetadata = true,
+}: TimelineDetailProps) {
   return (
     <div>
       {showMetadata ? (
@@ -49,7 +52,7 @@ export default function TimelineDetail({ item, showMetadata = true }: TimelineDe
       ) : (
         <AccentSection>
           <div className="font-mono text-base">
-            <p className="font-semibold text-lg">{item.title}</p>
+            <p className="text-lg font-semibold">{item.title}</p>
             {item.company ? <p>@ {item.company}</p> : null}
           </div>
         </AccentSection>
@@ -58,7 +61,9 @@ export default function TimelineDetail({ item, showMetadata = true }: TimelineDe
       {/* Description Section */}
       <AccentSection>
         <div className="font-mono text-base">
-          <p className="font-semibold mb-4 md:mb-6">{experienceLabels.description}</p>
+          <p className="mb-4 font-semibold md:mb-6">
+            {experienceLabels.description}
+          </p>
           <div className="leading-relaxed">
             {item.description.split('\n\n').map((para, i) => (
               <p key={i} className="mb-4 last:mb-0">
@@ -72,22 +77,26 @@ export default function TimelineDetail({ item, showMetadata = true }: TimelineDe
       {/* Technologies Section */}
       <AccentSection>
         <div className="font-mono text-base">
-          <p className="font-semibold mb-4 md:mb-6">{experienceLabels.technologies}</p>
-          <p className="text-muted-foreground">{item.technologies.join(', ')}</p>
+          <p className="mb-4 font-semibold md:mb-6">
+            {experienceLabels.technologies}
+          </p>
+          <p className="text-muted-foreground">
+            {item.technologies.join(', ')}
+          </p>
         </div>
       </AccentSection>
 
-      {(item.liveHref || item.sourceHref) ? (
+      {item.liveHref || item.sourceHref ? (
         <AccentSection>
           <div className="font-mono text-base">
-            <p className="font-semibold mb-4 md:mb-6">Links:</p>
+            <p className="mb-4 font-semibold md:mb-6">Links:</p>
             <div className="flex flex-col items-start gap-2">
               {item.liveHref ? (
                 <a
                   href={item.liveHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold text-(--brand) hover:text-(--brand-hover) transition-colors duration-200 underline underline-offset-4 flex items-center gap-1.5"
+                  className="flex items-center gap-1.5 font-semibold text-(--brand) underline underline-offset-4 transition-colors duration-200 hover:text-(--brand-hover)"
                 >
                   {item.liveLabel === 'Watch demo' ? (
                     <YouTubeIcon />
@@ -102,7 +111,7 @@ export default function TimelineDetail({ item, showMetadata = true }: TimelineDe
                   href={item.sourceHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold text-(--brand) hover:text-(--brand-hover) transition-colors duration-200 underline underline-offset-4 flex items-center gap-1.5"
+                  className="flex items-center gap-1.5 font-semibold text-(--brand) underline underline-offset-4 transition-colors duration-200 hover:text-(--brand-hover)"
                 >
                   <GithubIcon />
                   Source code
@@ -116,8 +125,10 @@ export default function TimelineDetail({ item, showMetadata = true }: TimelineDe
       {/* Achievements Section */}
       <AccentSection>
         <div className="font-mono text-base">
-          <p className="font-semibold mb-4 md:mb-6">{experienceLabels.achievements}</p>
-          <ul className="list-disc list-inside space-y-1">
+          <p className="mb-4 font-semibold md:mb-6">
+            {experienceLabels.achievements}
+          </p>
+          <ul className="list-inside list-disc space-y-1">
             {item.achievements.map((ach, idx) => (
               <li key={idx}>{ach}</li>
             ))}

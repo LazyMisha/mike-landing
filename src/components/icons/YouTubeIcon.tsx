@@ -1,4 +1,4 @@
-export function YouTubeIcon({ className = "w-4 h-4" }: { className?: string }) {
+export function YouTubeIcon({ className = 'w-4 h-4' }: { className?: string }) {
   return (
     <svg
       className={className}

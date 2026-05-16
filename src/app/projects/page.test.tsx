@@ -18,12 +18,16 @@ describe('ProjectsPage', () => {
     render(<ProjectsPage />);
 
     expect(projects.length).toBeGreaterThanOrEqual(3);
-    expect(screen.getByText('MediaCentral AI Prototype for IBC2023')).toBeInTheDocument();
+    expect(
+      screen.getByText('MediaCentral AI Prototype for IBC2023'),
+    ).toBeInTheDocument();
     expect(screen.getByText(/demo-ready UI prototypes/)).toBeInTheDocument();
     expect(screen.getByText('AI Prompt Laba')).toBeInTheDocument();
     expect(screen.getByText(/prompt engineering tool/)).toBeInTheDocument();
     expect(screen.getByText('QuizLab')).toBeInTheDocument();
-    expect(screen.getByText(/built for ISTQB exam preparation/)).toBeInTheDocument();
+    expect(
+      screen.getByText(/built for ISTQB exam preparation/),
+    ).toBeInTheDocument();
   });
 
   it('renders IBC2023 project links on the projects page', () => {
@@ -36,8 +40,13 @@ describe('ProjectsPage', () => {
     const sourceHrefs = sourceLinks.map((link) => link.getAttribute('href'));
 
     expect(watchLinks).toHaveLength(1);
-    expect(watchLinks[0]).toHaveAttribute('href', 'https://www.youtube.com/watch?v=h-VYajOnqrI');
+    expect(watchLinks[0]).toHaveAttribute(
+      'href',
+      'https://www.youtube.com/watch?v=h-VYajOnqrI',
+    );
     expect(liveHrefs).toContain('https://ai-prmptlaba-web.vercel.app/');
-    expect(sourceHrefs).toContain('https://github.com/LazyMisha/ai-prmptlaba-web');
+    expect(sourceHrefs).toContain(
+      'https://github.com/LazyMisha/ai-prmptlaba-web',
+    );
   });
 });

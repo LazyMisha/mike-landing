@@ -19,7 +19,10 @@ interface TimelineListProps {
   preview?: boolean; // If true, show only first 3 entries with "..." indicator
 }
 
-export default function TimelineList({ items, preview = false }: TimelineListProps) {
+export default function TimelineList({
+  items,
+  preview = false,
+}: TimelineListProps) {
   const displayedItems = preview ? items.slice(0, 3) : items;
 
   return (
@@ -39,10 +42,10 @@ export default function TimelineList({ items, preview = false }: TimelineListPro
           />
         </AccentSection>
       ))}
-      
+
       {/* Preview indicator with "..." */}
       {preview && items.length > 3 && (
-        <div className="text-center py-4 text-xl font-mono text-gray-400 dark:text-gray-500">
+        <div className="py-4 text-center font-mono text-xl text-gray-400 dark:text-gray-500">
           ...
         </div>
       )}

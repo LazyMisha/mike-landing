@@ -4,8 +4,8 @@ import { footerLabels, buildTools } from '@/lib/footer-constants';
 
 export function Footer() {
   return (
-    <footer className="mt-auto px-4 py-2 max-w-[75ch] mx-auto w-full">
-      <div className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground leading-relaxed min-h-9">
+    <footer className="mx-auto mt-auto w-full max-w-[75ch] px-4 py-2">
+      <div className="text-muted-foreground flex min-h-9 items-center justify-center gap-1.5 text-xs leading-relaxed">
         <span>{footerLabels.builtWith}</span>
         {buildTools.map((tool, index) => (
           <span key={tool.name} className="contents">
@@ -16,11 +16,11 @@ export function Footer() {
               href={tool.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 font-semibold hover:text-foreground transition-colors"
+              className="hover:text-foreground inline-flex items-center gap-1 font-semibold transition-colors"
               aria-label={tool.ariaLabel}
             >
               {tool.icon === 'terminal' ? (
-                <Terminal className="w-3 h-3" />
+                <Terminal className="h-3 w-3" />
               ) : (
                 <span>{tool.icon}</span>
               )}

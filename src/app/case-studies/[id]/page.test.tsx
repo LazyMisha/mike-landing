@@ -19,7 +19,7 @@ describe('CaseStudyDetailPage', () => {
     const params = Promise.resolve({ id: caseStudy.id });
     render(await CaseStudyDetailPage({ params }));
 
-    caseStudy.result.forEach(res => {
+    caseStudy.result.forEach((res) => {
       expect(screen.getByText(res)).toBeInTheDocument();
     });
   });
