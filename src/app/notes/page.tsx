@@ -19,14 +19,17 @@ export default function NotesPage() {
       backHref="/"
       backLabel={navigationLabels.backToHome}
     >
-      <p className="mb-4 text-base leading-relaxed md:mb-6">
-        This page describes how this portfolio was designed and built, including
-        tools, decisions, and workflow.
-      </p>
+      <section className="mb-6 md:mb-8">
+        <Heading>Notes</Heading>
+        <p className="mt-3 text-base leading-relaxed">
+          This page describes how this portfolio was designed and built,
+          including tools, decisions, and workflow.
+        </p>
+      </section>
 
       {notesSections.map((section) => (
         <AccentSection key={section.title}>
-          <Heading as="h4" className="mb-3 text-lg font-bold">
+          <Heading as="h2" className="mb-2">
             {section.title}
           </Heading>
           <ul className="list-inside list-disc space-y-1 text-sm leading-relaxed">

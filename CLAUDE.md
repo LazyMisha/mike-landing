@@ -23,14 +23,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - Static portfolio — all content is typed TS data, no CMS or API
 - Reusable timeline components serve `/case-studies`
-- Terminal motif (`ls`, `cat`, `[experience]`) is stylistic navigation language, not interactive
+- Terminal motif (`ls`, `cat`, `[case-studies]`, `[notes]`, `[cv-preview]`) is stylistic navigation language, not interactive
 - Page metadata: static `metadata` export on list pages; `generateMetadata` on detail pages
-
-## Workflow
-
-- Use `/commit-push-pr` to create branches, commit, push, and open PRs
-- After a PR is merged, immediately: `git checkout main && git pull && git branch -d <merged-branch> && git remote prune origin`
-- Never leave stale local or remote branches after merge
 
 ## Documentation
 

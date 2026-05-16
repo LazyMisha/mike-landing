@@ -26,7 +26,7 @@ interface CvSectionProps {
 function CvSection({ title, children }: CvSectionProps) {
   return (
     <AccentSection>
-      <Heading as="h2" className="mb-3">
+      <Heading as="h2" className="mb-2">
         {title}
       </Heading>
       {children}
@@ -118,7 +118,7 @@ export default function CvPreviewPage() {
         <div className="grid gap-4 md:grid-cols-2">
           {cvPreviewData.skillGroups.map((group) => (
             <section key={group.title}>
-              <Heading as="h3" className="mb-2 text-base sm:text-lg">
+              <Heading as="h3" className="mb-2">
                 {group.title}
               </Heading>
               <BulletList items={group.items} />

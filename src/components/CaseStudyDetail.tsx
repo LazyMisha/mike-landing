@@ -1,5 +1,6 @@
 import AccentSection from '@/components/ui/AccentSection';
 import DetailSection from '@/components/ui/DetailSection';
+import { Heading } from '@/components/ui/Heading';
 import { caseStudyLabels } from '@/lib/case-study-data';
 
 export interface CaseStudyDetailItem {
@@ -21,9 +22,7 @@ export default function CaseStudyDetail({ item }: CaseStudyDetailProps) {
     <div>
       {/* Title Section */}
       <AccentSection>
-        <p className="font-mono text-base text-lg font-semibold">
-          {item.title}
-        </p>
+        <Heading as="h1">{item.title}</Heading>
       </AccentSection>
 
       {/* Problem Section */}

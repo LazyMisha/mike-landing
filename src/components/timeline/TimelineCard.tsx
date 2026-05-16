@@ -28,7 +28,7 @@ export default function TimelineCard({
 }: TimelineCardProps) {
   return (
     <article className="flex flex-col gap-2 last:mb-0">
-      <Heading as="h4">{title}</Heading>
+      <Heading as="h2">{title}</Heading>
       {company ? (
         <p className="text-base leading-relaxed">@ {company}</p>
       ) : null}

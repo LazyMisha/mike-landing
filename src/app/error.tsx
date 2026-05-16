@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { Heading } from '@/components/ui/Heading';
 
 export default function Error({
   error,
@@ -15,7 +16,7 @@ export default function Error({
 
   return (
     <div className="flex flex-col items-center justify-center gap-4 py-20 text-center">
-      <h2 className="text-xl font-bold">Something went wrong</h2>
+      <Heading as="h1">Something went wrong</Heading>
       <button
         onClick={() => reset()}
         className="border-border hover:bg-accent rounded-md border px-4 py-2 transition-colors"

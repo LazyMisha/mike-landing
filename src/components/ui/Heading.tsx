@@ -1,3 +1,5 @@
+import { twMerge } from 'tailwind-merge';
+
 type HeadingProps = {
   children: React.ReactNode;
   as?: 'h1' | 'h2' | 'h3' | 'h4';
@@ -10,11 +12,11 @@ export function Heading({
   className = '',
 }: HeadingProps) {
   const sizes: Record<string, string> = {
-    h1: 'text-3xl leading-tight sm:text-4xl md:text-3xl lg:text-4xl font-bold',
-    h2: 'text-2xl leading-tight sm:text-3xl md:text-2xl lg:text-3xl font-bold',
-    h3: 'text-xl leading-tight sm:text-2xl font-bold',
-    h4: 'text-lg leading-tight sm:text-xl font-bold',
+    h1: 'text-xl leading-tight sm:text-2xl font-bold',
+    h2: 'text-lg leading-tight sm:text-xl font-bold',
+    h3: 'text-base leading-tight sm:text-lg font-bold',
+    h4: 'text-sm leading-tight sm:text-base font-bold',
   };
 
-  return <Tag className={`${sizes[Tag]} ${className}`}>{children}</Tag>;
+  return <Tag className={twMerge(className, sizes[Tag])}>{children}</Tag>;
 }

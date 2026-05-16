@@ -13,14 +13,18 @@ describe('CaseStudyDetail', () => {
     linkHref: '/test',
   };
 
-  it('renders title', () => {
+  it('renders title as h1', () => {
     render(<CaseStudyDetail item={mockItem} />);
-    expect(screen.getByText('Test Case Study')).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { level: 1, name: 'Test Case Study' }),
+    ).toBeInTheDocument();
   });
 
-  it('renders problem section', () => {
+  it('renders problem section as h2', () => {
     render(<CaseStudyDetail item={mockItem} />);
-    expect(screen.getByText('problem:')).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { level: 2, name: 'problem:' }),
+    ).toBeInTheDocument();
     expect(screen.getByText('Test problem description')).toBeInTheDocument();
   });
 
