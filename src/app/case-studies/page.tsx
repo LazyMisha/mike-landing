@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import PageShell from '@/components/PageShell';
+import { Heading } from '@/components/ui/Heading';
 import TimelineList from '@/components/timeline/TimelineList';
 import { caseStudies } from '@/lib/case-study-data';
 import { terminalCommands, cliLabels } from '@/lib/cli-constants';
@@ -18,6 +19,9 @@ export default function CaseStudiesPage() {
       backHref="/"
       backLabel={navigationLabels.backToHome}
     >
+      <section className="mb-6 md:mb-8">
+        <Heading>Case Studies</Heading>
+      </section>
       <TimelineList
         items={caseStudies.map((study) => ({
           id: study.id,

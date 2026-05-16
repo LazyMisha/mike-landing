@@ -8,6 +8,13 @@ describe('NotesPage', () => {
     expect(screen.getByText('[notes]')).toBeInTheDocument();
   });
 
+  it('renders page h1', () => {
+    render(<NotesPage />);
+    expect(
+      screen.getByRole('heading', { level: 1, name: 'Notes' }),
+    ).toBeInTheDocument();
+  });
+
   it('renders intro paragraph', () => {
     render(<NotesPage />);
     expect(

@@ -13,7 +13,7 @@ export function Hero() {
   return (
     <section className="flex flex-col items-stretch pb-4 md:flex-row md:items-start md:gap-5 md:pb-6">
       <div className="flex flex-col gap-4 pb-4 md:w-[50%] md:shrink-0 md:gap-4">
-        <Heading as="h3">Hey, I&apos;m {name}</Heading>
+        <Heading as="h1">Hey, I&apos;m {name}</Heading>
         <Small>
           {pronunciationLine1}
           <br />

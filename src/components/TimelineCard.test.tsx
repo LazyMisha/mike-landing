@@ -13,10 +13,14 @@ describe('TimelineCard', () => {
     linkHref: '#',
   };
 
-  it('renders title correctly with underline styling', () => {
+  it('renders title as h2', () => {
     render(<TimelineCard {...mockProps} />);
-    const title = screen.getByText('Senior Front-end Engineer & Scrum Master');
-    expect(title).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', {
+        level: 2,
+        name: 'Senior Front-end Engineer & Scrum Master',
+      }),
+    ).toBeInTheDocument();
   });
 
   it('renders metadata line with date range', () => {

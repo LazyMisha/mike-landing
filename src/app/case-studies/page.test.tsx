@@ -14,6 +14,13 @@ describe('CaseStudiesPage', () => {
     expect(screen.getByText(/back to home/)).toBeInTheDocument();
   });
 
+  it('renders page h1', () => {
+    render(<CaseStudiesPage />);
+    expect(
+      screen.getByRole('heading', { level: 1, name: 'Case Studies' }),
+    ).toBeInTheDocument();
+  });
+
   it('renders all case studies', () => {
     render(<CaseStudiesPage />);
     caseStudies.forEach((study) => {
