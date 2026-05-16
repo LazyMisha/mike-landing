@@ -7,23 +7,23 @@ describe('PolaroidFrame', () => {
     render(
       <PolaroidFrame>
         <div data-testid="photo">Photo content</div>
-      </PolaroidFrame>
+      </PolaroidFrame>,
     );
-    
+
     expect(screen.getByTestId('photo')).toBeInTheDocument();
   });
 
   it('renders caption when provided', () => {
     const caption = '30 Apr 2021 · 13:33 · Odesa, UA';
     render(<PolaroidFrame caption={caption}>Photo</PolaroidFrame>);
-    
+
     // Date should always be visible
     expect(screen.getByText(/30 Apr 2021/)).toBeInTheDocument();
   });
 
   it('does not render caption when not provided', () => {
     render(<PolaroidFrame>Photo</PolaroidFrame>);
-    
+
     // Should not have the caption paragraph
     const captionElement = screen.queryByText(/30 Apr 2021/);
     expect(captionElement).not.toBeInTheDocument();
@@ -41,11 +41,19 @@ describe('PolaroidFrame', () => {
 
   it('has correct responsive classes for time and location', () => {
     const caption = '30 Apr 2021 · 13:33 · Odesa, UA';
-    const { container } = render(<PolaroidFrame caption={caption}>Photo</PolaroidFrame>);
+    const { container } = render(
+      <PolaroidFrame caption={caption}>Photo</PolaroidFrame>,
+    );
 
-    const captionContainer = container.querySelector('.absolute.inset-x-3.bottom-0');
+    const captionContainer = container.querySelector(
+      '.absolute.inset-x-3.bottom-0',
+    );
     expect(captionContainer).toHaveClass('absolute', 'inset-x-3', 'bottom-0');
-    expect(captionContainer).toHaveClass('text-[10px]', 'sm:text-xs', 'md:text-sm');
+    expect(captionContainer).toHaveClass(
+      'text-[10px]',
+      'sm:text-xs',
+      'md:text-sm',
+    );
 
     const paragraphs = container.querySelectorAll('p');
     expect(paragraphs.length).toBeGreaterThanOrEqual(2);

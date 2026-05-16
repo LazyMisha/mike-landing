@@ -6,5 +6,6 @@ export const navigationLabels = {
 } as const;
 
 export const ariaLabels = {
-  readMoreAbout: (title: string, company: string) => `Read more about ${title} at ${company}`,
+  readMoreAbout: (title: string, company: string) =>
+    `Read more about ${title} at ${company}`,
 } as const;

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import PageShell from '@/components/PageShell';
 import CaseStudyDetail from '@/components/CaseStudyDetail';
 import { notFound } from 'next/navigation';
@@ -10,7 +10,9 @@ interface PageProps {
   params: Promise<{ id: string }>;
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { id } = await params;
   const caseStudy = caseStudies.find((cs) => cs.id === id);
   if (!caseStudy) return { title: 'Not Found' };

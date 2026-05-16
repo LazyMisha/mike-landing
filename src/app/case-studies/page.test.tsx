@@ -16,7 +16,7 @@ describe('CaseStudiesPage', () => {
 
   it('renders all case studies', () => {
     render(<CaseStudiesPage />);
-    caseStudies.forEach(study => {
+    caseStudies.forEach((study) => {
       expect(screen.getByText(study.title)).toBeInTheDocument();
     });
   });

@@ -5,7 +5,7 @@ import { Header } from '../components/Header';
 describe('Header', () => {
   it('renders datetime and theme toggle', () => {
     render(<Header />);
-    
+
     // Theme toggle should be present
     expect(screen.getByRole('button')).toBeInTheDocument();
   });
@@ -13,7 +13,7 @@ describe('Header', () => {
   it('has sticky positioning classes', () => {
     const { container } = render(<Header />);
     const header = container.querySelector('header');
-    
+
     expect(header).toHaveClass('sticky');
     expect(header).toHaveClass('top-0');
     expect(header).toHaveClass('z-50');
@@ -23,13 +23,12 @@ describe('Header', () => {
     const { container } = render(<Header />);
     const header = container.querySelector('header');
     expect(header).toHaveClass('backdrop-blur-md');
-    
   });
 
   it('maintains existing layout classes', () => {
     const { container } = render(<Header />);
     const header = container.querySelector('header');
-    
+
     expect(header).toHaveClass('flex');
     expect(header).toHaveClass('justify-between');
     expect(header).toHaveClass('items-center');

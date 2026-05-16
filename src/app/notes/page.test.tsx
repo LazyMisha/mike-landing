@@ -10,7 +10,11 @@ describe('NotesPage', () => {
 
   it('renders intro paragraph', () => {
     render(<NotesPage />);
-    expect(screen.getByText(/This page describes how this portfolio was designed and built/)).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        /This page describes how this portfolio was designed and built/,
+      ),
+    ).toBeInTheDocument();
   });
 
   it('renders all section titles', () => {
@@ -25,10 +29,26 @@ describe('NotesPage', () => {
 
   it('renders all bullet items', () => {
     render(<NotesPage />);
-    expect(screen.getByText('Experience, projects, case studies, and CV preview are based on the downloadable PDF CV')).toBeInTheDocument();
-    expect(screen.getByText('Placeholder companies and fake metrics were removed in favor of accurate, CV-backed content')).toBeInTheDocument();
-    expect(screen.getByText('AI used for planning, content iteration, code changes, and review support')).toBeInTheDocument();
-    expect(screen.getByText('Accuracy and clarity prioritized over exaggerated portfolio storytelling')).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'Experience, projects, case studies, and CV preview are based on the downloadable PDF CV',
+      ),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'Placeholder companies and fake metrics were removed in favor of accurate, CV-backed content',
+      ),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'AI used for planning, content iteration, code changes, and review support',
+      ),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'Accuracy and clarity prioritized over exaggerated portfolio storytelling',
+      ),
+    ).toBeInTheDocument();
   });
 
   it('renders back link to home', () => {

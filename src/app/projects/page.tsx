@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import PageShell from '@/components/PageShell';
 import TimelineList from '@/components/timeline/TimelineList';
 import { projects } from '@/lib/project-data';
@@ -7,7 +7,8 @@ import { navigationLabels } from '@/lib/navigation-constants';
 
 export const metadata: Metadata = {
   title: 'Projects — Mykhailo Trunov',
-  description: 'Selected projects and prototypes by Mykhailo Trunov, Senior Front-end Engineer.',
+  description:
+    'Selected projects and prototypes by Mykhailo Trunov, Senior Front-end Engineer.',
 };
 
 export default function ProjectsPage() {

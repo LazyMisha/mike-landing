@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import PageShell from '@/components/PageShell';
 import TimelineList from '@/components/timeline/TimelineList';
 import { caseStudies } from '@/lib/case-study-data';

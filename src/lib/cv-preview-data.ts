@@ -10,8 +10,16 @@ export const cvPreviewData = {
   coreInfo: [
     { label: 'Role', value: 'Senior Front-end Engineer & Scrum Master' },
     { label: 'Location', value: landingData.personal.location },
-    { label: 'Email', value: landingData.personal.email, href: `mailto:${landingData.personal.email}` },
-    { label: 'LinkedIn', value: landingData.socials.linkedin, href: landingData.socials.linkedin },
+    {
+      label: 'Email',
+      value: landingData.personal.email,
+      href: `mailto:${landingData.personal.email}`,
+    },
+    {
+      label: 'LinkedIn',
+      value: landingData.socials.linkedin,
+      href: landingData.socials.linkedin,
+    },
   ],
   skillGroups: [
     {
@@ -24,11 +32,21 @@ export const cvPreviewData = {
     },
     {
       title: 'Quality',
-      items: ['Jest', 'Unit tests', 'Performance optimization', 'Build optimization'],
+      items: [
+        'Jest',
+        'Unit tests',
+        'Performance optimization',
+        'Build optimization',
+      ],
     },
     {
       title: 'Collaboration',
-      items: ['Scrum Master', 'Agile meetings', 'Stakeholder communication', 'Mentoring'],
+      items: [
+        'Scrum Master',
+        'Agile meetings',
+        'Stakeholder communication',
+        'Mentoring',
+      ],
     },
   ],
   currentRole: {

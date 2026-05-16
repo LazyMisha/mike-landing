@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 export default function Error({
   error,
@@ -18,7 +18,7 @@ export default function Error({
       <h2 className="text-xl font-bold">Something went wrong</h2>
       <button
         onClick={() => reset()}
-        className="px-4 py-2 rounded-md border border-border hover:bg-accent transition-colors"
+        className="border-border hover:bg-accent rounded-md border px-4 py-2 transition-colors"
       >
         Try again
       </button>

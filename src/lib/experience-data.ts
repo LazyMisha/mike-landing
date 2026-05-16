@@ -7,7 +7,14 @@ export const experiences: Experience[] = [
     location: 'Poland',
     description:
       'At Avid, I work across frontend engineering and Agile delivery. My frontend work focuses on scalable React components, API integration, build performance, test coverage, and delivery pipelines that support reliable releases.\n\nAs Scrum Master, I run Agile ceremonies, help split complex work into clear stories, prepare sprint reporting, and coordinate release work with product owners, release managers, and development teams.',
-    technologies: ['React', 'JavaScript', 'GitLab CI/CD', 'Docker', 'Webpack', 'Jest'],
+    technologies: [
+      'React',
+      'JavaScript',
+      'GitLab CI/CD',
+      'Docker',
+      'Webpack',
+      'Jest',
+    ],
     achievements: [
       'Designed and delivered scalable React components and APIs for customer-facing product work',
       'Built GitLab CI/CD and Docker pipelines to support reliable release workflows',
@@ -25,7 +32,15 @@ export const experiences: Experience[] = [
     location: 'Ukraine, Kyiv',
     description:
       'As a Senior Front-end Engineer at GlobalLogic, I implemented product features with React, JavaScript, and TypeScript while also maintaining supporting JavaScript and TypeScript backend services.\n\nThe role combined feature delivery, unit testing, CI/CD maintenance, build tooling, Docker/NPM publishing workflows, documentation, task decomposition, and close collaboration with frontend, backend, design, DevOps, and management teams.',
-    technologies: ['React', 'JavaScript', 'TypeScript', 'GitLab CI/CD', 'Docker', 'Webpack', 'NPM registries'],
+    technologies: [
+      'React',
+      'JavaScript',
+      'TypeScript',
+      'GitLab CI/CD',
+      'Docker',
+      'Webpack',
+      'NPM registries',
+    ],
     achievements: [
       'Implemented React, JavaScript, and TypeScript features for production product work',
       'Maintained JavaScript and TypeScript backend services connected to frontend delivery',
@@ -59,7 +74,16 @@ export const experiences: Experience[] = [
     location: 'Ukraine, Kyiv',
     description:
       'As a Senior Test Engineer, I worked on automation and quality infrastructure using Groovy, Java, GitLab CI/CD, JUnit, Rest Assured, Docker, Gatling, and Scala.\n\nThis QA background still shapes how I approach frontend engineering: testable components, reliable delivery, and confidence in release quality.',
-    technologies: ['Groovy', 'Java', 'GitLab CI/CD', 'JUnit', 'Rest Assured', 'Docker', 'Gatling', 'Scala'],
+    technologies: [
+      'Groovy',
+      'Java',
+      'GitLab CI/CD',
+      'JUnit',
+      'Rest Assured',
+      'Docker',
+      'Gatling',
+      'Scala',
+    ],
     achievements: [
       'Created visual tests for reusable React components from scratch',
       'Created performance tests using Gatling and Scala from scratch',

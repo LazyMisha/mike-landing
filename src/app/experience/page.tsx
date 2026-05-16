@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import PageShell from '@/components/PageShell';
 import TimelineList from '@/components/timeline/TimelineList';
 import { experiences } from '@/lib/experience-data';
@@ -7,7 +7,8 @@ import { navigationLabels } from '@/lib/navigation-constants';
 
 export const metadata: Metadata = {
   title: 'Experience — Mykhailo Trunov',
-  description: 'Professional experience and career timeline for Mykhailo Trunov, Senior Front-end Engineer.',
+  description:
+    'Professional experience and career timeline for Mykhailo Trunov, Senior Front-end Engineer.',
 };
 
 export default function ExperiencePage() {

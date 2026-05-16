@@ -11,7 +11,7 @@ export default function ProjectNotFound() {
       backHref="/projects"
       backLabel={navigationLabels.backToProjects}
     >
-      <p className="text-base leading-relaxed mt-6 text-red-600 dark:text-red-400">
+      <p className="mt-6 text-base leading-relaxed text-red-600 dark:text-red-400">
         {errorMessages.projectNotFound}
       </p>
     </PageShell>

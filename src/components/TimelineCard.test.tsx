@@ -7,7 +7,8 @@ describe('TimelineCard', () => {
     title: 'Senior Front-end Engineer & Scrum Master',
     company: 'Avid',
     dateRange: '05.2024 - Present',
-    description: 'Designing scalable React components and supporting Agile delivery.',
+    description:
+      'Designing scalable React components and supporting Agile delivery.',
     location: 'Poland',
     linkHref: '#',
   };
@@ -25,7 +26,9 @@ describe('TimelineCard', () => {
 
   it('renders description text', () => {
     render(<TimelineCard {...mockProps} />);
-    expect(screen.getByText(/Designing scalable React components/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Designing scalable React components/i),
+    ).toBeInTheDocument();
   });
 
   it('renders "more..." link with correct href', () => {

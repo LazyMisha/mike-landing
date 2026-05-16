@@ -10,7 +10,8 @@ describe('TimelineList', () => {
       title: 'Senior Front-end Engineer & Scrum Master',
       company: 'Avid',
       dateRange: '05.2024 - Present',
-      description: 'Designing scalable React components and supporting Agile delivery.',
+      description:
+        'Designing scalable React components and supporting Agile delivery.',
       location: 'Poland',
       linkHref: '/experience/1',
     },
@@ -19,7 +20,8 @@ describe('TimelineList', () => {
       title: 'Senior Front-end Engineer',
       company: 'GlobalLogic',
       dateRange: '04.2022 - 05.2024',
-      description: 'Implemented frontend features with React, JavaScript, and TypeScript.',
+      description:
+        'Implemented frontend features with React, JavaScript, and TypeScript.',
       location: 'Ukraine, Kyiv',
       linkHref: '/experience/2',
     },
@@ -28,7 +30,9 @@ describe('TimelineList', () => {
   it('renders all timeline items', () => {
     render(<TimelineList items={mockItems} />);
 
-    expect(screen.getByText(/Senior Front-end Engineer & Scrum Master/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Senior Front-end Engineer & Scrum Master/i),
+    ).toBeInTheDocument();
     expect(screen.getByText('Senior Front-end Engineer')).toBeInTheDocument();
   });
 
