@@ -26,8 +26,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Terminal motif (`ls`, `cat`, `[experience]`) is stylistic navigation language, not interactive
 - Page metadata: static `metadata` export on list pages; `generateMetadata` on detail pages
 
+## Workflow
+
+- Use `/commit-push-pr` to create branches, commit, push, and open PRs
+- After a PR is merged, immediately: `git checkout main && git pull && git branch -d <merged-branch> && git remote prune origin`
+- Never leave stale local or remote branches after merge
+
 ## Documentation
 
 - `openclaw/SPEC.md` — product behavior, routes, acceptance criteria
 - `openclaw/ARCHITECTURE.md` — stack, component ownership, data flow
 - `openclaw/CODE.md` — coding rules, change strategy, quality gate
+
+## Learned Invariants
+
+<!-- Append new rules here after corrections. Each rule must include the date and the specific mistake it prevents. Audit monthly for stale rules. -->
