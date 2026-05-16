@@ -47,3 +47,9 @@ Create a new branch, commit all changes, push, and open a pull request against `
 7. Run the quality gate (`npm run test -- --run && npm run lint && npm run typecheck && npm run build`) and report the result. If it fails, add a comment to the PR with the failure details.
 
 **Important:** If the current branch is already `main`, proceed as above. If already on a feature branch, still branch off the current HEAD and target `main` with the PR.
+
+**After merge:** When the user confirms the PR is merged, immediately run:
+
+```bash
+git checkout main && git pull && git branch -d <merged-branch> && git remote prune origin
+```
