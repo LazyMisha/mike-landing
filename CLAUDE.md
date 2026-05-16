@@ -13,7 +13,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Editing Map
 
-- Content/data → `src/lib/*` file (experience-data.ts, project-data.ts, case-study-data.ts, constants.ts, etc.)
+- Content/data → `src/lib/*` file (case-study-data.ts, cv-preview-data.ts, notes-data.ts, constants.ts, etc.)
 - Route behavior → `src/app/<route>`
 - Reusable UI → `src/components`
 - Visual tokens/styling → `src/app/globals.css`
@@ -22,7 +22,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Key Context
 
 - Static portfolio — all content is typed TS data, no CMS or API
-- Reusable timeline components serve `/experience`, `/projects`, `/case-studies`
+- Reusable timeline components serve `/case-studies`
 - Terminal motif (`ls`, `cat`, `[experience]`) is stylistic navigation language, not interactive
 - Page metadata: static `metadata` export on list pages; `generateMetadata` on detail pages
 

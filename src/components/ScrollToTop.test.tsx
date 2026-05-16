@@ -16,7 +16,7 @@ describe('ScrollToTop', () => {
   });
 
   it('is hidden initially when not at the bottom', () => {
-    (usePathname as ReturnType<typeof vi.fn>).mockReturnValue('/experience');
+    (usePathname as ReturnType<typeof vi.fn>).mockReturnValue('/case-studies');
     Object.defineProperty(document.documentElement, 'scrollHeight', {
       value: 2000,
       configurable: true,

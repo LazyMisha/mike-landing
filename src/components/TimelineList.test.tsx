@@ -7,23 +7,19 @@ describe('TimelineList', () => {
   const mockItems: TimelineListItem[] = [
     {
       id: '1',
-      title: 'Senior Front-end Engineer & Scrum Master',
-      company: 'Avid',
-      dateRange: '05.2024 - Present',
+      title: 'Microsoft Graph API adoption prototype',
+      company: '',
       description:
-        'Designing scalable React components and supporting Agile delivery.',
-      location: 'Poland',
-      linkHref: '/experience/1',
+        'Evaluated whether Microsoft Graph API could support a planned product direction.',
+      linkHref: '/case-studies/1',
     },
     {
       id: '2',
-      title: 'Senior Front-end Engineer',
-      company: 'GlobalLogic',
-      dateRange: '04.2022 - 05.2024',
+      title: 'AI-powered prototype delivery for IBC2023',
+      company: '',
       description:
-        'Implemented frontend features with React, JavaScript, and TypeScript.',
-      location: 'Ukraine, Kyiv',
-      linkHref: '/experience/2',
+        'Created UI prototypes and integrated them with AI-powered services.',
+      linkHref: '/case-studies/2',
     },
   ];
 
@@ -31,16 +27,18 @@ describe('TimelineList', () => {
     render(<TimelineList items={mockItems} />);
 
     expect(
-      screen.getByText(/Senior Front-end Engineer & Scrum Master/i),
+      screen.getByText(/Microsoft Graph API adoption prototype/i),
     ).toBeInTheDocument();
-    expect(screen.getByText('Senior Front-end Engineer')).toBeInTheDocument();
+    expect(
+      screen.getByText('AI-powered prototype delivery for IBC2023'),
+    ).toBeInTheDocument();
   });
 
   it('renders metadata for each item', () => {
     render(<TimelineList items={mockItems} />);
 
-    expect(screen.getByText('05.2024 - Present')).toBeInTheDocument();
-    expect(screen.getByText('04.2022 - 05.2024')).toBeInTheDocument();
+    expect(screen.queryByText('Date:')).not.toBeInTheDocument();
+    expect(screen.queryByText('Location:')).not.toBeInTheDocument();
   });
 
   it('renders more... links for all items', () => {
@@ -54,14 +52,16 @@ describe('TimelineList', () => {
     const itemsWithoutMeta: TimelineListItem[] = [
       {
         id: '3',
-        title: 'AI Prompt Laba',
-        company: 'Personal',
-        description: 'A prompt engineering tool.',
-        linkHref: '/projects/2',
+        title: 'Frontend quality foundations',
+        company: '',
+        description: 'Built testing foundations for reusable React components.',
+        linkHref: '/case-studies/3',
       },
     ];
     render(<TimelineList items={itemsWithoutMeta} />);
-    expect(screen.getByText('AI Prompt Laba')).toBeInTheDocument();
+    expect(
+      screen.getByText('Frontend quality foundations'),
+    ).toBeInTheDocument();
     expect(screen.queryByText('Date:')).not.toBeInTheDocument();
     expect(screen.queryByText('Location:')).not.toBeInTheDocument();
   });

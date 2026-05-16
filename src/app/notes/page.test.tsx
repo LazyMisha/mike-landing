@@ -31,7 +31,7 @@ describe('NotesPage', () => {
     render(<NotesPage />);
     expect(
       screen.getByText(
-        'Experience, projects, case studies, and CV preview are based on the downloadable PDF CV',
+        'Case studies and CV preview are based on the downloadable PDF CV',
       ),
     ).toBeInTheDocument();
     expect(

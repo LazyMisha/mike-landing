@@ -21,5 +21,3 @@ export const landingData = {
     linkedin: 'https://www.linkedin.com/in/misha-trunov/',
   },
 } as const;
-
-export type LandingData = typeof landingData;
