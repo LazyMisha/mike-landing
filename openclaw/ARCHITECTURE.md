@@ -24,14 +24,7 @@
 
 ## Shared Timeline UI
 
-`TimelineList`, `TimelineCard`, and `TimelineDetail` serve `/experience`, `/projects`, and `/case-studies`.
+`TimelineList` and `TimelineCard` serve `/case-studies`.
 
-- `TimelineDetail` uses `showMetadata` to switch between full metadata layout (experience) and compact title/company header (projects)
-- `TimelineList` uses `preview` to show only the first 3 items (used on `/cv-preview`)
-- `TimelineListItem.dateRange` and `location` are optional so projects and case-studies don't need to pass empty strings
-
-## Projects Flow
-
-- `src/lib/project-data.ts` owns the project list and optional `liveHref` / `sourceHref`
-- `TimelineCard` renders title, company, optional live/source links, description preview, and detail link
-- `src/app/projects/[id]/page.tsx` resolves by `id`, calls `notFound()` for missing IDs, passes `showMetadata={false}` to `TimelineDetail`
+- `TimelineList` uses `preview` to show only the first 3 items
+- `TimelineListItem.dateRange` and `location` are optional so case-studies don't need to pass empty strings

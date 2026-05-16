@@ -14,7 +14,7 @@ export const notesSections: NoteSection[] = [
   {
     title: 'Content Alignment',
     items: [
-      'Experience, projects, case studies, and CV preview are based on the downloadable PDF CV',
+      'Case studies and CV preview are based on the downloadable PDF CV',
       'Placeholder companies and fake metrics were removed in favor of accurate, CV-backed content',
       'Qualitative results are used where the CV does not provide exact numbers',
     ],
@@ -22,7 +22,7 @@ export const notesSections: NoteSection[] = [
   {
     title: 'Structure & Architecture',
     items: [
-      'Sections: experience, projects, case studies, CV preview, and notes',
+      'Sections: case studies, CV preview, and notes',
       'Static data files keep content easy to review and update',
       'Portfolio remains a communication tool, not an over-engineered system',
     ],

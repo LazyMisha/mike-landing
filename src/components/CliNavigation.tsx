@@ -6,7 +6,7 @@ export default function CliNavigation() {
   return (
     <section>
       <TerminalPrompt command={terminalCommands.list} />
-      <nav className="flex flex-col items-start gap-y-4 sm:flex-row sm:justify-between sm:gap-y-0">
+      <nav className="flex flex-col items-start gap-y-4">
         {cliLinks.map((link) => (
           <Link
             key={link.label}
